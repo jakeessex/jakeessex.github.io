@@ -43,6 +43,22 @@
 
   var gig = document.getElementById("gig-form");
   if (gig) {
+    document.querySelectorAll(".book-show").forEach(function (card) {
+      function pick() {
+        var pkg = card.getAttribute("data-package");
+        if (pkg && gig.elements.package) gig.elements.package.value = pkg;
+        gig.scrollIntoView({ behavior: "smooth", block: "start" });
+        var first = gig.elements.name;
+        if (first) first.focus();
+      }
+      card.addEventListener("click", pick);
+      card.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          pick();
+        }
+      });
+    });
     gig.addEventListener("submit", function (e) {
       e.preventDefault();
       var when = niceDate(val(gig, "date"));
@@ -74,9 +90,10 @@
         "Phone: " + val(vehicle, "phone"),
         "Postcode: " + val(vehicle, "postcode"),
         "Make / model: " + val(vehicle, "vehicle"),
+        "Job: " + val(vehicle, "job"),
         "",
-        "What’s wrong:",
-        val(vehicle, "issue"),
+        "Notes:",
+        val(vehicle, "issue") || "(none)",
       ].join("\n");
       openMail("Vehicle enquiry — Jake Essex", body);
     });
