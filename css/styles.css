@@ -495,3 +495,54 @@ footer {
   object-position: 48% 16%;
   border: 1px solid var(--gold-line);
 }
+
+.card.book-show { cursor: pointer; transition: border-color 0.15s, background 0.15s; }
+.card.book-show:hover, .card.book-show:focus {
+  border-color: var(--gold-2);
+  background: #1b1814;
+  outline: none;
+}
+.book-this {
+  margin: 1rem 0 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+}
+.job-types {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+.job-types legend {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.45rem;
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-transform: none;
+  letter-spacing: 0.04em;
+  font-size: 0.92rem;
+  color: var(--cream);
+  border: 1px solid var(--gold-line);
+  padding: 0.55rem 0.85rem;
+  cursor: pointer;
+  background: #0c0c0c;
+}
+.chip input { width: auto; margin: 0; accent-color: var(--gold); }
+.chip:has(input:checked) {
+  border-color: var(--gold);
+  background: #1b1814;
+  color: var(--gold-2);
+}
