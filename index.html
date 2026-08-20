@@ -18,7 +18,6 @@
 </head>
 <body>
   <a class="skip" href="#booking">Skip to booking</a>
-  <div class="grain" aria-hidden="true"></div>
 
   <header class="site-header">
     <a class="wordmark" href="#top">JAKE ESSEX</a>
@@ -58,7 +57,7 @@
           <p>The set draws on Elvis, Bobby Darin, Dion, Buddy Holly, Roy Orbison, Jerry Lee Lewis, Willie Nelson, Frank Sinatra, and that era.</p>
         </div>
         <figure class="portrait-frame">
-          <img src="images/studio-gold.jpg" alt="Jake Essex in a gold paisley tuxedo">
+          <img src="images/jake-face-tux.jpg" alt="Jake Essex on stage in a cream tuxedo">
           <figcaption class="caption">Himself, not a tribute</figcaption>
         </figure>
       </div>
@@ -118,6 +117,7 @@
         <hr class="gold-rule">
         <p class="plain">Private events, pubs, clubs and weddings. East of England, London, Essex and Kent.</p>
 
+        <div class="money-row">
         <div class="packages">
           <article class="card featured">
             <p class="section-label">Two hours</p>
@@ -139,6 +139,10 @@
             </ul>
           </article>
         </div>
+        <figure class="money-shot">
+          <img src="images/hero-profile.jpg" alt="Jake Essex on stage">
+        </figure>
+        </div>
 
         <div class="included">
           <div class="inc">
@@ -151,7 +155,7 @@
           </div>
           <div class="inc">
             <h3>How to book</h3>
-            <p>Send the date, the town and which show. Or email <a href="mailto:jakeessexenquiries@gmail.com">jakeessexenquiries@gmail.com</a>.</p>
+            <p>Send the date, the time, the place and which show. Or email <a href="mailto:jakeessexenquiries@gmail.com">jakeessexenquiries@gmail.com</a>.</p>
           </div>
         </div>
 
@@ -170,10 +174,13 @@
                 <label>Date
                   <input name="date" type="date" required>
                 </label>
-                <label>Venue / town
-                  <input name="venue" type="text" required>
+                <label>Time
+                  <input name="time" type="time" required>
                 </label>
               </div>
+              <label>Location
+                <input name="venue" type="text" required placeholder="Venue and town">
+              </label>
               <label>Show
                 <select name="package" required>
                   <option value="" disabled selected>Choose</option>
@@ -182,7 +189,7 @@
                 </select>
               </label>
               <label>Message
-                <textarea name="message" placeholder="Anything about the room, start time, or the night."></textarea>
+                <textarea name="message" placeholder="Anything about the room or the night."></textarea>
               </label>
               <button class="btn" type="submit">Send gig enquiry</button>
             </form>
@@ -207,7 +214,7 @@
         <p class="section-label">Also</p>
         <h2>Need the car looked at?</h2>
         <hr class="gold-rule">
-        <p>Jake Essex is an IMI Level 3 EV, hybrid and high-voltage qualified mobile mechanic, working Essex and London. If you want him on your vehicle, send a short enquiry.</p>
+        <p>Jake Essex is IMI Level 3 — EV, light vehicle, heavy vehicle, and A/C F-gas qualified. Mobile mechanic, Essex and London. If you want him on your vehicle, send a short enquiry.</p>
         <p class="note">This form is marked <strong>Vehicle enquiry — Jake Essex</strong> so it does not get mixed up with a gig booking.</p>
         <form id="vehicle-form" action="mailto:jakeessexenquiries@gmail.com?subject=Vehicle%20enquiry%20%E2%80%94%20Jake%20Essex" method="post" enctype="text/plain">
           <div class="row-2">
