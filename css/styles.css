@@ -232,7 +232,7 @@ p.plain { color: var(--cream); }
   width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
-  object-position: 55% 22%;
+  object-position: 50% 28%;
   filter: saturate(0.92) contrast(1.05);
   border: 1px solid var(--gold-line);
 }
