@@ -119,7 +119,7 @@
 
         <div class="money-row">
         <div class="packages">
-          <article class="card featured">
+          <article class="card featured book-show" data-package="2-hour (£280)" tabindex="0" role="link">
             <p class="section-label">Two hours</p>
             <p class="price">£280 <span>inc. PA</span></p>
             <ul>
@@ -127,8 +127,9 @@
               <li>Elvis second half</li>
               <li>Self-contained — PA included</li>
             </ul>
+            <p class="book-this">Book this show</p>
           </article>
-          <article class="card">
+          <article class="card book-show" data-package="3-hour (£400)" tabindex="0" role="link">
             <p class="section-label">Three hours · three sets</p>
             <p class="price">£400 <span>inc. PA</span></p>
             <ul>
@@ -137,6 +138,7 @@
               <li>70s Elvis</li>
               <li>Self-contained — PA included</li>
             </ul>
+            <p class="book-this">Book this show</p>
           </article>
         </div>
         <figure class="money-shot">
@@ -233,8 +235,17 @@
               <input name="vehicle" type="text" required>
             </label>
           </div>
-          <label>What’s wrong
-            <textarea name="issue" required placeholder="A sentence is enough."></textarea>
+          <fieldset class="job-types">
+            <legend>What’s needed</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="job" value="Service" required> Service</label>
+              <label class="chip"><input type="radio" name="job" value="Brakes"> Brakes</label>
+              <label class="chip"><input type="radio" name="job" value="Diag"> Diag</label>
+              <label class="chip"><input type="radio" name="job" value="Other"> Other</label>
+            </div>
+          </fieldset>
+          <label>Notes
+            <textarea name="issue" placeholder="Anything else — optional."></textarea>
           </label>
           <button class="btn btn-ghost" type="submit">Send vehicle enquiry</button>
         </form>
