@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jake Essex — Mobile mechanic, Essex and London</title>
+  <meta name="description" content="Jake Essex is IMI Level 3 — EV, light vehicle, heavy vehicle, and A/C F-gas qualified. Mobile mechanic, Essex and London. Send a vehicle enquiry.">
+  <meta name="theme-color" content="#070707">
+  <meta property="og:title" content="Jake Essex — Mobile mechanic">
+  <meta property="og:description" content="IMI Level 3 — EV, light vehicle, heavy vehicle, and A/C F-gas. Mobile mechanic, Essex and London.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect fill='%23070707' width='64' height='64'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Georgia' font-size='22' fill='%23c5a15a'%3EJE%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,500;1,500;1,600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="page-mechanic">
+  <a class="skip" href="#vehicle-form">Skip to vehicle enquiry</a>
+
+  <header class="site-header">
+    <a class="wordmark" href="index.html">JAKE ESSEX</a>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html#about">About</a>
+      <a href="index.html#show">The show</a>
+      <a href="index.html#booking">Booking</a>
+      <a class="nav-cta" href="index.html#booking">Book a date</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="mechanic" id="mechanic">
+      <div class="wrap">
+        <p class="section-label">Mobile mechanic</p>
+        <h1 class="mech-title">Need the car looked at?</h1>
+        <hr class="gold-rule">
+        <p class="plain">Jake Essex is IMI Level 3 — EV, light vehicle, heavy vehicle, and A/C F-gas qualified.</p>
+        <p>Mobile mechanic, Essex and London. If you want him on your vehicle, send a short enquiry.</p>
+        <p class="note">This form is marked <strong>Vehicle enquiry — Jake Essex</strong> so it does not get mixed up with a gig booking.</p>
+        <form id="vehicle-form" action="mailto:jakeessexenquiries@gmail.com?subject=Vehicle%20enquiry%20%E2%80%94%20Jake%20Essex" method="post" enctype="text/plain">
+          <div class="row-2">
+            <label>Name
+              <input name="name" type="text" autocomplete="name" required>
+            </label>
+            <label>Phone
+              <input name="phone" type="tel" autocomplete="tel" required>
+            </label>
+          </div>
+          <div class="row-2">
+            <label>Postcode
+              <input name="postcode" type="text" autocomplete="postal-code" required>
+            </label>
+            <label>Make / model
+              <input name="vehicle" type="text" required>
+            </label>
+          </div>
+          <fieldset class="job-types">
+            <legend>What’s needed</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="job" value="Service" required> Service</label>
+              <label class="chip"><input type="radio" name="job" value="Brakes"> Brakes</label>
+              <label class="chip"><input type="radio" name="job" value="Diag"> Diag</label>
+              <label class="chip"><input type="radio" name="job" value="Other"> Other</label>
+            </div>
+          </fieldset>
+          <label>Notes
+            <textarea name="issue" placeholder="Anything else — optional."></textarea>
+          </label>
+          <button class="btn btn-ghost" type="submit">Send vehicle enquiry</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot">
+      <p class="company">JAKE ESSEX MUSIC LTD · Company no. 16455536</p>
+      <p class="socials">
+        <a href="index.html">Music</a>
+        <a href="https://www.instagram.com/jakeessexmusic" rel="noopener noreferrer">Instagram</a>
+        <a href="mailto:jakeessexenquiries@gmail.com">jakeessexenquiries@gmail.com</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
