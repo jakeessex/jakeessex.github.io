@@ -72,41 +72,8 @@ a:hover { color: var(--cream); }
   color: var(--cream);
   text-decoration: none;
   font-weight: 600;
-  flex-shrink: 0;
 }
 .wordmark:hover { color: var(--gold-2); }
-
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-}
-
-.header-socials {
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-}
-.header-socials a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  border: 1px solid var(--gold-line);
-  color: var(--gold-2) !important;
-  text-decoration: none;
-  border-radius: 2px;
-}
-.header-socials a:hover {
-  border-color: var(--gold);
-  background: rgba(197,161,90,0.16);
-  color: var(--cream) !important;
-}
-.header-socials a svg {
-  display: block;
-}
-
 .nav-cta {
   background: var(--gold);
   color: var(--ink) !important;
@@ -119,7 +86,6 @@ a:hover { color: var(--cream); }
   display: inline-flex;
   align-items: center;
   text-decoration: none;
-  white-space: nowrap;
 }
 .nav-cta:hover { background: var(--gold-2); color: var(--ink) !important; }
 
@@ -155,6 +121,32 @@ a:hover { color: var(--cream); }
   padding: 0 var(--pad) clamp(2.6rem, 9vh, 5.6rem);
   max-width: 40rem;
 }
+
+/* Social icons in the exact area user circled */
+.hero-socials {
+  display: flex;
+  gap: 0.7rem;
+  margin-bottom: 1.4rem;
+}
+.hero-socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--gold-line);
+  color: var(--gold-2) !important;
+  text-decoration: none;
+  background: rgba(7,7,7,0.45);
+  backdrop-filter: blur(6px);
+}
+.hero-socials a:hover {
+  border-color: var(--gold);
+  background: rgba(197,161,90,0.22);
+  color: var(--cream) !important;
+}
+.hero-socials a svg { display: block; }
+
 .kicker {
   font-family: var(--font-display);
   letter-spacing: 0.38em;
@@ -429,36 +421,46 @@ p.plain { color: var(--cream); }
 }
 .pa-line { margin-top: 0.25rem; }
 
-/* Proof */
+/* ========== REVIEWS (upgraded) ========== */
 .proof { background: var(--bg); }
-.quotes {
+.reviews {
   display: grid;
-  gap: 1.1rem;
-  margin: 0;
+  gap: 1.15rem;
+  margin: 0 0 1.5rem;
 }
-@media (min-width: 760px) {
-  .quotes { grid-template-columns: 1fr 1fr; }
+@media (min-width: 800px) {
+  .reviews { grid-template-columns: 1fr 1fr 1fr; }
 }
-.quotes blockquote {
-  margin: 0;
-  padding: 1.35rem 1.25rem 1.3rem;
+.review {
   border: 1px solid var(--gold-line);
   background: var(--bg-3);
+  padding: 1.4rem 1.25rem 1.35rem;
 }
-.quotes blockquote p {
+.stars {
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  font-size: 1.05rem;
+  margin-bottom: 0.7rem;
+  line-height: 1;
+}
+.review-text {
   font-family: var(--font-italic);
   font-style: italic;
-  font-size: 1.28rem;
+  font-size: 1.12rem;
   color: var(--cream);
-  margin: 0 0 0.75rem;
-  line-height: 1.35;
+  margin: 0 0 0.85rem;
+  line-height: 1.4;
 }
-.quotes footer {
-  border: 0;
-  padding: 0;
-  font-size: 0.82rem;
+.review-meta {
+  margin: 0;
+  font-size: 0.78rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  color: var(--muted);
+}
+.review-note {
+  margin: 0;
+  font-size: 0.9rem;
   color: var(--muted);
 }
 
@@ -565,9 +567,24 @@ footer {
   align-items: center;
 }
 .company { letter-spacing: 0.06em; margin: 0; }
-.footer-socials a {
+.header-socials {
+  display: flex;
+  gap: 0.5rem;
+}
+.header-socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 34px;
   height: 34px;
+  border: 1px solid var(--gold-line);
+  color: var(--gold-2) !important;
+  text-decoration: none;
+}
+.header-socials a:hover {
+  border-color: var(--gold);
+  background: rgba(197,161,90,0.14);
+  color: var(--cream) !important;
 }
 .foot-quiet {
   max-width: var(--max);
