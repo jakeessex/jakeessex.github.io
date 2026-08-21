@@ -3,27 +3,28 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jake Essex — Rock ’n’ Roll from Essex</title>
-  <meta name="description" content="Classic 50s & 60s rock ’n’ roll from Essex. Himself — not a tribute. Two hours £280, three hours £400. Book a date.">
   <meta name="theme-color" content="#070707">
-  <meta property="og:title" content="Jake Essex — Rock ’n’ Roll from Essex">
-  <meta property="og:description" content="Classic 50s & 60s rock ’n’ roll from Essex. Himself — not a tribute. Two hours £280, three hours £400. Book a date.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://jakeessex.co.uk/">
   <meta property="og:image" content="https://jakeessex.co.uk/images/hero-curtains.jpg">
-  <link rel="canonical" href="https://jakeessex.co.uk/">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect fill='%23070707' width='64' height='64'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Georgia' font-size='22' fill='%23c5a15a'%3EJE%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
+  <title>Jake Essex — Rock ’n’ Roll from Essex</title>
+  <meta name="description" content="Classic 50s & 60s rock ’n’ roll from Essex. Himself — not a tribute. Play The Wanderer, open the vault, book a date.">
+  <meta property="og:title" content="Jake Essex — Rock ’n’ Roll from Essex">
+  <meta property="og:description" content="Classic 50s & 60s rock ’n’ roll from Essex. Himself — not a tribute. Play The Wanderer, open the vault, book a date.">
+  <meta property="og:url" content="https://jakeessex.co.uk/">
+  <link rel="canonical" href="https://jakeessex.co.uk/">
 </head>
 <body>
-  <a class="skip" href="/book.html">Skip to booking</a>
+  <a class="skip" href="/listen.html">Skip to the vault</a>
   <header class="site-header">
     <div class="header-row">
       <a class="wordmark" href="/">JAKE ESSEX</a>
       <nav class="nav-desktop" aria-label="Primary">
+        <a href="/listen.html">Listen</a>
         <a href="/watch.html">Watch</a>
         <a href="/show.html">The show</a>
         <a href="/about.html">About</a>
@@ -35,6 +36,7 @@
       </div>
     </div>
     <nav class="nav-drawer" id="mobile-nav" aria-label="Mobile">
+      <a href="/listen.html">Listen</a>
       <a href="/watch.html">Watch</a>
       <a href="/show.html">The show</a>
       <a href="/about.html">About</a>
@@ -42,7 +44,6 @@
     </nav>
   </header>
   <main>
-
     <section class="hero" aria-label="Jake Essex">
       <img class="hero-photo" src="/images/hero-curtains.jpg" alt="Jake Essex on stage in a cream tuxedo, singing into the light">
       <div class="hero-shade" aria-hidden="true"></div>
@@ -57,10 +58,26 @@
         <h1>JAKE ESSEX</h1>
         <p class="lede">Classic 50s & 60s rock ’n’ roll. Himself — not a tribute.</p>
         <div class="hero-actions">
-          <a class="btn" href="/book.html">Book a date</a>
-          <a class="btn btn-ghost" href="/watch.html">Watch the showreel</a>
+          <button class="btn" type="button" data-play="wanderer">Play The Wanderer</button>
+          <a class="btn btn-ghost" href="/listen.html">Open the vault</a>
         </div>
-        <p class="avail">Currently taking bookings for late 2026 and 2027.</p>
+        <p class="avail">27 recordings online. Hundreds more in the room.</p>
+      </div>
+    </section>
+    <section class="featured-now" aria-label="Latest recording">
+      <p class="section-label">Latest</p>
+      <h2>The Wanderer</h2>
+      <hr class="gold-rule">
+      <div class="featured-grid">
+        <button class="featured-play" type="button" data-play="wanderer" aria-label="Play The Wanderer">
+          <img src="/images/studio-gold.jpg" alt="">
+          <span class="play-disc-wrap"><span class="play-disc">▶</span></span>
+          <span class="featured-cap">Dion · 2026 · 2:41</span>
+        </button>
+        <div>
+          <p class="plain">Recent. One of his favourite songs to sing. Dion, 1961. Press play — it opens in the bar at the bottom, then skip through the vault.</p>
+          <p class="more-link"><a href="/listen.html">The rest of the vault</a></p>
+        </div>
       </div>
     </section>
     <section class="trust" aria-label="What’s included">
@@ -74,10 +91,15 @@
     <section class="wrap doors-wrap" aria-label="Explore">
       <p class="section-label">Choose a door</p>
       <div class="doors">
-        <a class="door" href="/watch.html">
+        <a class="door" href="/listen.html">
           <img src="/images/studio-gold.jpg" alt="">
           <span class="door-shade"></span>
-          <span class="door-copy"><strong>Watch</strong><span>The showreel</span></span>
+          <span class="door-copy"><strong>Listen</strong><span>27 recordings</span></span>
+        </a>
+        <a class="door" href="/watch.html">
+          <img src="/images/hero-curtains.jpg" alt="">
+          <span class="door-shade"></span>
+          <span class="door-copy"><strong>Watch</strong><span>The pictures moving</span></span>
         </a>
         <a class="door door-show" href="/show.html">
           <img src="/images/hero-profile.jpg" alt="">
@@ -102,8 +124,25 @@
         <a href="https://www.facebook.com/itsjakeessex" rel="noopener noreferrer">Facebook</a>
       </div>
     </div>
-    <p class="foot-quiet"><a href="/mechanic.html">Also a mobile mechanic</a> · <a href="mailto:jakeessexenquiries@gmail.com">jakeessexenquiries@gmail.com</a></p>
+    <p class="foot-quiet"><a href="/listen.html">The vault</a> · <a href="/photos.html">Photos</a> · <a href="/mechanic.html">Also a mobile mechanic</a> · <a href="mailto:jakeessexenquiries@gmail.com">jakeessexenquiries@gmail.com</a></p>
   </footer>
+  <div id="player" class="player" hidden>
+    <div id="player-stage" class="player-stage" hidden></div>
+    <div class="player-row">
+      <button type="button" class="player-thumb" id="player-toggle" aria-label="Show or hide video"><img id="player-art" alt=""></button>
+      <div class="player-meta">
+        <p class="player-song" id="player-song"></p>
+        <p class="player-orig" id="player-orig"></p>
+      </div>
+      <div class="player-controls">
+        <button type="button" id="player-prev" aria-label="Previous">Prev</button>
+        <button type="button" id="player-next" aria-label="Next">Next</button>
+        <button type="button" id="player-close" aria-label="Close">Close</button>
+      </div>
+    </div>
+  </div>
+  <script src="/js/recordings.js"></script>
+  <script src="/js/player.js"></script>
   <script src="/js/main.js"></script>
 </body>
 </html>

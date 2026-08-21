@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Reviews — Jake Essex</title>
-  <meta name="description" content="Reviews for Jake Essex from Chadwell Working Men’s Club, The Ship Aveley, and London.">
   <meta name="theme-color" content="#070707">
-  <meta property="og:title" content="Reviews — Jake Essex">
-  <meta property="og:description" content="Reviews for Jake Essex from Chadwell Working Men’s Club, The Ship Aveley, and London.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://jakeessex.co.uk/reviews.html">
   <meta property="og:image" content="https://jakeessex.co.uk/images/hero-curtains.jpg">
-  <link rel="canonical" href="https://jakeessex.co.uk/reviews.html">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect fill='%23070707' width='64' height='64'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Georgia' font-size='22' fill='%23c5a15a'%3EJE%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
+  <title>The vault — Jake Essex</title>
+  <meta name="description" content="Play Jake Essex recordings: The Wanderer, the showreel, Can’t Help Falling In Love, Return to Sender, Unchained Melody and more.">
+  <meta property="og:title" content="The vault — Jake Essex">
+  <meta property="og:description" content="Play Jake Essex recordings: The Wanderer, the showreel, Can’t Help Falling In Love, Return to Sender, Unchained Melody and more.">
+  <meta property="og:url" content="https://jakeessex.co.uk/listen.html">
+  <link rel="canonical" href="https://jakeessex.co.uk/listen.html">
 </head>
 <body>
   <a class="skip" href="/listen.html">Skip to the vault</a>
@@ -24,10 +24,10 @@
     <div class="header-row">
       <a class="wordmark" href="/">JAKE ESSEX</a>
       <nav class="nav-desktop" aria-label="Primary">
-        <a href="/listen.html">Listen</a>
+        <a href="/listen.html" class="is-active">Listen</a>
         <a href="/watch.html">Watch</a>
         <a href="/show.html">The show</a>
-        <a href="/about.html" class="is-active">About</a>
+        <a href="/about.html">About</a>
         <a class="nav-cta" href="/book.html">Book a date</a>
       </nav>
       <div class="nav-mobile-actions">
@@ -36,54 +36,26 @@
       </div>
     </div>
     <nav class="nav-drawer" id="mobile-nav" aria-label="Mobile">
-      <a href="/listen.html">Listen</a>
+      <a href="/listen.html" class="is-active">Listen</a>
       <a href="/watch.html">Watch</a>
       <a href="/show.html">The show</a>
-      <a href="/about.html" class="is-active">About</a>
+      <a href="/about.html">About</a>
       <a href="/book.html">Book a date</a>
     </nav>
   </header>
   <main>
-
     <div class="wrap page-intro">
-      <p class="section-label">From the room</p>
-      <h1>Reviews</h1>
+      <p class="section-label">The vault</p>
+      <h1>Press play</h1>
       <hr class="gold-rule">
-    </div>
-    <section class="reviews">
-      <div class="wrap">
-        <div class="review-grid">
-          <article class="review">
-            <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
-            <p>“Great performance at Chadwell Working Men’s Club. Jake sang a lot of Elvis and we all like Elvis here — he’s very humble and always puts on a great show for us.”</p>
-            <p class="review-meta">Jenny · Chadwell Working Men’s Club</p>
-          </article>
-          <article class="review">
-            <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
-            <p>“Jake is a regular at The Ship in Aveley. He has gained a big following down here and the regulars always come down when he is performing. We like the Elvis and the Johnny Cash numbers.”</p>
-            <p class="review-meta">Tony B · The Ship, Aveley</p>
-          </article>
-          <article class="review">
-            <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
-            <p>“I saw Jake perform in London. His different style is amazing, and unique for a man of his age. He’s a very funny guy and entertains the crowd well.”</p>
-            <p class="review-meta">Booker · London</p>
-          </article>
-        </div>
-        <h2 style="margin-top:3rem">Regular rooms</h2>
-        <p class="plain">Named rooms, not anonymous quotes.</p>
-        <ul class="chips">
-          <li>The Ship, Aveley</li>
-          <li>Chadwell Working Men’s Club</li>
-          <li>The Archer, Belhus</li>
-        </ul>
+      <p class="plain">Every recording that’s online — 27 and growing. The live book is bigger. Hundreds more only happen in the room. Start with The Wanderer, or play the night in order.</p>
+      <div class="vault-actions">
+        <button class="btn" type="button" data-play="night">Play the night</button>
+        <button class="btn btn-ghost" type="button" data-play="wanderer">Start with The Wanderer</button>
       </div>
-    </section>
-  <div class="cta-band">
-    <div class="cta-inner">
-      <p>Dates are open. Send the night you want.</p>
-      <a class="btn" href="/book.html">Book a date</a>
+      <div id="vault" class="track-list"></div>
+      <p class="more-link"><a href="/songs.html">Full song list</a> · <a href="/watch.html">Watch</a></p>
     </div>
-  </div>
   </main>
   <footer>
     <div class="foot">

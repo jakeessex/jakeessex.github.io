@@ -19,11 +19,12 @@
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-  <a class="skip" href="/book.html">Skip to booking</a>
+  <a class="skip" href="/listen.html">Skip to the vault</a>
   <header class="site-header">
     <div class="header-row">
       <a class="wordmark" href="/">JAKE ESSEX</a>
       <nav class="nav-desktop" aria-label="Primary">
+        <a href="/listen.html">Listen</a>
         <a href="/watch.html">Watch</a>
         <a href="/show.html">The show</a>
         <a href="/about.html">About</a>
@@ -35,6 +36,7 @@
       </div>
     </div>
     <nav class="nav-drawer" id="mobile-nav" aria-label="Mobile">
+      <a href="/listen.html">Listen</a>
       <a href="/watch.html">Watch</a>
       <a href="/show.html">The show</a>
       <a href="/about.html">About</a>
@@ -64,8 +66,25 @@
         <a href="https://www.facebook.com/itsjakeessex" rel="noopener noreferrer">Facebook</a>
       </div>
     </div>
-    <p class="foot-quiet"><a href="/mechanic.html">Also a mobile mechanic</a> · <a href="mailto:jakeessexenquiries@gmail.com">jakeessexenquiries@gmail.com</a></p>
+    <p class="foot-quiet"><a href="/listen.html">The vault</a> · <a href="/photos.html">Photos</a> · <a href="/mechanic.html">Also a mobile mechanic</a> · <a href="mailto:jakeessexenquiries@gmail.com">jakeessexenquiries@gmail.com</a></p>
   </footer>
+  <div id="player" class="player" hidden>
+    <div id="player-stage" class="player-stage" hidden></div>
+    <div class="player-row">
+      <button type="button" class="player-thumb" id="player-toggle" aria-label="Show or hide video"><img id="player-art" alt=""></button>
+      <div class="player-meta">
+        <p class="player-song" id="player-song"></p>
+        <p class="player-orig" id="player-orig"></p>
+      </div>
+      <div class="player-controls">
+        <button type="button" id="player-prev" aria-label="Previous">Prev</button>
+        <button type="button" id="player-next" aria-label="Next">Next</button>
+        <button type="button" id="player-close" aria-label="Close">Close</button>
+      </div>
+    </div>
+  </div>
+  <script src="/js/recordings.js"></script>
+  <script src="/js/player.js"></script>
   <script src="/js/main.js"></script>
 </body>
 </html>

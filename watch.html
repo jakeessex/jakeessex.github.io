@@ -3,27 +3,28 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Watch — Jake Essex</title>
-  <meta name="description" content="Watch Jake Essex: live showreel and Can’t Help Falling In Love.">
   <meta name="theme-color" content="#070707">
-  <meta property="og:title" content="Watch — Jake Essex">
-  <meta property="og:description" content="Watch Jake Essex: live showreel and Can’t Help Falling In Love.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://jakeessex.co.uk/watch.html">
   <meta property="og:image" content="https://jakeessex.co.uk/images/hero-curtains.jpg">
-  <link rel="canonical" href="https://jakeessex.co.uk/watch.html">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect fill='%23070707' width='64' height='64'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Georgia' font-size='22' fill='%23c5a15a'%3EJE%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
+  <title>Watch — Jake Essex</title>
+  <meta name="description" content="Watch Jake Essex: The Wanderer, the live showreel, Can’t Help Falling In Love, Return to Sender and more.">
+  <meta property="og:title" content="Watch — Jake Essex">
+  <meta property="og:description" content="Watch Jake Essex: The Wanderer, the live showreel, Can’t Help Falling In Love, Return to Sender and more.">
+  <meta property="og:url" content="https://jakeessex.co.uk/watch.html">
+  <link rel="canonical" href="https://jakeessex.co.uk/watch.html">
 </head>
 <body>
-  <a class="skip" href="/book.html">Skip to booking</a>
+  <a class="skip" href="/listen.html">Skip to the vault</a>
   <header class="site-header">
     <div class="header-row">
       <a class="wordmark" href="/">JAKE ESSEX</a>
       <nav class="nav-desktop" aria-label="Primary">
+        <a href="/listen.html">Listen</a>
         <a href="/watch.html" class="is-active">Watch</a>
         <a href="/show.html">The show</a>
         <a href="/about.html">About</a>
@@ -35,6 +36,7 @@
       </div>
     </div>
     <nav class="nav-drawer" id="mobile-nav" aria-label="Mobile">
+      <a href="/listen.html">Listen</a>
       <a href="/watch.html" class="is-active">Watch</a>
       <a href="/show.html">The show</a>
       <a href="/about.html">About</a>
@@ -42,37 +44,14 @@
     </nav>
   </header>
   <main>
-
     <div class="wrap page-intro">
-      <p class="section-label">Listen</p>
-      <h1>Hear the room first</h1>
+      <p class="section-label">Watch</p>
+      <h1>The pictures moving</h1>
       <hr class="gold-rule">
-      <p class="plain">High energy. Continuous flow. No dead air. Start with the live showreel — then a quieter one if you want it.</p>
-      <div class="tabs" role="tablist" aria-label="Recordings">
-        <button class="tab" type="button" data-tab="showreel" aria-selected="true">Showreel</button>
-        <button class="tab" type="button" data-tab="falling" aria-selected="false">Can’t Help Falling In Love</button>
-      </div>
-      <div data-panel="showreel">
-        <div class="video-embed">
-          <img src="https://i.ytimg.com/vi/gl3vkApW7ug/hqdefault.jpg" alt="">
-          <button class="play-btn" type="button" data-video-id="gl3vkApW7ug" data-video-title="Showreel — Elvis & classics" aria-label="Play showreel"><span class="play-disc">▶</span></button>
-        </div>
-        <p><a href="https://www.youtube.com/watch?v=gl3vkApW7ug" rel="noopener noreferrer">This recording</a> · <a href="https://www.youtube.com/@JakeEssex" rel="noopener noreferrer">Full YouTube channel</a></p>
-      </div>
-      <div data-panel="falling" hidden>
-        <div class="video-embed">
-          <img src="https://i.ytimg.com/vi/jmY_l8Een0c/hqdefault.jpg" alt="">
-          <button class="play-btn" type="button" data-video-id="jmY_l8Een0c" data-video-title="Can’t Help Falling In Love" aria-label="Play Can’t Help Falling In Love"><span class="play-disc">▶</span></button>
-        </div>
-        <p><a href="https://www.youtube.com/watch?v=jmY_l8Een0c" rel="noopener noreferrer">This recording</a></p>
-      </div>
+      <p class="plain">High energy. Continuous flow. No dead air. The Wanderer is the latest. Tap any frame — it plays in the bar.</p>
+      <div id="video-wall" class="video-wall" style="margin-top:2rem"></div>
+      <p class="more-link"><a href="/listen.html">Open the vault</a> · <a href="https://www.youtube.com/@JakeEssex" rel="noopener noreferrer">YouTube</a> · <a href="https://www.facebook.com/itsjakeessex/videos/" rel="noopener noreferrer">Facebook videos</a></p>
     </div>
-  <div class="cta-band">
-    <div class="cta-inner">
-      <p>Like what you hear? Send a date.</p>
-      <a class="btn" href="/book.html">Book a date</a>
-    </div>
-  </div>
   </main>
   <footer>
     <div class="foot">
@@ -84,8 +63,25 @@
         <a href="https://www.facebook.com/itsjakeessex" rel="noopener noreferrer">Facebook</a>
       </div>
     </div>
-    <p class="foot-quiet"><a href="/mechanic.html">Also a mobile mechanic</a> · <a href="mailto:jakeessexenquiries@gmail.com">jakeessexenquiries@gmail.com</a></p>
+    <p class="foot-quiet"><a href="/listen.html">The vault</a> · <a href="/photos.html">Photos</a> · <a href="/mechanic.html">Also a mobile mechanic</a> · <a href="mailto:jakeessexenquiries@gmail.com">jakeessexenquiries@gmail.com</a></p>
   </footer>
+  <div id="player" class="player" hidden>
+    <div id="player-stage" class="player-stage" hidden></div>
+    <div class="player-row">
+      <button type="button" class="player-thumb" id="player-toggle" aria-label="Show or hide video"><img id="player-art" alt=""></button>
+      <div class="player-meta">
+        <p class="player-song" id="player-song"></p>
+        <p class="player-orig" id="player-orig"></p>
+      </div>
+      <div class="player-controls">
+        <button type="button" id="player-prev" aria-label="Previous">Prev</button>
+        <button type="button" id="player-next" aria-label="Next">Next</button>
+        <button type="button" id="player-close" aria-label="Close">Close</button>
+      </div>
+    </div>
+  </div>
+  <script src="/js/recordings.js"></script>
+  <script src="/js/player.js"></script>
   <script src="/js/main.js"></script>
 </body>
 </html>
