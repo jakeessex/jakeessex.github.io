@@ -1,4 +1,4 @@
-/* Jake Essex Music — SuperGrok treatment: gold / black / cream, Cinzel */
+/* Jake Essex Music — polished black / gold / cream */
 :root {
   --bg: #070707;
   --bg-2: #101010;
@@ -10,7 +10,6 @@
   --gold-line: rgba(197, 161, 90, 0.38);
   --muted: #9a9184;
   --ink: #0b0b0b;
-  --danger: #b54a3a;
   --radius: 2px;
   --max: 1120px;
   --pad: clamp(1.15rem, 4vw, 2.25rem);
@@ -52,7 +51,7 @@ a:hover { color: var(--cream); }
   padding: 0.4rem 0.7rem;
 }
 
-/* Header */
+/* ========== HEADER ========== */
 .site-header {
   position: sticky;
   top: 0;
@@ -60,12 +59,13 @@ a:hover { color: var(--cream); }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 0.7rem var(--pad);
-  background: rgba(7,7,7,0.78);
-  backdrop-filter: blur(10px);
+  gap: 0.75rem;
+  padding: 0.65rem var(--pad);
+  background: rgba(7,7,7,0.92);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--gold-line);
 }
+.header-left { flex-shrink: 0; }
 .wordmark {
   font-family: var(--font-display);
   letter-spacing: 0.28em;
@@ -75,59 +75,68 @@ a:hover { color: var(--cream); }
   font-weight: 600;
 }
 .wordmark:hover { color: var(--gold-2); }
-.nav {
+
+.header-right {
   display: flex;
   align-items: center;
-  gap: 1.15rem;
-  font-size: 0.82rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  gap: 0.7rem;
 }
-.nav a { color: var(--cream-dim); text-decoration: none; }
-.nav a:hover { color: var(--gold-2); }
-.nav-cta {
-  background: var(--gold);
-  color: var(--ink) !important;
-  padding: 0.55rem 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  min-height: 44px;
-  display: inline-flex;
-  align-items: center;
-}
-.nav-cta:hover { background: var(--gold-2); color: var(--ink) !important; }
 
 .header-socials {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0.35rem;
 }
 .header-socials a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 36px;
-  min-height: 36px;
-  padding: 0.35rem 0.5rem;
+  padding: 0.4rem 0.65rem;
   border: 1px solid var(--gold-line);
   color: var(--gold-2) !important;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.06em;
+  text-transform: uppercase;
   text-decoration: none;
+  white-space: nowrap;
+  min-height: 34px;
 }
 .header-socials a:hover {
   border-color: var(--gold);
-  background: rgba(197,161,90,0.12);
+  background: rgba(197,161,90,0.14);
   color: var(--cream) !important;
 }
 
-@media (max-width: 720px) {
-  .nav a:not(.nav-cta):not(.header-socials a) { display: none; }
-  .header-socials { gap: 0.4rem; }
+.nav-cta {
+  background: var(--gold);
+  color: var(--ink) !important;
+  padding: 0.5rem 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.nav-cta:hover { background: var(--gold-2); color: var(--ink) !important; }
+
+/* On very small screens hide the text labels and keep short versions if needed */
+@media (max-width: 520px) {
+  .header-socials a {
+    padding: 0.35rem 0.45rem;
+    font-size: 0.62rem;
+  }
+  .nav-cta {
+    padding: 0.45rem 0.7rem;
+    font-size: 0.68rem;
+  }
 }
 
-/* Hero — full-bleed landscape curtain shot, Jake on the right */
+/* ========== HERO ========== */
 .hero {
   position: relative;
   min-height: calc(100svh - 3.4rem);
@@ -218,7 +227,7 @@ h1 {
 }
 .avail-inline { margin: 0 0 1.6rem; }
 
-/* Sections */
+/* ========== SECTIONS ========== */
 section { padding: clamp(3.2rem, 8vw, 5.5rem) var(--pad); }
 .wrap { max-width: var(--max); margin: 0 auto; }
 .section-label {
@@ -254,12 +263,10 @@ p.plain { color: var(--cream); }
   margin: 0 0 1.25rem;
 }
 
-/* Video block */
-.video { padding: clamp(1.5rem, 4vw, 2.5rem) var(--pad) 1.25rem; background: #000; }
+/* Video */
+.video { padding: clamp(1.8rem, 5vw, 3rem) var(--pad) 1.5rem; background: #000; }
 .video-wrap { max-width: var(--max); }
-.video-heading {
-  margin-bottom: 1rem;
-}
+.video-heading { margin-bottom: 1rem; }
 .video-embed {
   position: relative;
   width: 100%;
@@ -333,25 +340,25 @@ p.plain { color: var(--cream); }
 .about-socials {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem 1.2rem;
-  margin-top: 1.4rem;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
 }
 .about-socials a {
   display: inline-flex;
   align-items: center;
-  padding: 0.55rem 0.9rem;
+  padding: 0.55rem 0.95rem;
   border: 1px solid var(--gold-line);
-  color: var(--gold-2);
+  color: var(--gold-2) !important;
   text-decoration: none;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-weight: 600;
 }
 .about-socials a:hover {
   border-color: var(--gold);
-  background: rgba(197,161,90,0.12);
-  color: var(--cream);
+  background: rgba(197,161,90,0.14);
+  color: var(--cream) !important;
 }
 
 /* Show / packages */
@@ -435,12 +442,12 @@ p.plain { color: var(--cream); }
 }
 .pa-line { margin-top: 0.25rem; }
 
-/* Social proof */
+/* Proof */
 .proof { background: var(--bg); }
 .quotes {
   display: grid;
   gap: 1.1rem;
-  margin: 0 0 1.6rem;
+  margin: 0;
 }
 @media (min-width: 760px) {
   .quotes { grid-template-columns: 1fr 1fr; }
@@ -467,7 +474,6 @@ p.plain { color: var(--cream); }
   text-transform: uppercase;
   color: var(--muted);
 }
-.proof-links { margin: 0; }
 
 /* Perfect for */
 .perfect { background: var(--bg-2); }
@@ -554,72 +560,6 @@ input:focus, select:focus, textarea:focus {
   margin-top: 0.8rem;
   font-size: 0.95rem;
 }
-.note { font-size: 0.88rem; color: var(--muted); }
-
-.socials {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem 1.1rem;
-}
-.socials a { color: var(--cream-dim); text-decoration: none; }
-.socials a:hover { color: var(--gold-2); }
-.note.socials { margin-top: 1rem; }
-
-/* Mechanic page */
-.mechanic {
-  background: #0c0c0c;
-  border-top: 1px solid rgba(197,161,90,0.16);
-  padding: clamp(2.8rem, 8vw, 4.4rem) var(--pad) clamp(3.2rem, 8vw, 5.2rem);
-}
-.mech-title {
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(1.8rem, 5vw, 2.7rem);
-  letter-spacing: 0.06em;
-  line-height: 1.15;
-  margin: 0 0 1.1rem;
-  color: var(--cream);
-}
-.mechanic .wrap { max-width: 720px; }
-.mechanic p { font-size: 0.98rem; }
-.mechanic form { max-width: 36rem; }
-.job-types {
-  border: 0;
-  margin: 0;
-  padding: 0;
-}
-.job-types legend {
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 0.45rem;
-}
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-}
-.chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  text-transform: none;
-  letter-spacing: 0.04em;
-  font-size: 0.92rem;
-  color: var(--cream);
-  border: 1px solid var(--gold-line);
-  padding: 0.65rem 0.95rem;
-  min-height: 44px;
-  cursor: pointer;
-  background: #0c0c0c;
-}
-.chip input { width: auto; min-height: 0; margin: 0; accent-color: var(--gold); }
-.chip:has(input:checked) {
-  border-color: var(--gold);
-  background: #1b1814;
-  color: var(--gold-2);
-}
 
 /* Footer */
 footer {
@@ -633,16 +573,17 @@ footer {
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem 1.4rem;
+  gap: 0.8rem 1.4rem;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
 }
-.foot a { color: var(--cream-dim); text-decoration: none; }
-.foot a:hover { color: var(--gold-2); }
-.company { letter-spacing: 0.06em; }
+.company { letter-spacing: 0.06em; margin: 0; }
+.footer-socials a {
+  font-size: 0.7rem;
+}
 .foot-quiet {
   max-width: var(--max);
-  margin: 0.85rem auto 0;
+  margin: 1rem auto 0;
   font-size: 0.78rem;
   letter-spacing: 0.04em;
 }
