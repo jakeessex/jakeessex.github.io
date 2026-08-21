@@ -156,9 +156,26 @@
             <p class="review-meta">Function room · London</p>
           </article>
         </div>
-        <div class="review-cta">
-          <a class="btn btn-ghost" href="mailto:jakeessexenquiries@gmail.com?subject=Review%20for%20Jake%20Essex">Leave a review</a>
-          <p class="review-note">Got a review from a night? Send it over and it’ll go up here.</p>
+
+        <div class="leave-review">
+          <h3>Leave a review</h3>
+          <form id="review-form">
+            <div class="star-picker" role="radiogroup" aria-label="Rating">
+              <button type="button" class="star-btn" data-value="1" aria-label="1 star">★</button>
+              <button type="button" class="star-btn" data-value="2" aria-label="2 stars">★</button>
+              <button type="button" class="star-btn" data-value="3" aria-label="3 stars">★</button>
+              <button type="button" class="star-btn" data-value="4" aria-label="4 stars">★</button>
+              <button type="button" class="star-btn" data-value="5" aria-label="5 stars">★</button>
+            </div>
+            <input type="hidden" name="rating" id="rating-value" value="5">
+            <label>Your name
+              <input name="name" type="text" required placeholder="Name or venue">
+            </label>
+            <label>Your review
+              <textarea name="review" required placeholder="How was the night?"></textarea>
+            </label>
+            <button class="btn" type="submit">Submit review</button>
+          </form>
         </div>
       </div>
     </section>

@@ -41,6 +41,7 @@
     window.location.href = href;
   }
 
+  /* Gig form */
   var gig = document.getElementById("gig-form");
   if (gig) {
     document.querySelectorAll(".book-show").forEach(function (card) {
@@ -81,6 +82,7 @@
     });
   }
 
+  /* Vehicle form */
   var vehicle = document.getElementById("vehicle-form");
   if (vehicle) {
     vehicle.addEventListener("submit", function (e) {
@@ -96,6 +98,53 @@
         val(vehicle, "issue") || "(none)",
       ].join("\n");
       openMail("Vehicle enquiry — Jake Essex", body);
+    });
+  }
+
+  /* Interactive star rating + review form */
+  var reviewForm = document.getElementById("review-form");
+  if (reviewForm) {
+    var starBtns = reviewForm.querySelectorAll(".star-btn");
+    var ratingInput = document.getElementById("rating-value");
+
+    function setStars(n) {
+      ratingInput.value = n;
+      starBtns.forEach(function (btn) {
+        var v = parseInt(btn.getAttribute("data-value"), 10);
+        if (v <= n) {
+          btn.classList.add("active");
+        } else {
+          btn.classList.remove("active");
+        }
+      });
+    }
+
+    // Default to 5 stars
+    setStars(5);
+
+    starBtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        setStars(parseInt(btn.getAttribute("data-value"), 10));
+      });
+    });
+
+    reviewForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var rating = ratingInput.value || "5";
+      var name = val(reviewForm, "name");
+      var review = val(reviewForm, "review");
+      var stars = "★".repeat(parseInt(rating, 10)) + "☆".repeat(5 - parseInt(rating, 10));
+
+      var body = [
+        "New review for Jake Essex",
+        "",
+        "Rating: " + stars + " (" + rating + "/5)",
+        "From: " + name,
+        "",
+        review,
+      ].join("\n");
+
+      openMail("Review — Jake Essex (" + rating + " stars)", body);
     });
   }
 })();
