@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jake Essex — Mobile mechanic</title>
-  <meta name="description" content="Jake Essex is IMI Level 3 — EV, light vehicle, heavy vehicle, and A/C F-gas qualified. Mobile mechanic, Essex and London.">
+  <title>Watch — Jake Essex</title>
+  <meta name="description" content="Watch Jake Essex: live showreel and Can’t Help Falling In Love.">
   <meta name="theme-color" content="#070707">
-  <meta property="og:title" content="Jake Essex — Mobile mechanic">
-  <meta property="og:description" content="Jake Essex is IMI Level 3 — EV, light vehicle, heavy vehicle, and A/C F-gas qualified. Mobile mechanic, Essex and London.">
+  <meta property="og:title" content="Watch — Jake Essex">
+  <meta property="og:description" content="Watch Jake Essex: live showreel and Can’t Help Falling In Love.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://jakeessex.co.uk/images/hero-curtains.jpg">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect fill='%23070707' width='64' height='64'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Georgia' font-size='22' fill='%23c5a15a'%3EJE%3C/text%3E%3C/svg%3E">
@@ -23,7 +23,7 @@
     <div class="header-row">
       <a class="wordmark" href="/">JAKE ESSEX</a>
       <nav class="nav-desktop" aria-label="Primary">
-        <a href="/watch.html">Watch</a>
+        <a href="/watch.html" class="is-active">Watch</a>
         <a href="/show.html">The show</a>
         <a href="/about.html">About</a>
         <a class="nav-cta" href="/book.html">Book a date</a>
@@ -34,7 +34,7 @@
       </div>
     </div>
     <nav class="nav-drawer" id="mobile-nav" aria-label="Mobile">
-      <a href="/watch.html">Watch</a>
+      <a href="/watch.html" class="is-active">Watch</a>
       <a href="/show.html">The show</a>
       <a href="/about.html">About</a>
       <a href="/book.html">Book a date</a>
@@ -42,37 +42,38 @@
   </header>
 
   <main>
-    <div class="wrap page-intro" style="max-width:40rem">
-      <p class="section-label">Mobile mechanic</p>
-      <h1>Need the car looked at?</h1>
+    <div class="wrap page-intro">
+      <p class="section-label">Listen</p>
+      <h1>Hear the room first</h1>
       <hr class="gold-rule">
-      <p class="plain">Jake Essex is IMI Level 3 — EV, light vehicle, heavy vehicle, and A/C F-gas qualified.</p>
-      <p>Mobile mechanic, Essex and London. If you want him on your vehicle, send a short enquiry.</p>
-      <p class="avail">This form is marked <strong>Vehicle enquiry — Jake Essex</strong> so it does not get mixed up with a gig booking.</p>
-      <form id="vehicle-form" style="margin-top:1.8rem;display:flex;flex-direction:column;gap:1rem">
-        <div class="row-2">
-          <label>Name <input name="name" autocomplete="name" required></label>
-          <label>Phone <input name="phone" type="tel" autocomplete="tel" required></label>
+      <p class="plain">High energy. Continuous flow. No dead air. Start with the live showreel — then a quieter one if you want it.</p>
+      <div class="tabs" role="tablist" aria-label="Recordings">
+        <button class="tab" type="button" data-tab="showreel" aria-selected="true">Showreel</button>
+        <button class="tab" type="button" data-tab="falling" aria-selected="false">Can’t Help Falling In Love</button>
+      </div>
+      <div data-panel="showreel">
+        <div class="video-embed">
+          <img src="https://i.ytimg.com/vi/gl3vkApW7ug/hqdefault.jpg" alt="">
+          <button class="play-btn" type="button" data-video-id="gl3vkApW7ug" data-video-title="Showreel — Elvis & classics" aria-label="Play showreel"><span class="play-disc">▶</span></button>
         </div>
-        <div class="row-2">
-          <label>Postcode <input name="postcode" autocomplete="postal-code" required></label>
-          <label>Make / model <input name="vehicle" required></label>
+        <p><a href="https://www.youtube.com/watch?v=gl3vkApW7ug" rel="noopener noreferrer">This recording</a> · <a href="https://www.youtube.com/@JakeEssex" rel="noopener noreferrer">Full YouTube channel</a></p>
+      </div>
+      <div data-panel="falling" hidden>
+        <div class="video-embed">
+          <img src="https://i.ytimg.com/vi/jmY_l8Een0c/hqdefault.jpg" alt="">
+          <button class="play-btn" type="button" data-video-id="jmY_l8Een0c" data-video-title="Can’t Help Falling In Love" aria-label="Play Can’t Help Falling In Love"><span class="play-disc">▶</span></button>
         </div>
-        <fieldset class="job-types">
-          <legend>What’s needed</legend>
-          <div class="chips">
-            <label class="chip"><input type="radio" name="job" value="Service" required> Service</label>
-            <label class="chip"><input type="radio" name="job" value="Brakes"> Brakes</label>
-            <label class="chip"><input type="radio" name="job" value="Diag"> Diag</label>
-            <label class="chip"><input type="radio" name="job" value="Other"> Other</label>
-          </div>
-        </fieldset>
-        <label>Notes <textarea name="issue" placeholder="Anything else — optional."></textarea></label>
-        <button class="btn btn-ghost" type="submit">Send vehicle enquiry</button>
-      </form>
-      <div class="form-status" id="vehicle-status" hidden><p>Enquiry sent. If you don’t hear back, email <a href="mailto:jakeessexenquiries@gmail.com">jakeessexenquiries@gmail.com</a>.</p></div>
-      <p style="margin-top:2rem"><a href="/">Back to the music</a></p>
+        <p><a href="https://www.youtube.com/watch?v=jmY_l8Een0c" rel="noopener noreferrer">This recording</a></p>
+      </div>
     </div>
+
+  <div class="cta-band">
+    <div class="cta-inner">
+      <p>Dates are open. Send the night you want.</p>
+      <a class="btn" href="/book.html">Book a date</a>
+    </div>
+  </div>
+
   </main>
   <footer>
     <div class="foot">
