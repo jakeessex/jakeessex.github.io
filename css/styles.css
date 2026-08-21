@@ -97,8 +97,34 @@ a:hover { color: var(--cream); }
 }
 .nav-cta:hover { background: var(--gold-2); color: var(--ink) !important; }
 
+.header-socials {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+.header-socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  min-height: 36px;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--gold-line);
+  color: var(--gold-2) !important;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+}
+.header-socials a:hover {
+  border-color: var(--gold);
+  background: rgba(197,161,90,0.12);
+  color: var(--cream) !important;
+}
+
 @media (max-width: 720px) {
-  .nav a:not(.nav-cta) { display: none; }
+  .nav a:not(.nav-cta):not(.header-socials a) { display: none; }
+  .header-socials { gap: 0.4rem; }
 }
 
 /* Hero — full-bleed landscape curtain shot, Jake on the right */
@@ -229,9 +255,11 @@ p.plain { color: var(--cream); }
 }
 
 /* Video block */
-
 .video { padding: clamp(1.5rem, 4vw, 2.5rem) var(--pad) 1.25rem; background: #000; }
 .video-wrap { max-width: var(--max); }
+.video-heading {
+  margin-bottom: 1rem;
+}
 .video-embed {
   position: relative;
   width: 100%;
@@ -247,6 +275,15 @@ p.plain { color: var(--cream); }
   height: 100%;
   border: 0;
 }
+.video-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.25rem;
+  margin: 1rem 0 0;
+  font-size: 0.9rem;
+}
+.video-links a { color: var(--cream-dim); text-decoration: none; }
+.video-links a:hover { color: var(--gold-2); }
 
 .cta-band {
   display: flex;
@@ -292,6 +329,29 @@ p.plain { color: var(--cream); }
   text-transform: uppercase;
   color: var(--muted);
   margin-top: 0.55rem;
+}
+.about-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.2rem;
+  margin-top: 1.4rem;
+}
+.about-socials a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid var(--gold-line);
+  color: var(--gold-2);
+  text-decoration: none;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.about-socials a:hover {
+  border-color: var(--gold);
+  background: rgba(197,161,90,0.12);
+  color: var(--cream);
 }
 
 /* Show / packages */
