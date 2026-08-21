@@ -12,16 +12,19 @@
     return "/images/studio-gold.jpg";
   }
   function href(r) {
-    return r.source === "facebook"
-      ? "https://www.facebook.com/itsjakeessex/videos/" + r.videoId + "/"
-      : "https://www.youtube.com/watch?v=" + r.videoId;
+    if (r.source === "file" && r.src) return r.src;
+    if (r.source === "facebook") return "https://www.facebook.com/itsjakeessex/videos/" + r.videoId + "/";
+    return "https://www.youtube.com/watch?v=" + r.videoId;
   }
   function frame(r) {
+    if (r.source === "file" && r.src) {
+      return '<video id="player-clip" controls playsinline webkit-playsinline autoplay preload="auto" poster="'+poster(r)+'" src="'+r.src+'?v=2" style="display:block;margin:0 auto;max-height:62vh;width:auto;max-width:100%;background:#070707"></video>';
+    }
     if (r.source === "facebook") {
       var u = encodeURIComponent(href(r));
       return '<iframe title="'+r.song+'" src="https://www.facebook.com/plugins/video.php?href='+u+'&show_text=false&width=500" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe><p class="avail">If the film doesn’t load here, <a href="'+href(r)+'" rel="noopener noreferrer" target="_blank">open it on Facebook</a>.</p>';
     }
-    return '<iframe title="'+r.song+'" src="https://www.youtube-nocookie.com/embed/'+r.videoId+'?autoplay=1&rel=0&modestbranding=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+    return '<iframe title="'+r.song+'" src="https://www.youtube-nocookie.com/embed/'+r.videoId+'?autoplay=1&rel=0&modestbranding=1&playsinline=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
   }
 
   var bar = document.getElementById("player");
@@ -29,6 +32,59 @@
   var art = document.getElementById("player-art");
   var songEl = document.getElementById("player-song");
   var origEl = document.getElementById("player-orig");
+  var clip = document.getElementById("wanderer-clip");
+  var hit = document.getElementById("wanderer-hit");
+
+  function hideHit() {
+    if (hit) {
+      hit.hidden = true;
+      hit.classList.remove("is-loading");
+    }
+  }
+  function showHit() {
+    if (hit) {
+      hit.hidden = false;
+      hit.classList.remove("is-loading");
+    }
+  }
+
+  if (clip) {
+    clip.setAttribute("playsinline", "true");
+    clip.setAttribute("webkit-playsinline", "true");
+    clip.addEventListener("playing", hideHit);
+    clip.addEventListener("play", function () {
+      if (hit) hit.classList.add("is-loading");
+    });
+    clip.addEventListener("pause", function () {
+      if (clip.ended || clip.currentTime < 0.25) showHit();
+    });
+    clip.addEventListener("ended", showHit);
+  }
+
+  function startWanderer() {
+    if (!clip || !clip.play) {
+      play("wanderer");
+      return;
+    }
+    clip.scrollIntoView({ behavior: "smooth", block: "center" });
+    if (hit) hit.classList.add("is-loading");
+    var p = clip.play();
+    if (p && p.then) {
+      p.then(hideHit).catch(function () { play("wanderer"); });
+    } else {
+      hideHit();
+    }
+  }
+
+  function kickPlayerClip() {
+    var v = document.getElementById("player-clip");
+    if (v && v.play) {
+      v.setAttribute("playsinline", "true");
+      v.setAttribute("webkit-playsinline", "true");
+      var p = v.play();
+      if (p && p.catch) p.catch(function () {});
+    }
+  }
 
   function render() {
     var r = current ? byId[current] : null;
@@ -46,6 +102,7 @@
     if (expanded) {
       stage.hidden = false;
       stage.innerHTML = frame(r);
+      kickPlayerClip();
     } else {
       stage.hidden = true;
       stage.innerHTML = "";
@@ -62,6 +119,7 @@
     render();
     if (bar) bar.scrollIntoView({ block: "end" });
   }
+
   function step(dir) {
     if (!current || !queue.length) return;
     var i = queue.indexOf(current);
@@ -120,6 +178,20 @@
     });
     mount.innerHTML = html;
   }
+
+  document.querySelectorAll("[data-play-wanderer]").forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      startWanderer();
+    });
+  });
+  if (hit) {
+    hit.addEventListener("click", function (e) {
+      e.preventDefault();
+      startWanderer();
+    });
+  }
+
   mountVault();
   mountWall();
 })();

@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/styles.css?v=2">
   <title>Jake Essex — Rock ’n’ Roll from Essex</title>
   <meta name="description" content="Classic 50s & 60s rock ’n’ roll from Essex. Himself — not a tribute. Play The Wanderer, open the vault, book a date.">
   <meta property="og:title" content="Jake Essex — Rock ’n’ Roll from Essex">
@@ -58,7 +58,7 @@
         <h1>JAKE ESSEX</h1>
         <p class="lede">Classic 50s & 60s rock ’n’ roll. Himself — not a tribute.</p>
         <div class="hero-actions">
-          <button class="btn" type="button" data-play="wanderer">Play The Wanderer</button>
+          <button class="btn" type="button" data-play-wanderer>Play The Wanderer</button>
           <a class="btn btn-ghost" href="/listen.html">Open the vault</a>
         </div>
         <p class="avail">27 recordings online. Hundreds more in the room.</p>
@@ -68,14 +68,18 @@
       <p class="section-label">Latest</p>
       <h2>The Wanderer</h2>
       <hr class="gold-rule">
-      <div class="featured-grid">
-        <button class="featured-play" type="button" data-play="wanderer" aria-label="Play The Wanderer">
-          <img src="/images/studio-gold.jpg" alt="">
-          <span class="play-disc-wrap"><span class="play-disc">▶</span></span>
-          <span class="featured-cap">Dion · 2026 · 2:41</span>
-        </button>
+      <div class="featured-grid featured-grid-vert">
+        <div class="wanderer-stage">
+          <video id="wanderer-clip" controls playsinline webkit-playsinline preload="auto" poster="/images/wanderer.jpg" src="/videos/wanderer.mp4?v=2">
+            Your browser can’t play this film.
+          </video>
+          <button type="button" class="wanderer-hit" id="wanderer-hit" aria-label="Play The Wanderer">
+            <span class="play-disc">▶</span>
+            <span class="wanderer-load">Loading the film…</span>
+          </button>
+        </div>
         <div>
-          <p class="plain">Recent. One of his favourite songs to sing. Dion, 1961. Press play — it opens in the bar at the bottom, then skip through the vault.</p>
+          <p class="plain">Recent. One of his favourite songs to sing. Dion, 1961. Tap the gold disc — the film plays on this page, with sound.</p>
           <p class="more-link"><a href="/listen.html">The rest of the vault</a></p>
         </div>
       </div>
@@ -141,8 +145,8 @@
       </div>
     </div>
   </div>
-  <script src="/js/recordings.js"></script>
-  <script src="/js/player.js"></script>
+  <script src="/js/recordings.js?v=2"></script>
+  <script src="/js/player.js?v=2"></script>
   <script src="/js/main.js"></script>
 </body>
 </html>
