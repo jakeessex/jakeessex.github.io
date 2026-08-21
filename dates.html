@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dates — Jake Essex</title>
+  <meta name="description" content="Every room Jake Essex has sung, an all-time gig count, and upcoming public shows across Essex, London and Kent.">
+  <meta name="theme-color" content="#070707">
+  <meta property="og:title" content="Dates — Jake Essex">
+  <meta property="og:description" content="Every room so far, and the next public dates.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jakeessex.co.uk/dates.html">
+  <meta property="og:image" content="https://jakeessex.co.uk/images/showtime/stage-sequins.jpg">
+  <link rel="canonical" href="https://jakeessex.co.uk/dates.html">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect fill='%23070707' width='64' height='64'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Georgia' font-size='22' fill='%23c5a15a'%3EJE%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css?v=3">
+  <link rel="stylesheet" href="/vendor/leaflet/leaflet.css">
+</head>
+<body>
+  <a class="skip" href="/listen.html">Skip to the vault</a>
+  <header class="site-header">
+    <div class="header-row">
+      <a class="wordmark" href="/">JAKE ESSEX</a>
+      <nav class="nav-desktop" aria-label="Primary">
+        <a href="/listen.html">Listen</a>
+        <a href="/photos.html">Photos</a>
+        <a href="/dates.html" class="is-active">Dates</a>
+        <a href="/reviews.html">Reviews</a>
+        <a href="/show.html">The show</a>
+        <a class="nav-cta" href="/book.html">Book a date</a>
+      </nav>
+      <div class="nav-mobile-actions">
+        <button class="menu-btn" type="button" id="menu-btn" aria-expanded="false" aria-controls="mobile-nav">Menu</button>
+        <a class="nav-cta" href="/book.html">Book</a>
+      </div>
+    </div>
+    <nav class="nav-drawer" id="mobile-nav" aria-label="Mobile">
+      <a href="/listen.html">Listen</a>
+      <a href="/watch.html">Watch</a>
+      <a href="/photos.html">Photos</a>
+      <a href="/dates.html" class="is-active">Dates</a>
+      <a href="/reviews.html">Reviews</a>
+      <a href="/show.html">The show</a>
+      <a href="/about.html">About</a>
+      <a href="/book.html">Book a date</a>
+    </nav>
+  </header>
+  <main>
+    <div class="wrap page-intro dates-head">
+      <div>
+        <p class="section-label">On the road</p>
+        <h1>Every room so far</h1>
+        <hr class="gold-rule">
+        <p class="plain">Clubs, pubs and private rooms across Essex, London, Kent and further out. Each pin is a place he’s actually sung.</p>
+      </div>
+      <div class="gig-count" id="gig-count">
+        <p class="section-label">All-time gigs</p>
+        <p class="gig-num" id="gig-num">101</p>
+        <p class="plain">and counting</p>
+      </div>
+    </div>
+    <div id="gig-map" role="img" aria-label="Map of every venue Jake Essex has sung"></div>
+    <p class="map-active wrap" id="map-active" hidden></p>
+
+    <div class="wrap page-intro">
+      <p class="section-label">Coming up</p>
+      <h2>Upcoming shows</h2>
+      <hr class="gold-rule">
+      <p class="plain">Public dates. Private functions stay off the list.</p>
+      <ul class="date-list" id="date-list"></ul>
+    </div>
+
+    <div class="cta-band">
+      <div class="cta-inner">
+        <p>Want a room on this map?</p>
+        <a class="btn" href="/book.html">Book a date</a>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="foot">
+      <p class="company">JAKE ESSEX MUSIC LTD · Company no. 16455536</p>
+      <div class="hero-socials footer-socials">
+        <a href="https://www.instagram.com/jakeessexmusic" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.tiktok.com/@itsjakeessex" rel="noopener noreferrer">TikTok</a>
+        <a href="https://www.youtube.com/@JakeEssex" rel="noopener noreferrer">YouTube</a>
+        <a href="https://www.facebook.com/itsjakeessex" rel="noopener noreferrer">Facebook</a>
+      </div>
+    </div>
+    <p class="foot-quiet"><a href="/listen.html">The vault</a> · <a href="/photos.html">Photos</a> · <a href="/dates.html">Dates</a> · <a href="/reviews.html">Reviews</a> · <a href="/mechanic.html">Also a mobile mechanic</a> · <a href="mailto:jakeessexenquiries@gmail.com">jakeessexenquiries@gmail.com</a></p>
+  </footer>
+  <script src="/js/main.js"></script>
+  <script src="/js/gigs.js"></script>
+  <script src="/vendor/leaflet/leaflet.js"></script>
+  <script>
+    (function () {
+      var data = window.JAKE_GIGS;
+      if (!data) return;
+      var num = document.getElementById("gig-num");
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (num && !reduce) {
+        var target = data.count, started = false;
+        function run() {
+          if (started) return;
+          started = true;
+          var t0 = performance.now();
+          function tick(now) {
+            var t = Math.min(1, (now - t0) / 1400);
+            num.textContent = String(Math.round(target * (1 - Math.pow(1 - t, 3))));
+            if (t < 1) requestAnimationFrame(tick);
+          }
+          num.textContent = "0";
+          requestAnimationFrame(tick);
+        }
+        if ("IntersectionObserver" in window) {
+          var io = new IntersectionObserver(function (entries) {
+            if (entries[0] && entries[0].isIntersecting) run();
+          }, { threshold: 0.2 });
+          io.observe(num);
+        } else run();
+      }
+
+      var mapEl = document.getElementById("gig-map");
+      var activeEl = document.getElementById("map-active");
+      var map = L.map(mapEl, { scrollWheelZoom: false });
+      L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+        attribution: "&copy; OpenStreetMap &copy; CARTO",
+        subdomains: "abcd",
+        maxZoom: 18
+      }).addTo(map);
+      var bounds = [];
+      data.venues.forEach(function (v) {
+        bounds.push([v.lat, v.lng]);
+        var m = L.circleMarker([v.lat, v.lng], {
+          radius: 5, color: "#efe6d4", weight: 1, fillColor: "#c5a15a", fillOpacity: 0.95
+        }).addTo(map);
+        m.bindTooltip(v.name + "<br>" + v.town, { direction: "top", opacity: 1, className: "gig-tip" });
+        m.on("click", function () {
+          activeEl.hidden = false;
+          activeEl.innerHTML = "<strong>" + v.name + "</strong> · " + v.town;
+          map.setView([v.lat, v.lng], 11);
+        });
+      });
+      map.fitBounds(bounds, { padding: [28, 28], maxZoom: 9 });
+      setTimeout(function () { map.invalidateSize(); map.fitBounds(bounds, { padding: [28, 28], maxZoom: 9 }); }, 200);
+
+      var list = document.getElementById("date-list");
+      var today = "2026-08-22";
+      data.upcoming.filter(function (g) { return g.date >= today; }).forEach(function (g) {
+        var li = document.createElement("li");
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "date-row";
+        btn.innerHTML = "<span class=\"when\">" + g.when + "</span><span class=\"where\">" + g.venue + "</span><span class=\"town\">" + g.town + " · " + g.time + "</span>";
+        btn.addEventListener("click", function () {
+          var v = data.venues.filter(function (x) { return x.name === g.venue || x.town === g.town; })[0];
+          if (v) {
+            activeEl.hidden = false;
+            activeEl.innerHTML = "<strong>" + v.name + "</strong> · " + v.town;
+            map.setView([v.lat, v.lng], 11);
+            mapEl.scrollIntoView({ behavior: "smooth" });
+          }
+        });
+        li.appendChild(btn);
+        list.appendChild(li);
+      });
+    })();
+  </script>
+</body>
+</html>
