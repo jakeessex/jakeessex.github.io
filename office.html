@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#070707">
+  <title>Office — Jake Essex</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect fill='%23070707' width='64' height='64'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Georgia' font-size='22' fill='%23c5a15a'%3EJE%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css?v=3">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-row">
+      <a class="wordmark" href="/">JAKE ESSEX</a>
+    </div>
+  </header>
+  <main>
+    <div class="wrap page-intro">
+      <p class="section-label">Private</p>
+      <h1>Office</h1>
+      <hr class="gold-rule">
+      <form id="gate" class="review-form">
+        <label>Password
+          <input id="pw" type="password" autocomplete="current-password" required>
+        </label>
+        <button class="btn" type="submit">Open</button>
+        <p class="plain" id="gate-err" hidden>Not that one.</p>
+      </form>
+      <div id="stats" hidden>
+        <p class="plain">Page views since Saturday 22 Aug 2026. One count per page, per visit, in a browser session — not unique people. Nothing is shown on the public site.</p>
+        <div class="gig-count" style="margin:1.5rem 0 2rem">
+          <p class="section-label">All pages</p>
+          <p class="gig-num" id="total">—</p>
+        </div>
+        <h2>Last 14 days</h2>
+        <ul class="date-list" id="days"></ul>
+        <h2 style="margin-top:2.5rem">By page</h2>
+        <ul class="date-list" id="pages"></ul>
+      </div>
+    </div>
+  </main>
+  <script>
+    (function () {
+      var NS = "jem338ec24154f1667e";
+      var HASH = "1ed55d156abef4859fb1225541a4a87da96ae400461361f40d5f87906f055129";
+      var PAGES = [
+        ["home", "Home"],
+        ["listen", "Listen"],
+        ["watch", "Watch"],
+        ["photos", "Photos"],
+        ["dates", "Dates"],
+        ["reviews", "Reviews"],
+        ["show", "The show"],
+        ["about", "About"],
+        ["book", "Book"],
+        ["songs", "Songs"],
+        ["mechanic", "Mechanic"]
+      ];
+      function hex(buf) {
+        return Array.from(new Uint8Array(buf)).map(function (b) { return b.toString(16).padStart(2, "0"); }).join("");
+      }
+      function get(key) {
+        return fetch("https://abacus.jasoncameron.dev/get/" + NS + "/" + key, { cache: "no-store" })
+          .then(function (r) { return r.ok ? r.json() : { value: 0 }; })
+          .then(function (j) { return Number(j && j.value) || 0; })
+          .catch(function () { return 0; });
+      }
+      document.getElementById("gate").addEventListener("submit", function (e) {
+        e.preventDefault();
+        var pw = document.getElementById("pw").value;
+        crypto.subtle.digest("SHA-256", new TextEncoder().encode(pw)).then(function (buf) {
+          if (hex(buf) !== HASH) {
+            document.getElementById("gate-err").hidden = false;
+            return;
+          }
+          document.getElementById("gate").hidden = true;
+          document.getElementById("stats").hidden = false;
+          load();
+        });
+      });
+      function load() {
+        get("all").then(function (n) { document.getElementById("total").textContent = String(n); });
+        var days = document.getElementById("days");
+        var now = new Date();
+        var dayJobs = [];
+        for (var i = 0; i < 14; i++) {
+          var d = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() - i));
+          var iso = d.toISOString().slice(0, 10);
+          dayJobs.push(get("d-" + iso).then(function (iso, n) { return { iso: iso, n: n }; }.bind(null, iso)));
+        }
+        Promise.all(dayJobs).then(function (rows) {
+          rows.forEach(function (row) {
+            var li = document.createElement("li");
+            li.innerHTML = '<div class="date-row"><span class="when">' + row.iso + '</span><span class="where">' + row.n + '</span></div>';
+            days.appendChild(li);
+          });
+        });
+        var list = document.getElementById("pages");
+        PAGES.forEach(function (pair) {
+          get("p-" + pair[0]).then(function (n) {
+            var li = document.createElement("li");
+            li.innerHTML = '<div class="date-row"><span class="when">' + pair[1] + '</span><span class="where">' + n + '</span></div>';
+            list.appendChild(li);
+          });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

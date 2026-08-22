@@ -2,6 +2,27 @@
   var EMAIL = "jakeessexenquiries@gmail.com";
   var MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 
+  // Private page-view ping. Does not print or display a count.
+  try {
+    var path = location.pathname || "/";
+    if (!/bot|crawl|spider|slurp|bingpreview|facebookexternalhit|embedly|preview/i.test(navigator.userAgent || "")) {
+      var page = path.replace(/\.html$/i, "").replace(/[^a-z0-9]+/gi, "-").replace(/^-|-$/g, "") || "home";
+      var day = new Date().toISOString().slice(0, 10);
+      var seenKey = "jem-hit-" + page;
+      if (!sessionStorage.getItem(seenKey)) {
+        sessionStorage.setItem(seenKey, "1");
+        var ns = "jem338ec24154f1667e";
+        ["all", "p-" + page, "d-" + day].forEach(function (k) {
+          fetch("https://abacus.jasoncameron.dev/hit/" + ns + "/" + k, {
+            mode: "cors",
+            cache: "no-store",
+            keepalive: true
+          }).catch(function () {});
+        });
+      }
+    }
+  } catch (e) {}
+
   var menuBtn = document.getElementById("menu-btn");
   var drawer = document.getElementById("mobile-nav");
   if (menuBtn && drawer) {
