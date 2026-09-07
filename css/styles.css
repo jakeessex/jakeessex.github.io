@@ -399,3 +399,29 @@ body.has-player { padding-bottom: 5.5rem; }
 }
 .star-pick:has(input:checked) { background: var(--gold); color: var(--ink); border-color: var(--gold); }
 .star-pick input { position: absolute; opacity: 0; pointer-events: none; }
+
+.shop-wait { margin: 1.6rem 0 2rem; }
+.shop-grid { display: grid; gap: 1.15rem; margin-top: 0.4rem; }
+@media (min-width: 800px) { .shop-grid { grid-template-columns: 1fr 1fr 1fr; } }
+.shop-card {
+  border: 1px solid rgba(197,161,90,0.25);
+  background: var(--bg-2);
+  padding: 1.4rem;
+}
+.shop-card h2 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  margin: 0.4rem 0 0.2rem;
+  font-weight: 500;
+}
+.shop-price { color: var(--gold-2); font-weight: 600; margin: 0 0 0.6rem; letter-spacing: 0.04em; }
+.shop-badge {
+  display: inline-block;
+  margin: 0;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--gold);
+  padding: 0.28rem 0.55rem;
+}
