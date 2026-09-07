@@ -425,3 +425,28 @@ body.has-player { padding-bottom: 5.5rem; }
   background: var(--gold);
   padding: 0.28rem 0.55rem;
 }
+
+.design-grid { display: grid; gap: 1.15rem; }
+@media (min-width: 800px) {
+  .design-grid { grid-template-columns: 1fr 1fr; }
+  .design-hero { grid-column: span 1; }
+}
+.design-card {
+  border: 1px solid rgba(197,161,90,0.25);
+  background: var(--bg-2);
+  padding: 0 0 1.2rem;
+}
+.design-card img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; background: #000; }
+.design-card .shop-badge { margin: 1rem 1.2rem 0; }
+.design-card h2 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  margin: 0.55rem 1.2rem 0.2rem;
+  font-weight: 500;
+}
+.design-card .plain { margin: 0 1.2rem 0.4rem; }
+.design-on { margin: 0 1.2rem; color: var(--gold-2); font-size: 0.88rem; letter-spacing: 0.04em; }
+.shop-card img { width: 100%; margin: 0 0 1rem; background: #000; }
+.shop-wait { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+.shop-faq { margin: 1.6rem 0 0; padding: 0; list-style: none; color: var(--muted); }
+.shop-faq li { margin: 0 0 0.35rem; }
