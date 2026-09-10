@@ -526,5 +526,13 @@ body.has-player { padding-bottom: 5.5rem; }
 
 
 /* EWW badge — unused on the public footer, kept if a page still calls it */
-.eww-badge { display: none; }
+.eww-badge {
+  display: inline-flex;
+  margin: 0.2rem 0 0;
+  opacity: 0.92;
+  padding: 0;
+}
+.eww-badge:hover { opacity: 1; }
+.eww-badge img { display: block; width: 180px; height: auto; margin: 0 auto; }
+
 
