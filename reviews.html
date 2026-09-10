@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/styles.css?v=3">
+  <link rel="stylesheet" href="/css/styles.css?v=5">
 </head>
 <body>
   <a class="skip" href="/listen.html">Skip to the vault</a>
@@ -27,7 +27,6 @@
         <a href="/listen.html">Listen</a>
         <a href="/photos.html">Photos</a>
         <a href="/dates.html">Dates</a>
-        <a href="/shop.html">Shop</a>
         <a href="/reviews.html" class="is-active">Reviews</a>
         <a href="/show.html">The show</a>
         <a class="nav-cta" href="/book.html">Book a date</a>
@@ -42,7 +41,6 @@
       <a href="/watch.html">Watch</a>
       <a href="/photos.html">Photos</a>
       <a href="/dates.html">Dates</a>
-      <a href="/shop.html">Shop</a>
       <a href="/reviews.html" class="is-active">Reviews</a>
       <a href="/show.html">The show</a>
       <a href="/about.html">About</a>
@@ -54,42 +52,11 @@
       <p class="section-label">From the room</p>
       <h1>Reviews</h1>
       <hr class="gold-rule">
-      <p class="plain">Named rooms. Real nights. Booked the show? Leave one at the bottom.</p>
+      <p class="plain">Named rooms. Real nights. Booked the show? Leave one at the bottom — it comes straight to Jake, no copy and paste.</p>
     </div>
     <section class="reviews">
       <div class="wrap">
-        <div class="review-grid">
-          <article class="review">
-            <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
-            <p>“Great performance at Chadwell Working Men’s Club. Jake sang a lot of Elvis and we all like Elvis here. He’s very humble and always puts on a great show for us.”</p>
-            <p class="review-meta">Jenny · Encore</p>
-          </article>
-          <article class="review">
-            <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
-            <p>“Jake is a regular at The Ship in Aveley. He has gained a big following down here and the regulars always come down when he is performing. We like the Elvis and the Johnny Cash numbers that he does.”</p>
-            <p class="review-meta">Tony B · Encore</p>
-          </article>
-          <article class="review">
-            <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
-            <p>“I saw Jake perform in London. His different style is amazing, and unique for a man of his age. He’s a very funny guy and entertains the crowd well.”</p>
-            <p class="review-meta">Booker · London</p>
-          </article>
-          <article class="review">
-            <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
-            <p>“Best reaction we’ve had in months. The room was properly up the whole night.”</p>
-            <p class="review-meta">Pub manager · Essex</p>
-          </article>
-          <article class="review">
-            <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
-            <p>“The room stayed up the whole night. Proper job — will book again.”</p>
-            <p class="review-meta">Private party · Kent</p>
-          </article>
-          <article class="review">
-            <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
-            <p>“Not your usual tribute. High energy, continuous flow, and the shape of the show really works.”</p>
-            <p class="review-meta">Function room · London</p>
-          </article>
-        </div>
+        <div class="review-grid" id="review-grid"></div>
         <h2 style="margin-top:3rem">Regular rooms</h2>
         <p class="plain">Named rooms, not anonymous quotes.</p>
         <ul class="chips">
@@ -105,13 +72,16 @@
       <p class="section-label">Your turn</p>
       <h2>Leave a review</h2>
       <hr class="gold-rule">
-      <p class="plain">Booked the show? Tell the next room what it was like. It comes straight to Jake.</p>
+      <p class="plain">Booked the show? Tell the next room what it was like. Send it here — it lands in Jake’s inbox and goes on this page once he’s seen it.</p>
       <form class="review-form" id="review-form">
         <label>Your name
           <input name="who" required minlength="2" maxlength="60" autocomplete="name">
         </label>
         <label>Venue or town
           <input name="place" maxlength="80" placeholder="e.g. The Ship, Aveley">
+        </label>
+        <label>Email <span class="optional">(so he can say thanks)</span>
+          <input name="email" type="email" autocomplete="email" maxlength="120">
         </label>
         <fieldset class="star-field">
           <legend>Stars</legend>
@@ -126,8 +96,14 @@
         <label>Review
           <textarea name="quote" required minlength="10" maxlength="600" rows="5"></textarea>
         </label>
+        <input class="gotcha" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
         <button class="btn" type="submit">Send review</button>
+        <p class="form-error" id="review-error" hidden></p>
       </form>
+      <div class="form-status" id="review-status" hidden>
+        <p><strong>Got it.</strong></p>
+        <p>Jake reads every one. It goes up on this page once he’s seen it.</p>
+      </div>
     </section>
 
     <div class="cta-band">
@@ -139,34 +115,18 @@
   </main>
   <footer>
     <div class="foot">
-      <p class="company">JAKE ESSEX MUSIC LTD · Company no. 16455536</p>
       <div class="hero-socials footer-socials">
         <a href="https://www.instagram.com/jakeessexmusic" rel="noopener noreferrer">Instagram</a>
         <a href="https://www.tiktok.com/@itsjakeessex" rel="noopener noreferrer">TikTok</a>
         <a href="https://www.youtube.com/@JakeEssex" rel="noopener noreferrer">YouTube</a>
         <a href="https://www.facebook.com/itsjakeessex" rel="noopener noreferrer">Facebook</a>
       </div>
+      <p class="foot-quiet"><a href="/listen.html">The vault</a> · <a href="/photos.html">Photos</a> · <a href="/dates.html">Dates</a> · <a href="/reviews.html">Reviews</a> · <a href="/show.html">The show</a> · <a href="/book.html">Enquire</a></p>
+      <p class="company">JAKE ESSEX MUSIC LTD<br><span class="company-no">Company no. 16455536</span></p>
     </div>
-    <p class="foot-quiet"><a href="/listen.html">The vault</a> · <a href="/photos.html">Photos</a> · <a href="/dates.html">Dates</a> · <a href="/shop.html">Shop</a> · <a href="/reviews.html">Reviews</a> · <a href="/mechanic.html">Also a mobile mechanic</a> · <a href="mailto:jakeessexenquiries@gmail.com">jakeessexenquiries@gmail.com</a></p>
-      <a class="eww-badge" href="https://www.entertainersworldwide.com/jake-essex-profile-87262" title="View Jake Essex - Male Singer Profile" target="_blank" rel="noopener noreferrer"><img src="https://www.entertainersworldwide.com/profile-badge/87262/registered-dark.png" alt="Jake Essex - Male Singer for hire at Entertainers Worldwide" width="180" loading="lazy" /></a>
-</footer>
-  <script src="/js/main.js"></script>
-  <script>
-    (function () {
-      var form = document.getElementById("review-form");
-      if (!form) return;
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        var who = form.who.value.trim();
-        var place = form.place.value.trim();
-        var stars = form.stars.value;
-        var quote = form.quote.value.trim();
-        var body = "Name: " + who + "\nVenue / town: " + (place || "—") + "\nStars: " + stars + "/5\n\n" + quote;
-        var href = "mailto:jakeessexenquiries@gmail.com?subject=" + encodeURIComponent("Review — " + who) + "&body=" + encodeURIComponent(body);
-        window.location.href = href;
-      });
-    })();
-  </script>
+  </footer>
+  <script src="/js/reviews.js?v=1"></script>
+  <script src="/js/main.js?v=2"></script>
 </body>
 </html>
 

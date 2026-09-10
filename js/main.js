@@ -135,4 +135,42 @@
       }).catch(function () { openMail("Vehicle enquiry — Jake Essex", body); });
     });
   }
+
+  var review = document.getElementById("review-form");
+  if (review) {
+    review.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (val(review, "_gotcha")) return;
+      var err = document.getElementById("review-error");
+      var status = document.getElementById("review-status");
+      var who = val(review, "who");
+      var place = val(review, "place");
+      var email = val(review, "email");
+      var stars = val(review, "stars") || "5";
+      var quote = val(review, "quote");
+      if (!who || !quote) {
+        if (err) { err.hidden = false; err.textContent = "Name and a few sentences, then send."; }
+        return;
+      }
+      var body = ["Name: " + who, "Venue / town: " + (place || "—"), "Stars: " + stars + "/5", "Email: " + (email || "—"), "", quote].join("\n");
+      var payload = {
+        name: who,
+        email: email || EMAIL,
+        _subject: "Review — " + who,
+        _captcha: "false",
+        message: body
+      };
+      fetch("https://formsubmit.co/ajax/" + EMAIL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(payload)
+      }).then(function (r) {
+        if (!r.ok) throw new Error("fail");
+        review.hidden = true;
+        if (status) status.hidden = false;
+      }).catch(function () {
+        openMail("Review — " + who, body);
+      });
+    });
+  }
 })();

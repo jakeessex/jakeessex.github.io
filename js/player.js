@@ -161,7 +161,7 @@
     list.forEach(function (r) {
       html += '<button type="button" class="track" data-play="'+r.id+'" data-track="'+r.id+'">'
         + '<img src="'+poster(r)+'" alt="">'
-        + '<span><strong>'+r.song+'</strong><span>'+r.original+(r.year?(" · "+r.year):"")+(r.kind==="short"?" · clip":"")+'</span></span>'
+        + '<span><strong>'+r.song+'</strong><span>'+r.original+(r.year?(" · "+r.year):"")+'</span></span>'
         + '</button>';
     });
     mount.innerHTML = html;
