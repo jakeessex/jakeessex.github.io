@@ -2,138 +2,20 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta http-equiv="refresh" content="0;url=/natalie-live-board/"/>
+<link rel="canonical" href="https://jakeessex.co.uk/natalie-live-board/"/>
 <meta name="robots" content="noindex,nofollow"/>
-<meta name="apple-mobile-web-app-capable" content="yes"/>
-<meta name="theme-color" content="#140e0a"/>
 <title>Jake Essex Board</title>
 <style>
-:root{
-  --bg:#140e0a;--surface:#1e1510;--raised:#2a1d16;--fg:#f8f0e4;--muted:#c4b3a0;
-  --subtle:#8f7d6c;--border:#3a2b22;--line:#2c2018;--accent:#e8b84a;--accent-fg:#1a120c;
-  --call:#2ee59a;--call-fg:#062416;--us:#243044;--them:#2a2218;--danger:#ff7a6e;
-  --booked:#7dffb2;--warn:#ffb45a;--chase:#5cc8ff;--stale:#ff8a7a;
-}
-*{box-sizing:border-box}
-html,body{margin:0;background:var(--bg);color:var(--fg);font-family:Segoe UI,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-button,input,textarea{font:inherit}
-button{cursor:pointer}
-#gate{min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:24px}
-#gate.ok{display:none}
-.box{width:100%;max-width:340px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:24px}
-.kicker{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px;font-weight:700}
-h1{font-size:22px;margin:0 0 8px;font-weight:600}
-.lede{color:var(--muted);font-size:14px;line-height:1.5;margin:0 0 18px}
-input[type=password],input[type=search],input:not([type]),textarea{
-  width:100%;padding:14px;border-radius:12px;border:1px solid var(--border);
-  background:var(--raised);color:var(--fg);font-size:16px
-}
-#go,.primary{width:100%;padding:14px;border:0;border-radius:12px;background:var(--accent);color:var(--accent-fg);font-weight:800;font-size:16px;margin-top:12px}
-.err{color:var(--danger);font-size:13px;min-height:18px;margin:8px 0 0}
-#app{display:none}#app.show{display:block}
-header{position:relative;background:var(--bg);border-bottom:1px solid var(--line);padding:12px 14px 12px}
-#detail header.thin{position:sticky;top:0;z-index:20;background:rgba(20,14,10,.96);border-bottom:1px solid var(--line);padding:10px 14px;backdrop-filter:blur(10px)}
-.headrow{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
-.cash-ticker{display:flex;width:100%;align-items:center;justify-content:space-between;gap:8px;margin-top:12px;background:linear-gradient(135deg,#3a2a12,#1a140c);border:1px solid #c9a227;border-radius:999px;padding:8px 14px;font-weight:700;color:#f5e6b8;box-shadow:0 0 18px rgba(201,162,39,.25)}
-.cash-amt{font-size:18px;color:#ffd76a}
-.cash-meta{font-size:11px;opacity:.85}
-.cash-break{margin:8px 0 0;padding:10px 12px;border-radius:14px;background:#1a140c;border:1px solid #5a3d20;font-size:13px;line-height:1.45}
-.cash-break b{color:#ffd76a}
-.cash-break .row{display:flex;justify-content:space-between;gap:10px;color:#f3d9a4;margin-top:4px}
-.cash-break .sum{margin-top:8px;padding-top:8px;border-top:1px solid #5a3d20;display:flex;justify-content:space-between;font-weight:800;color:#ffd76a}
-.pend{margin-top:6px;color:#c4b3a0;font-size:12px}
-.pep{margin:10px 0 0;padding:12px 14px;border-radius:14px;background:linear-gradient(135deg,#2a1c12,#1a120c);border:1px solid #5a3d20;color:#f3d9a4;font-size:14px;font-weight:650;line-height:1.35}
-main{padding:14px 14px 140px}
-.count{color:var(--subtle);font-size:13px;margin:0 0 10px}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:22px;padding:16px;margin:0 0 12px}
-.cardtop{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
-.card h2{margin:0;font-size:18px;line-height:1.25;font-weight:650}
-.town{margin:4px 0 0;color:var(--muted);font-size:14px}
-.badge{flex-shrink:0;border-radius:999px;background:var(--raised);color:var(--muted);font-size:11px;font-weight:800;padding:4px 8px}
-.badge.close{background:var(--accent);color:var(--accent-fg)}
-.badge.locked{background:var(--call);color:var(--call-fg)}
-.badge.chase{background:#3a2410;color:var(--warn)}
-.badge.live{background:#102433;color:var(--chase)}
-.who{margin:8px 0 0;font-weight:700}
-.say{margin:10px 0 0;padding:10px 12px;border-radius:12px;background:var(--raised);font-weight:650;line-height:1.35}
-.say span,.fact span{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
-.fact span{color:var(--subtle)}
-.acts{margin-top:12px}
-.acts-pair{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
-.btn,.callbtn{display:flex;align-items:center;justify-content:center;height:52px;border-radius:14px;background:var(--raised);color:var(--fg);font-weight:800;text-decoration:none;border:1px solid var(--border)}
-.btn.call,.callbtn,.btn.full{background:var(--call);color:var(--call-fg);border:0}
-.btn.gold{background:var(--accent);color:var(--accent-fg);border:0}
-.money{margin:8px 0 0;font-weight:800;color:#ffd76a}
-.touch,.quiet{margin:8px 0 0;font-size:13px;color:var(--muted);font-weight:700}
-.quiet.hot{color:var(--stale)}
-.stale-tag{margin:8px 0 0;font-size:11px;font-weight:800;color:var(--stale);letter-spacing:.06em}
-.openbtn{width:100%;margin-top:12px;height:44px;border-radius:12px;border:1px solid var(--border);background:var(--raised);color:var(--fg);font-weight:650}
-.rowbtns{display:flex;gap:8px;margin-top:10px}
-.rowbtns .openbtn{margin-top:0;flex:1}
-.rowbtns input{flex:1}
-#detail{display:none;min-height:100dvh}
-#detail.show{display:block}
-.back{border:0;background:none;color:var(--muted);font-weight:650;padding:4px 0;min-height:44px;display:flex;align-items:center;gap:8px}
-.back span{color:var(--fg);font-weight:650;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.panel{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:16px;margin:14px}
-.bubble{margin:10px 0;padding:12px;border:1px solid var(--border);border-radius:14px}
-.bubble.us{margin-left:16px;background:var(--us)}
-.bubble.them{margin-right:16px;background:var(--them)}
-.bubble.note{background:#1a241c;border-color:#2a3a30}
-.side{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);font-weight:700}
-.meta{color:var(--muted);font-size:12px;margin:4px 0}
-.bubble pre{white-space:pre-wrap;font:14px/1.45 system-ui,sans-serif;margin:8px 0 0}
-.lock{border:0;background:none;color:var(--muted);font-size:14px}
-.empty{color:var(--muted);padding:28px 8px;text-align:center}
-.ver{font-size:12px;color:var(--subtle);margin:10px 0 0}
-.need{margin-top:12px;padding:12px;border-radius:12px;border:1px solid rgba(232,184,74,.4);background:var(--raised)}
-.sheet{position:fixed;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:flex-end;padding:12px;z-index:40}
-.sheetbox{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:22px;padding:16px}
-.fact{margin:8px 0 0;font-size:13px;color:var(--muted);line-height:1.4}
-.email,.replied{margin:8px 0 0;font-size:14px;color:var(--muted);word-break:break-word}
-.search{margin-top:12px}
-.filters{position:fixed;bottom:0;left:0;right:0;z-index:20;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(20,14,10,.96);border-top:1px solid var(--line);backdrop-filter:blur(10px)}
-.filters button{height:44px;border-radius:999px;border:1px solid var(--border);background:var(--surface);color:var(--muted);font-weight:700;font-size:13px}
-.filters button.on{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
-.filters button.warn{border-color:var(--warn);background:#3a2410;color:var(--warn)}
+  html,body{margin:0;background:#140e0a;color:#f8f0e4;font-family:Segoe UI,system-ui,sans-serif}
+  main{min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center}
+  a{color:#e8b84a;font-weight:800}
 </style>
 </head>
 <body>
-<div id="gate"><div class="box">
-<p class="kicker">JAKE ESSEX MUSIC LTD</p>
-<h1>Jake Essex Board</h1>
-<div class="cash-ticker" title="Locked booking cash">
-  <span class="cash-amt" id="cash-amt">£1,775</span>
-  <span class="cash-meta" id="cash-meta">8 nights locked</span>
-</div>
-<p class="lede">Private. Type the password to open the call list.</p>
-<input id="pw" type="password" inputmode="text" autocapitalize="off" autocorrect="off" autocomplete="current-password" spellcheck="false" placeholder="Password"/>
-<p class="err" id="err"></p>
-<button type="button" id="go">Open board</button>
-<p class="ver">Board v19 · 10 Sep 2026</p>
-</div></div>
-<div id="app">
-<header>
-  <div class="headrow">
-    <div>
-      <p class="kicker">Jake Essex Music Ltd</p>
-      <h1>Jake Essex Board</h1>
-      <p class="ver" id="sync">Notes on this phone only</p>
-    </div>
-    <button class="lock" id="lock" type="button" onclick="natLock()">Lock</button>
-  </div>
-  <div id="cash-slot"></div>
-  <input id="q" class="search" type="search" placeholder="Search venue, town, email"/>
-  <p class="pep" id="pep">Numbers don’t book themselves, Nat.</p>
-</header>
 <main>
-  <p class="count" id="count"></p>
-  <div id="list"></div>
+  <p>Board moved. <a href="/natalie-live-board/">Open the live board</a>.</p>
 </main>
-<nav class="filters" id="filters"></nav>
-</div>
-<div id="detail"></div>
-<script type="application/json" id="venues-data">[]</script>
-<script src="board.js"></script>
 </body>
 </html>
