@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/styles.css?v=6">
+  <link rel="stylesheet" href="/css/styles.css?v=7">
   <title>Jake Essex — Rock ’n’ Roll from Essex</title>
   <meta name="description" content="Classic 50s & 60s rock ’n’ roll from Essex. Himself — not a tribute. Play The Wanderer, open the vault, enquire for a date.">
   <meta property="og:title" content="Jake Essex — Rock ’n’ Roll from Essex">
@@ -63,14 +63,14 @@
         <h1>JAKE ESSEX</h1>
         <p class="lede">Classic 50s & 60s rock ’n’ roll. Himself — not a tribute.</p>
         <div class="hero-actions">
-          <button class="btn" type="button" data-play-wanderer>Play The Wanderer</button>
+          <button class="btn" type="button" data-play="favourites">Play Favourites</button>
           <a class="btn btn-ghost" href="/listen.html">Open the vault</a>
         </div>
-        <p class="avail">Full songs. Proper vocals. Hundreds more in the room.</p>
+        <p class="avail">Sticky player. Keep browsing — the music stays with you.</p>
       </div>
     </section>
     <section class="featured-now" aria-label="Latest recording">
-      <p class="section-label">Latest</p>
+      <p class="section-label">On film</p>
       <h2>The Wanderer</h2>
       <hr class="gold-rule">
       <div class="featured-grid featured-grid-vert">
@@ -84,7 +84,7 @@
           </button>
         </div>
         <div>
-          <p class="plain">Recent. One of his favourite songs to sing. Dion, 1961. Tap the gold disc — the film plays on this page, with sound.</p>
+          <p class="plain">Recent film. Dion, 1961. Prefer audio? Hit Play Favourites up top — twenty-seven keepers in the sticky player while you look around.</p>
           <p class="more-link"><a href="/listen.html">The rest of the vault</a></p>
         </div>
       </div>
@@ -151,24 +151,30 @@
       <p class="company">JAKE ESSEX MUSIC LTD<br><span class="company-no">Company no. 16455536</span></p>
     </div>
   </footer>
-  <div id="player" class="player" hidden>
+      <div id="player" class="player" hidden>
     <div id="player-stage" class="player-stage" hidden></div>
     <div class="player-row">
-      <button type="button" class="player-thumb" id="player-toggle" aria-label="Show or hide video"><img id="player-art" alt=""></button>
+      <button type="button" class="player-thumb" id="player-toggle" aria-label="Play or pause"><img id="player-art" alt=""></button>
       <div class="player-meta">
         <p class="player-song" id="player-song"></p>
         <p class="player-orig" id="player-orig"></p>
       </div>
+      <div class="player-scrub-wrap">
+        <input type="range" class="player-scrub" id="player-scrub" min="0" max="1000" value="0" aria-label="Seek">
+        <span class="player-time" id="player-time">0:00 / 0:00</span>
+      </div>
       <div class="player-controls">
         <button type="button" id="player-prev" aria-label="Previous">Prev</button>
+        <button type="button" id="player-play" aria-label="Play">Play</button>
         <button type="button" id="player-next" aria-label="Next">Next</button>
         <button type="button" id="player-close" aria-label="Close">Close</button>
       </div>
     </div>
   </div>
-  <script src="/js/recordings.js?v=3"></script>
-  <script src="/js/player.js?v=3"></script>
-  <script src="/js/main.js?v=2"></script>
+  <script src="/js/recordings.js?v=4"></script>
+  <script src="/js/player.js?v=4"></script>
+  <script src="/js/main.js?v=3"></script>
 </body>
+
 </html>
 

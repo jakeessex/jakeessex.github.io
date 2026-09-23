@@ -10,11 +10,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/styles.css?v=6">
+  <link rel="stylesheet" href="/css/styles.css?v=7">
   <title>The vault — Jake Essex</title>
-  <meta name="description" content="Full Jake Essex recordings: The Wanderer, Unchained Melody, Can’t Help Falling In Love, Treat Me Nice and more. Proper vocals — no clips.">
+  <meta name="description" content="Jake Essex Favourites — studio and live recordings you can play while you browse. Proper vocals.">
   <meta property="og:title" content="The vault — Jake Essex">
-  <meta property="og:description" content="Full Jake Essex recordings: The Wanderer, Unchained Melody, Can’t Help Falling In Love, Treat Me Nice and more. Proper vocals — no clips.">
+  <meta property="og:description" content="Jake Essex Favourites — studio and live recordings you can play while you browse. Proper vocals.">
   <meta property="og:url" content="https://jakeessex.co.uk/listen.html">
   <link rel="canonical" href="https://jakeessex.co.uk/listen.html">
 </head>
@@ -52,10 +52,10 @@
       <p class="section-label">The vault</p>
       <h1>Press play</h1>
       <hr class="gold-rule">
-      <p class="plain">Full songs. Proper vocals. No clips, no copies of the same number. The live book is bigger — hundreds more only happen in the room. Start with The Wanderer, or play the night in order.</p>
+      <p class="plain">His Favourites on tap — studio and live takes you can play while you scroll the site. Film clips sit underneath. The live book is bigger; hundreds more only happen in the room.</p>
       <div class="vault-actions">
-        <button class="btn" type="button" data-play="night">Play the night</button>
-        <button class="btn btn-ghost" type="button" data-play="wanderer">Start with The Wanderer</button>
+        <button class="btn" type="button" data-play="favourites">Play Favourites</button>
+        <button class="btn btn-ghost" type="button" data-play="wanderer">Watch The Wanderer</button>
       </div>
       <div id="vault" class="track-list"></div>
       <p class="more-link"><a href="/songs.html">Full song list</a> · <a href="/watch.html">Watch</a></p>
@@ -74,24 +74,30 @@
       <p class="company">JAKE ESSEX MUSIC LTD<br><span class="company-no">Company no. 16455536</span></p>
     </div>
   </footer>
-  <div id="player" class="player" hidden>
+      <div id="player" class="player" hidden>
     <div id="player-stage" class="player-stage" hidden></div>
     <div class="player-row">
-      <button type="button" class="player-thumb" id="player-toggle" aria-label="Show or hide video"><img id="player-art" alt=""></button>
+      <button type="button" class="player-thumb" id="player-toggle" aria-label="Play or pause"><img id="player-art" alt=""></button>
       <div class="player-meta">
         <p class="player-song" id="player-song"></p>
         <p class="player-orig" id="player-orig"></p>
       </div>
+      <div class="player-scrub-wrap">
+        <input type="range" class="player-scrub" id="player-scrub" min="0" max="1000" value="0" aria-label="Seek">
+        <span class="player-time" id="player-time">0:00 / 0:00</span>
+      </div>
       <div class="player-controls">
         <button type="button" id="player-prev" aria-label="Previous">Prev</button>
+        <button type="button" id="player-play" aria-label="Play">Play</button>
         <button type="button" id="player-next" aria-label="Next">Next</button>
         <button type="button" id="player-close" aria-label="Close">Close</button>
       </div>
     </div>
   </div>
-  <script src="/js/recordings.js?v=3"></script>
-  <script src="/js/player.js?v=3"></script>
-  <script src="/js/main.js?v=2"></script>
+  <script src="/js/recordings.js?v=4"></script>
+  <script src="/js/player.js?v=4"></script>
+  <script src="/js/main.js?v=3"></script>
 </body>
+
 </html>
 

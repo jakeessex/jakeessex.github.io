@@ -174,3 +174,74 @@
     });
   }
 })();
+
+  /* Soft navigate same-origin pages so the sticky radio keeps playing */
+  (function softNav() {
+    var main = document.querySelector("main");
+    if (!main || !window.history || !window.fetch) return;
+    var busy = false;
+
+    function sameOrigin(a) {
+      try {
+        var u = new URL(a.href, location.href);
+        return u.origin === location.origin && !a.hasAttribute("download") && a.target !== "_blank";
+      } catch (e) { return false; }
+    }
+    function looksLikePage(href) {
+      return /\.html($|\?|#)/i.test(href) || href === "/" || /\/$/.test(href.split("?")[0].split("#")[0]);
+    }
+    function swap(html, url) {
+      var doc = new DOMParser().parseFromString(html, "text/html");
+      var nextMain = doc.querySelector("main");
+      var nextTitle = doc.querySelector("title");
+      if (!nextMain) { location.href = url; return; }
+      main.replaceWith(nextMain);
+      main = document.querySelector("main");
+      if (nextTitle) document.title = nextTitle.textContent;
+      history.pushState({ soft: 1 }, "", url);
+      document.body.classList.remove("nav-open");
+      var drawer = document.getElementById("mobile-nav");
+      var menuBtn = document.getElementById("menu-btn");
+      if (drawer) drawer.classList.remove("open");
+      if (menuBtn) menuBtn.setAttribute("aria-expanded", "false");
+      document.querySelectorAll(".nav-desktop a, .nav-drawer a").forEach(function (a) {
+        var path = new URL(a.href, location.href).pathname;
+        a.classList.toggle("is-active", path === location.pathname);
+      });
+      window.scrollTo(0, 0);
+      if (window.JE && typeof window.JE.remount === "function") window.JE.remount();
+      else {
+        // remount vault/wall if scripts already ran — fire custom event
+        document.dispatchEvent(new CustomEvent("je:softnav"));
+      }
+    }
+    document.addEventListener("click", function (e) {
+      var a = e.target.closest("a");
+      if (!a || !sameOrigin(a) || !looksLikePage(a.getAttribute("href") || a.href)) return;
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      var url = a.href;
+      if (new URL(url).pathname === location.pathname && !new URL(url).search) return;
+      e.preventDefault();
+      if (busy) return;
+      busy = true;
+      fetch(url, { credentials: "same-origin" }).then(function (r) {
+        if (!r.ok) throw new Error("nav");
+        return r.text();
+      }).then(function (html) { swap(html, url); }).catch(function () {
+        location.href = url;
+      }).finally(function () { busy = false; });
+    });
+    window.addEventListener("popstate", function () {
+      fetch(location.href, { credentials: "same-origin" }).then(function (r) { return r.text(); })
+        .then(function (html) {
+          var doc = new DOMParser().parseFromString(html, "text/html");
+          var nextMain = doc.querySelector("main");
+          if (!nextMain) { location.reload(); return; }
+          main.replaceWith(nextMain);
+          main = document.querySelector("main");
+          document.title = (doc.querySelector("title") || {}).textContent || document.title;
+          window.scrollTo(0, 0);
+          document.dispatchEvent(new CustomEvent("je:softnav"));
+        }).catch(function () { location.reload(); });
+    });
+  })();
