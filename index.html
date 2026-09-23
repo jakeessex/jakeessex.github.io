@@ -12,6 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css?v=7">
+  <link rel="stylesheet" href="/css/listen-room.css?v=1">
   <title>Jake Essex — Rock ’n’ Roll from Essex</title>
   <meta name="description" content="Classic 50s & 60s rock ’n’ roll from Essex. Himself — not a tribute. Play The Wanderer, open the vault, enquire for a date.">
   <meta property="og:title" content="Jake Essex — Rock ’n’ Roll from Essex">
@@ -63,11 +64,24 @@
         <h1>JAKE ESSEX</h1>
         <p class="lede">Classic 50s & 60s rock ’n’ roll. Himself — not a tribute.</p>
         <div class="hero-actions">
-          <button class="btn" type="button" data-play="favourites">Play Favourites</button>
-          <a class="btn btn-ghost" href="/listen.html">Open the vault</a>
+          <button class="btn" type="button" data-play="favourites">Play from the top</button>
+          <a class="btn btn-ghost" href="/listen.html">All recordings</a>
         </div>
-        <p class="avail">Sticky player. Keep browsing — the music stays with you.</p>
+        <p class="avail">Home recordings. The player stays with you.</p>
       </div>
+    </section>
+    <section class="wrap home-listen" aria-label="Home recordings">
+      <div>
+        <p class="section-label">Home recordings</p>
+        <h2>Favourites</h2>
+        <hr class="gold-rule">
+        <p class="plain">Twenty-seven on here. Tap one. Anything that’s only a backing track comes off when we go through them.</p>
+        <div class="hero-actions">
+          <a class="btn" href="/listen.html">All recordings</a>
+          <button class="btn btn-ghost" type="button" data-play="favourites">Play from the top</button>
+        </div>
+      </div>
+      <div class="setlist" id="home-set"></div>
     </section>
     <section class="featured-now" aria-label="Latest recording">
       <p class="section-label">On film</p>
@@ -84,7 +98,7 @@
           </button>
         </div>
         <div>
-          <p class="plain">Recent film. Dion, 1961. Prefer audio? Hit Play Favourites up top — twenty-seven keepers in the sticky player while you look around.</p>
+          <p class="plain">Recent film. Dion, 1961. The home recordings sit above this.</p>
           <p class="more-link"><a href="/listen.html">The rest of the vault</a></p>
         </div>
       </div>
@@ -98,7 +112,7 @@
       </ul>
     </section>
     <section class="wrap doors-wrap" aria-label="Explore">
-      <p class="section-label">Choose a door</p>
+      <p class="section-label">Also on the site</p>
       <div class="doors">
         <a class="door" href="/listen.html">
           <img src="/images/studio-gold.jpg" alt="">
@@ -172,7 +186,7 @@
     </div>
   </div>
   <script src="/js/recordings.js?v=4"></script>
-  <script src="/js/player.js?v=4"></script>
+  <script src="/js/player.js?v=5"></script>
   <script src="/js/main.js?v=3"></script>
 </body>
 

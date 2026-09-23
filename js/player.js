@@ -114,6 +114,10 @@
     document.querySelectorAll("[data-track]").forEach(function (el) {
       el.classList.toggle("is-on", el.getAttribute("data-track") === r.id);
     });
+    var now = document.getElementById("room-now");
+    var by = document.getElementById("room-by");
+    if (now) now.textContent = r.song;
+    if (by) by.textContent = (r.original || "Jake Essex") + (isAudio(r) ? " · home recording" : " · on film");
     setPlayingUi(isAudio(r) ? !audio.paused : expanded);
   }
 
@@ -241,32 +245,52 @@
     else play(id, isAudio(byId[id]) ? audioQueue : null, { expand: !isAudio(byId[id]) });
   });
 
+  function setRow(r, i) {
+    var n = String(i + 1).padStart(2, "0");
+    return '<button type="button" class="set-row" data-play="' + r.id + '" data-track="' + r.id + '">'
+      + '<span class="n">' + n + "</span>"
+      + '<span class="set-main"><strong>' + r.song + "</strong><em>" + (r.original || "") + "</em></span>"
+      + '<span class="set-go" aria-hidden="true">Play</span>'
+      + "</button>";
+  }
   function mountVault() {
     var mount = document.getElementById("vault");
-    if (!mount) return;
-    var html = "";
-    // Favourites audio first
+    var home = document.getElementById("home-set");
     var favs = list.filter(isAudio);
     var vids = list.filter(function (r) { return !isAudio(r); });
-    if (favs.length) {
-      html += '<p class="vault-label">Favourites — studio &amp; live</p>';
-      favs.forEach(function (r) {
-        html += '<button type="button" class="track track-audio" data-play="'+r.id+'" data-track="'+r.id+'">'
-          + '<span class="track-play">♪</span>'
-          + '<span><strong>'+r.song+'</strong><span>'+(r.original||"")+(r.year?(" · "+r.year):"")+'</span></span>'
-          + '</button>';
+    var count = document.getElementById("room-count");
+    if (count) count.textContent = favs.length + " song" + (favs.length === 1 ? "" : "s");
+    if (mount) {
+      var html = '<div class="setlist" id="setlist">';
+      favs.forEach(function (r, i) { html += setRow(r, i); });
+      html += "</div>";
+      if (vids.length) {
+        html += '<p class="vault-label">On film</p><div class="film-rail">';
+        vids.forEach(function (r) {
+          html += '<button type="button" class="vcard" data-play="' + r.id + '" data-track="' + r.id + '">'
+            + '<span class="thumb"><img src="' + poster(r) + '" alt=""></span>'
+            + "<p>" + r.song + "</p><small>" + (r.original || "") + "</small>"
+            + "</button>";
+        });
+        html += "</div>";
+      }
+      mount.innerHTML = html;
+    }
+    if (home) {
+      var h = "";
+      favs.slice(0, 8).forEach(function (r, i) { h += setRow(r, i); });
+      home.innerHTML = h;
+    }
+    var find = document.getElementById("vault-find");
+    if (find && !find.dataset.bound) {
+      find.dataset.bound = "1";
+      find.addEventListener("input", function () {
+        var q = find.value.trim().toLowerCase();
+        document.querySelectorAll("#setlist .set-row").forEach(function (row) {
+          row.hidden = !!q && row.textContent.toLowerCase().indexOf(q) === -1;
+        });
       });
     }
-    if (vids.length) {
-      html += '<p class="vault-label">On film</p>';
-      vids.forEach(function (r) {
-        html += '<button type="button" class="track" data-play="'+r.id+'" data-track="'+r.id+'">'
-          + '<img src="'+poster(r)+'" alt="">'
-          + '<span><strong>'+r.song+'</strong><span>'+(r.original||"")+(r.year?(" · "+r.year):"")+'</span></span>'
-          + '</button>';
-      });
-    }
-    mount.innerHTML = html;
   }
   function mountWall() {
     var mount = document.getElementById("video-wall");

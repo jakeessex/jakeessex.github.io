@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css?v=7">
+  <link rel="stylesheet" href="/css/listen-room.css?v=1">
   <title>The vault — Jake Essex</title>
   <meta name="description" content="Jake Essex Favourites — studio and live recordings you can play while you browse. Proper vocals.">
   <meta property="og:title" content="The vault — Jake Essex">
@@ -48,17 +49,24 @@
     </nav>
   </header>
   <main>
-    <div class="wrap page-intro">
-      <p class="section-label">The vault</p>
-      <h1>Press play</h1>
-      <hr class="gold-rule">
-      <p class="plain">His Favourites on tap — studio and live takes you can play while you scroll the site. Film clips sit underneath. The live book is bigger; hundreds more only happen in the room.</p>
-      <div class="vault-actions">
-        <button class="btn" type="button" data-play="favourites">Play Favourites</button>
-        <button class="btn btn-ghost" type="button" data-play="wanderer">Watch The Wanderer</button>
+    <div class="wrap listen-wrap">
+      <div class="listen-room">
+        <aside class="room-card">
+          <p class="section-label">Home recordings</p>
+          <p class="room-count" id="room-count">Favourites</p>
+          <h1 id="room-now">Press play</h1>
+          <p class="room-by" id="room-by">Vocals over the new backings. Older karaoke ones stay off until they earn a place.</p>
+          <button class="btn" type="button" data-play="favourites">Play from the top</button>
+          <p class="room-note">The bar stays at the bottom of every page, so you can keep looking around.</p>
+        </aside>
+        <div>
+          <label class="find-label" for="vault-find">Find a song
+            <input id="vault-find" type="search" placeholder="Song or singer" autocomplete="off">
+          </label>
+          <div id="vault"></div>
+          <p class="more-link"><a href="/songs.html">Full song list</a> · <a href="/watch.html">Watch</a></p>
+        </div>
       </div>
-      <div id="vault" class="track-list"></div>
-      <p class="more-link"><a href="/songs.html">Full song list</a> · <a href="/watch.html">Watch</a></p>
     </div>
   </main>
   <footer>
@@ -95,7 +103,7 @@
     </div>
   </div>
   <script src="/js/recordings.js?v=4"></script>
-  <script src="/js/player.js?v=4"></script>
+  <script src="/js/player.js?v=5"></script>
   <script src="/js/main.js?v=3"></script>
 </body>
 
