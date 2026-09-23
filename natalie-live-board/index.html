@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<meta name="robots" content="noindex,nofollow"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="theme-color" content="#0c0907"/>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+<meta http-equiv="Pragma" content="no-cache"/>
+<title>Jake Essex Board</title>
+<!-- UI LOCK: Board v42 shell. Never embed venues. Data is venues.json only. -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;600;700&family=Fraunces:opsz,wght@9..144,560&display=swap"/>
+<link rel="stylesheet" href="board.css?v=53"/>
+<script>
+(function(){function k(){var n=document.getElementById("cash-5k-party");if(n&&n.parentNode)n.parentNode.removeChild(n);try{localStorage.removeItem("natalie-cash-5k-v1")}catch(e){}}k();document.addEventListener("DOMContentLoaded",k);try{new MutationObserver(k).observe(document.documentElement,{childList:true,subtree:true})}catch(e){}})();
+</script>
+</head>
+<body>
+<canvas id="rain" aria-hidden="true"></canvas>
+<div id="gate">
+<div class="gate-vignette"></div>
+<div class="gate-corners" aria-hidden="true"><i></i></div>
+<div class="gate-hud" aria-hidden="true">
+  <span class="tl">JEM-VAULT</span>
+  <span class="tr">22 SEP 2026</span>
+</div>
+<div id="grant">
+  <p class="k">SECURE CHANNEL · v42</p>
+  <h2>Access granted<span>Natalie</span></h2>
+  <ul id="grant-lines"></ul>
+</div>
+<div class="box" id="gate-card">
+<div class="gate-scan" aria-hidden="true"></div>
+<div class="gate-top">
+  <p class="enc"><i></i> Encrypted</p>
+  <button type="button" id="ver-btn" onclick="natStamp()" aria-label="Board version">v42</button>
+</div>
+<p class="gate-brand">Jake Essex Music Ltd</p>
+<h1>Natalie live book</h1>
+<p class="lede">Type the access key. The book stays on this phone.</p>
+<div id="egg"><p>WHITE RABBIT · v42</p><ul id="egg-lines"></ul><p class="hint">Cute. Still need the real key.</p></div>
+<label class="kicker" for="pw">Access key</label>
+<div class="pw-wrap">
+<input id="pw" type="password" inputmode="text" autocapitalize="off" autocorrect="off" autocomplete="current-password" spellcheck="false" placeholder="••••••••"/>
+<button type="button" class="eye" id="eye" onclick="natEye()" aria-label="Show key">◉</button>
+</div>
+<p class="err" id="err"></p>
+<button type="button" id="go">ENTER</button>
+<p class="ver" id="hud-count">Channel live</p>
+</div>
+</div>
+<div id="app">
+<header>
+  <div class="headrow">
+    <div>
+      <p class="kicker">Jake Essex Music Ltd</p>
+      <h1>Natalie</h1>
+      <button type="button" id="mailcount" class="mailcount" onclick="natFilter('all')"><b>…</b> emails</button>
+      <p class="ver" id="sync">Board live</p>
+    </div>
+    <div class="head-acts">
+      <button class="lock" type="button" onclick="natDiary()">Diary</button>
+      <button class="lock" id="lock" type="button" onclick="natLock()">Lock</button>
+    </div>
+  </div>
+  <div id="cash-slot"></div>
+  <input id="q" class="search" type="search" placeholder="Search venue, town, email"/>
+  <p class="pep" id="pep">Numbers don’t book themselves, Nat.</p>
+</header>
+<main>
+  <p class="count" id="count"></p>
+  <div id="list"></div>
+</main>
+<nav class="filters" id="filters"></nav>
+</div>
+<div id="detail"></div>
+<div id="diary"></div>
+<div id="dates"></div>
+<script type="application/json" id="venues-data">[]</script>
+<script src="board.js?v=91"></script>
+</body>
+</html>
