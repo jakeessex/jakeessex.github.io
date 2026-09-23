@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/styles.css?v=8">
+  <link rel="stylesheet" href="/css/styles.css?v=9">
   <link rel="stylesheet" href="/vendor/leaflet/leaflet.css">
 </head>
 <body>
@@ -161,8 +161,9 @@
           if (v) {
             activeEl.hidden = false;
             activeEl.innerHTML = "<strong>" + v.name + "</strong> · " + v.town;
-            map.setView([v.lat, v.lng], 11);
-            mapEl.scrollIntoView({ behavior: "smooth" });
+            map.invalidateSize();
+            map.setView([v.lat, v.lng], 11, { animate: false });
+            mapEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
           }
         });
         li.appendChild(btn);
