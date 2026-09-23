@@ -1,0 +1,43 @@
+/* Listening room — loaded with the home recordings */
+.listen-wrap { padding-top: 2.2rem; padding-bottom: 4rem; }
+.listen-room { display: grid; gap: 1.75rem; }
+@media (min-width: 960px) {
+  .listen-room { grid-template-columns: 280px 1fr; align-items: start; gap: 2.5rem; }
+  .room-card { position: sticky; top: 5.2rem; }
+}
+.room-card {
+  background: radial-gradient(120% 80% at 0% 0%, rgba(197,161,90,0.16), transparent 55%), #12100e;
+  border: 1px solid rgba(197,161,90,0.35);
+  padding: 1.35rem 1.3rem 1.5rem;
+}
+.room-count { margin: 0; color: var(--muted); font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.room-card h1 { font-family: var(--font-display); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 500; margin: 0.35rem 0 0.4rem; line-height: 1.15; }
+.room-by { margin: 0 0 1.1rem; color: var(--cream-dim); }
+.room-note { margin: 1rem 0 0; color: var(--muted); font-size: 0.88rem; }
+.find-label { display: block; font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.7rem; }
+.find-label input {
+  display: block; width: 100%; margin-top: 0.4rem; background: transparent; color: var(--cream);
+  border: 0; border-bottom: 1px solid rgba(197,161,90,0.4); font: inherit; font-size: 1rem;
+  letter-spacing: 0; text-transform: none; padding: 0.55rem 0;
+}
+.find-label input:focus { outline: none; border-bottom-color: var(--gold); }
+.setlist { border-top: 1px solid rgba(197,161,90,0.28); }
+.set-row {
+  display: grid; grid-template-columns: 2rem 1fr auto; gap: 0.7rem; align-items: center;
+  width: 100%; background: transparent; color: inherit; font: inherit; text-align: left;
+  border: 0; border-bottom: 1px solid rgba(197,161,90,0.16); padding: 0.78rem 0.15rem; cursor: pointer;
+}
+.set-row .n { color: var(--gold); font-variant-numeric: tabular-nums; font-size: 0.78rem; letter-spacing: 0.06em; }
+.set-main strong { display: block; font-family: var(--font-display); font-weight: 500; color: var(--cream); font-size: 1.05rem; }
+.set-main em { display: block; font-style: normal; color: var(--muted); font-size: 0.84rem; margin-top: 0.12rem; }
+.set-go { color: var(--gold); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0; }
+.set-row:hover .set-go, .set-row.is-on .set-go { opacity: 1; }
+.set-row:hover strong, .set-row.is-on strong { color: var(--gold-2); }
+.set-row.is-on { background: rgba(197,161,90,0.06); }
+.film-rail { display: grid; gap: 0.8rem; margin-top: 0.4rem; }
+@media (min-width: 700px) { .film-rail { grid-template-columns: 1fr 1fr; } }
+.home-listen { display: grid; gap: 1.4rem; padding-top: 3rem; padding-bottom: 1rem; }
+@media (min-width: 900px) { .home-listen { grid-template-columns: 0.8fr 1.2fr; align-items: start; gap: 2.5rem; } }
+.home-listen h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); }
+.home-listen .setlist { margin-top: 0.2rem; }
+.doors-wrap { padding-top: 1.5rem; }
