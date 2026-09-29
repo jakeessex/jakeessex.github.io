@@ -27,7 +27,7 @@ window.JE_RECORDINGS = [
     "original": "The Everly Brothers",
     "source": "file",
     "kind": "audio",
-    "src": "/audio/favourites/03-all-i-have-to-do-is-dream.mp3",
+    "src": "/audio/favourites/03-all-i-have-to-do-is-dream-v2.mp3",
     "year": 2025,
     "featured": false,
     "poster": "/images/studio-gold.jpg"
