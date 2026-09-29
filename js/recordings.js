@@ -1,5 +1,93 @@
 window.JE_RECORDINGS = [
   {
+    "id": "runaround-sue",
+    "song": "Runaround Sue",
+    "original": "Dion",
+    "source": "file",
+    "kind": "audio",
+    "src": "/audio/favourites/60-runaround-sue.mp3",
+    "year": 2025,
+    "featured": true,
+    "poster": "/images/studio-gold.jpg"
+  },
+  {
+    "id": "the-wanderer",
+    "song": "The Wanderer",
+    "original": "Dion",
+    "source": "file",
+    "kind": "audio",
+    "src": "/audio/favourites/73-the-wanderer.mp3",
+    "year": 2025,
+    "featured": true,
+    "poster": "/images/studio-gold.jpg"
+  },
+  {
+    "id": "return-to-sender",
+    "song": "Return To Sender",
+    "original": "Elvis Presley",
+    "source": "file",
+    "kind": "audio",
+    "src": "/audio/favourites/59-return-to-sender.mp3",
+    "year": 2025,
+    "featured": false,
+    "poster": "/images/studio-gold.jpg"
+  },
+  {
+    "id": "oh-boy",
+    "song": "Oh Boy",
+    "original": "Buddy Holly & The Crickets",
+    "source": "file",
+    "kind": "audio",
+    "src": "/audio/favourites/55-oh-boy.mp3",
+    "year": 2025,
+    "featured": true,
+    "poster": "/images/studio-gold.jpg"
+  },
+  {
+    "id": "great-balls-of-fire",
+    "song": "Great Balls Of Fire",
+    "original": "Jerry Lee Lewis",
+    "source": "file",
+    "kind": "audio",
+    "src": "/audio/favourites/26-great-balls-of-fire.mp3",
+    "year": 2025,
+    "featured": true,
+    "poster": "/images/studio-gold.jpg"
+  },
+  {
+    "id": "can-t-help-falling-in-love",
+    "song": "Can't Help Falling In Love",
+    "original": "Elvis Presley",
+    "source": "file",
+    "kind": "audio",
+    "src": "/audio/favourites/10-can-t-help-falling-in-love.mp3",
+    "year": 2025,
+    "featured": true,
+    "poster": "/images/studio-gold.jpg"
+  },
+  {
+    "id": "beyond-the-sea",
+    "song": "Beyond The Sea",
+    "original": "Bobby Darin",
+    "source": "file",
+    "kind": "audio",
+    "src": "/audio/favourites/06-beyond-the-sea.mp3",
+    "year": 2025,
+    "featured": true,
+    "poster": "/images/studio-gold.jpg"
+  },
+  {
+    "id": "the-impossible-dream",
+    "song": "The Impossible Dream (Live)",
+    "original": "Man of La Mancha / Elvis Presley",
+    "source": "file",
+    "kind": "audio",
+    "src": "/audio/favourites/72-the-impossible-dream.mp3",
+    "year": 2025,
+    "featured": true,
+    "poster": "/images/studio-gold.jpg"
+  },
+  {
     "id": "a-fool-such-as-i",
     "song": "A Fool Such As I",
     "original": "Elvis Presley / Hank Snow",
@@ -55,17 +143,6 @@ window.JE_RECORDINGS = [
     "poster": "/images/studio-gold.jpg"
   },
   {
-    "id": "beyond-the-sea",
-    "song": "Beyond The Sea",
-    "original": "Bobby Darin",
-    "source": "file",
-    "kind": "audio",
-    "src": "/audio/favourites/06-beyond-the-sea.mp3",
-    "year": 2025,
-    "featured": true,
-    "poster": "/images/studio-gold.jpg"
-  },
-  {
     "id": "bitter-they-are-harder-they-fall",
     "song": "Bitter They Are, Harder They Fall",
     "original": "Elvis Presley",
@@ -96,17 +173,6 @@ window.JE_RECORDINGS = [
     "src": "/audio/favourites/09-blue-suede-shoes.mp3",
     "year": 2025,
     "featured": false,
-    "poster": "/images/studio-gold.jpg"
-  },
-  {
-    "id": "can-t-help-falling-in-love",
-    "song": "Can't Help Falling In Love",
-    "original": "Elvis Presley",
-    "source": "file",
-    "kind": "audio",
-    "src": "/audio/favourites/10-can-t-help-falling-in-love.mp3",
-    "year": 2025,
-    "featured": true,
     "poster": "/images/studio-gold.jpg"
   },
   {
@@ -272,17 +338,6 @@ window.JE_RECORDINGS = [
     "src": "/audio/favourites/25-got-a-lot-o-livin-to-do.mp3",
     "year": 2025,
     "featured": false,
-    "poster": "/images/studio-gold.jpg"
-  },
-  {
-    "id": "great-balls-of-fire",
-    "song": "Great Balls Of Fire",
-    "original": "Jerry Lee Lewis",
-    "source": "file",
-    "kind": "audio",
-    "src": "/audio/favourites/26-great-balls-of-fire.mp3",
-    "year": 2025,
-    "featured": true,
     "poster": "/images/studio-gold.jpg"
   },
   {
@@ -594,17 +649,6 @@ window.JE_RECORDINGS = [
     "poster": "/images/studio-gold.jpg"
   },
   {
-    "id": "oh-boy",
-    "song": "Oh Boy",
-    "original": "Buddy Holly & The Crickets",
-    "source": "file",
-    "kind": "audio",
-    "src": "/audio/favourites/55-oh-boy.mp3",
-    "year": 2025,
-    "featured": true,
-    "poster": "/images/studio-gold.jpg"
-  },
-  {
     "id": "peggy-sue",
     "song": "Peggy Sue",
     "original": "Buddy Holly",
@@ -635,28 +679,6 @@ window.JE_RECORDINGS = [
     "src": "/audio/favourites/58-put-the-blame-on-me.mp3",
     "year": 2025,
     "featured": false,
-    "poster": "/images/studio-gold.jpg"
-  },
-  {
-    "id": "return-to-sender",
-    "song": "Return To Sender",
-    "original": "Elvis Presley",
-    "source": "file",
-    "kind": "audio",
-    "src": "/audio/favourites/59-return-to-sender.mp3",
-    "year": 2025,
-    "featured": false,
-    "poster": "/images/studio-gold.jpg"
-  },
-  {
-    "id": "runaround-sue",
-    "song": "Runaround Sue",
-    "original": "Dion",
-    "source": "file",
-    "kind": "audio",
-    "src": "/audio/favourites/60-runaround-sue.mp3",
-    "year": 2025,
-    "featured": true,
     "poster": "/images/studio-gold.jpg"
   },
   {
@@ -778,28 +800,6 @@ window.JE_RECORDINGS = [
     "src": "/audio/favourites/71-the-first-time-ever-i-saw-your-face.mp3",
     "year": 2025,
     "featured": false,
-    "poster": "/images/studio-gold.jpg"
-  },
-  {
-    "id": "the-impossible-dream",
-    "song": "The Impossible Dream (Live)",
-    "original": "Man of La Mancha / Elvis Presley",
-    "source": "file",
-    "kind": "audio",
-    "src": "/audio/favourites/72-the-impossible-dream.mp3",
-    "year": 2025,
-    "featured": true,
-    "poster": "/images/studio-gold.jpg"
-  },
-  {
-    "id": "the-wanderer",
-    "song": "The Wanderer",
-    "original": "Dion",
-    "source": "file",
-    "kind": "audio",
-    "src": "/audio/favourites/73-the-wanderer.mp3",
-    "year": 2025,
-    "featured": true,
     "poster": "/images/studio-gold.jpg"
   },
   {
