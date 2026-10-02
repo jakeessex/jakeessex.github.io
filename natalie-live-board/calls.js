@@ -3,93 +3,107 @@
   "use strict";
   var KEY = "nat-calls-v1:";
   var CSS = [
-    ".nd{position:fixed;inset:0;z-index:60;display:flex;flex-direction:column;background:#090705;color:#f8f0e4;font-family:Figtree,'Segoe UI',system-ui,sans-serif;font-size:16px;line-height:1.4;-webkit-text-size-adjust:100%}",
+    ".nd{position:fixed;inset:0;z-index:60;display:flex;flex-direction:column;background:#070504;color:#f6efe4;font-family:Figtree,'Segoe UI',system-ui,sans-serif;font-size:16px;line-height:1.45;-webkit-text-size-adjust:100%}",
     ".nd *{box-sizing:border-box}",
-    ".nd-top{display:flex;align-items:center;gap:8px;padding:calc(8px + env(safe-area-inset-top)) 12px 8px;background:#120e0b;border-bottom:1px solid #3a2b22}",
-    ".nd-top button{font:inherit;font-weight:750;border:0;border-radius:999px;padding:8px 12px;background:transparent;color:#c4b3a0;cursor:pointer}",
-    ".nd-top .nd-close{color:#f8f0e4}",
-    ".nd-count{flex:1;text-align:center;font-size:15px;font-weight:750;letter-spacing:.02em;color:#f8f0e4}",
-    ".nd-count small{display:block;margin-top:1px;font-size:11px;font-weight:650;color:#8f7d6c;letter-spacing:.04em}",
+    ".nd-bar{height:3px;background:#2a2118;flex:0 0 3px}",
+    ".nd-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8a6230,#e8b84a);transition:width .25s ease}",
+    ".nd-top{display:flex;align-items:center;gap:6px;padding:calc(8px + env(safe-area-inset-top)) 10px 8px;background:#0c0907;border-bottom:1px solid #2a2118}",
+    ".nd-top button{font:inherit;font-weight:700;border:0;border-radius:999px;padding:8px 12px;background:transparent;color:#c4b3a0;cursor:pointer;min-height:40px}",
+    ".nd-top .nd-close{color:#f6efe4;padding-left:4px}",
+    ".nd-count{flex:1;text-align:center;font-size:15px;font-weight:750;letter-spacing:.02em;color:#f6efe4;min-width:0}",
+    ".nd-count small{display:block;margin-top:1px;font-size:11px;font-weight:650;color:#a08b76;letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}",
     ".nd-arrows{display:flex;gap:4px}",
-    ".nd-arrows button{width:40px;height:40px;padding:0;border:1px solid #3a2b22;background:#1e1510;color:#f8f0e4;border-radius:12px;font-size:18px}",
-    ".nd-arrows button:disabled{opacity:.35}",
+    ".nd-arrows button{width:40px;height:40px;padding:0;border:1px solid #3a2e24;background:#16110d;color:#f6efe4;border-radius:12px;font-size:20px;line-height:1}",
+    ".nd-arrows button:disabled{opacity:.28}",
     ".nd-body{flex:1;min-height:0;display:flex}",
     ".nd-rail{display:none}",
     ".nd-stage{flex:1;min-width:0;min-height:0;display:flex;flex-direction:column}",
     ".nd-track{flex:1;min-height:0;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;scrollbar-width:none}",
     ".nd-track::-webkit-scrollbar{display:none}",
-    ".nd-slide{flex:0 0 100%;width:100%;height:100%;scroll-snap-align:start;scroll-snap-stop:always;padding:12px 12px 18px}",
-    ".nd-card{height:100%;overflow-y:auto;background:#16110d;border:1px solid #3a2b22;border-radius:22px;padding:18px 16px 24px;overscroll-behavior-y:contain}",
-    ".nd-card.called{border-color:#e8b84a}",
-    ".nd-kicker{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0}",
-    ".nd-rank{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#e8b84a}",
-    ".nd-days{font-size:13px;font-weight:750;color:#c4b3a0}",
-    ".nd-days b{color:#f8f0e4;font-size:18px;font-weight:750;margin-right:3px}",
-    ".nd h2{font-family:Fraunces,'Iowan Old Style',Georgia,serif;font-size:32px;line-height:1.05;font-weight:560;margin:8px 0 0;color:#f8f0e4}",
-    ".nd-where{margin:6px 0 0;color:#c4b3a0;font-size:15px}",
-    ".nd-where b{color:#f8f0e4;font-weight:700}",
+    ".nd-slide{flex:0 0 100%;width:100%;height:100%;scroll-snap-align:start;scroll-snap-stop:always;padding:14px 14px calc(18px + env(safe-area-inset-bottom))}",
+    ".nd-card{height:100%;overflow-y:auto;background:#120e0b;border:1px solid #3a2e24;border-radius:22px;padding:18px 16px 28px;overscroll-behavior-y:contain;box-shadow:0 18px 50px rgba(0,0,0,.35)}",
+    ".nd-card.called{box-shadow:inset 3px 0 0 #e8b84a, 0 18px 50px rgba(0,0,0,.35)}",
+    ".nd-kicker{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:0}",
+    ".nd-rank{font-family:Fraunces,Georgia,serif;font-size:28px;font-weight:560;letter-spacing:.04em;color:#e8b84a;line-height:1}",
+    ".nd-days{font-size:13px;font-weight:700;color:#a08b76;text-align:right}",
+    ".nd-days b{display:block;color:#f6efe4;font-family:Fraunces,Georgia,serif;font-size:22px;font-weight:560;line-height:1}",
+    ".nd h2{font-family:Fraunces,'Iowan Old Style',Georgia,serif;font-size:34px;line-height:1.02;font-weight:560;margin:10px 0 0;color:#f6efe4;letter-spacing:-.01em}",
+    ".nd-town{margin:4px 0 0;color:#a08b76;font-size:15px}",
+    ".nd-ask{margin:12px 0 0;font-size:17px;color:#f6efe4}",
+    ".nd-ask b{font-weight:750}",
+    ".nd-touch{margin:4px 0 0;color:#a08b76;font-size:13px;font-weight:650}",
     ".nd-flags{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 0}",
     ".nd-pill{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:5px 9px}",
     ".nd-pill.hold{background:#3a1614;color:#ffb4a8}",
     ".nd-pill.wait{background:#3a2a12;color:#ffd76a}",
-    ".nd-pill.emailed{background:#1c2430;color:#c5d7f2}",
-    ".nd-pill.far{background:#2a2420;color:#c8b8a4}",
-    ".nd-hold{margin:12px 0 0;padding:10px 12px;border-radius:12px;background:#3a1614;color:#ffd0c8;font-weight:700;font-size:14px}",
-    ".nd-call{display:block;text-decoration:none;background:#e8b84a;color:#1a120c;border-radius:16px;padding:14px 16px;margin:16px 0 0;text-align:center}",
-    ".nd-call .n{display:block;font-family:Fraunces,Georgia,serif;font-size:28px;font-weight:560;letter-spacing:.01em}",
-    ".nd-call .l{display:block;margin-top:2px;font-size:12px;font-weight:750;letter-spacing:.06em;text-transform:uppercase}",
-    ".nd-card.hold .nd-call{background:#8f7d6c;color:#1a120c}",
-    ".nd-more{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}",
-    ".nd-more a{flex:1;min-width:140px;text-align:center;text-decoration:none;border:1px solid #5a4632;color:#f8f0e4;border-radius:12px;padding:10px 8px;font-weight:750;font-size:14px}",
-    ".nd-nophone{margin:16px 0 0;padding:14px;border-radius:14px;background:#1e1510;color:#c4b3a0;text-align:center;font-weight:700}",
-    ".nd-block{margin:16px 0 0;padding-top:14px;border-top:1px solid #2c2018}",
-    ".nd-block h3{margin:0 0 6px;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8f7d6c}",
-    ".nd-block p{margin:0;font-size:16px;line-height:1.45;color:#f8f0e4}",
-    ".nd-block.why{background:#241a10;border:1px solid #5a3d20;border-radius:16px;padding:14px;margin-top:14px}",
+    ".nd-pill.emailed{background:#1a2433;color:#c5d7f2}",
+    ".nd-pill.far{background:#2a2420;color:#d2c3b2}",
+    ".nd-banner{margin:12px 0 0;padding:11px 12px;border-radius:12px;font-weight:750;font-size:14px;line-height:1.35}",
+    ".nd-banner.hold{background:#3a1614;color:#ffd0c8}",
+    ".nd-banner.fee{background:#3a2a12;color:#ffe3a3}",
+    ".nd-call{display:flex;flex-direction:column;align-items:center;justify-content:center;text-decoration:none;background:#e8b84a;color:#1a120c;border-radius:16px;padding:14px 16px;margin:16px 0 0;text-align:center;min-height:76px}",
+    ".nd-call .n{display:block;font-family:Fraunces,Georgia,serif;font-size:30px;font-weight:560;letter-spacing:.01em;line-height:1}",
+    ".nd-call .l{display:block;margin-top:5px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}",
+    ".nd-card.hold .nd-call{background:#8d7764;color:#1a120c}",
+    ".nd-more{display:flex;flex-direction:column;gap:0;margin-top:4px}",
+    ".nd-more a{display:flex;align-items:center;justify-content:space-between;text-decoration:none;color:#f6efe4;padding:12px 2px;border-bottom:1px solid #2a2118;font-weight:750;font-size:16px}",
+    ".nd-more a span{color:#a08b76;font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase}",
+    ".nd-nophone{margin:16px 0 0;padding:14px;border-radius:14px;background:#1c1510;color:#c4b3a0;text-align:center;font-weight:700}",
+    ".nd-block{margin:18px 0 0}",
+    ".nd-block h3{margin:0 0 6px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#a08b76}",
+    ".nd-block p{margin:0;font-size:16.5px;line-height:1.45;color:#f6efe4}",
+    ".nd-block.why{background:#24180f;border-radius:16px;padding:14px 14px 15px;border:1px solid #5c4124}",
     ".nd-block.why h3{color:#e8b84a}",
-    ".nd-warn{margin:12px 0 0;padding:10px 12px;border-radius:12px;background:#2a1a10;color:#ffd76a;font-size:14px;font-weight:650;line-height:1.4}",
-    ".nd-acts{display:flex;gap:8px;margin-top:16px}",
-    ".nd-acts a,.nd-acts button{flex:1;text-align:center;text-decoration:none;font:inherit;font-size:14px;font-weight:750;border-radius:12px;padding:11px 8px;cursor:pointer;border:1px solid #3a2b22;background:#1e1510;color:#f8f0e4}",
-    ".nd-mark{display:block;width:100%;font:inherit;font-size:16px;font-weight:800;border:1px solid #e8b84a;background:transparent;color:#e8b84a;border-radius:14px;padding:13px;margin:14px 0 0;cursor:pointer}",
+    ".nd-block.said{padding-top:2px}",
+    ".nd-block.said p{color:#f3eadf}",
+    ".nd-warn{margin:12px 0 0;padding:10px 12px;border-radius:12px;background:#1c1612;color:#f0d7a4;font-size:14px;font-weight:650;line-height:1.4;border:1px solid #3a2e24}",
+    ".nd-acts{display:flex;gap:8px;margin-top:18px}",
+    ".nd-acts a,.nd-acts button{flex:1;text-align:center;text-decoration:none;font:inherit;font-size:14px;font-weight:750;border-radius:12px;padding:12px 8px;cursor:pointer;border:1px solid #3a2e24;background:#1c1510;color:#f6efe4;min-height:44px}",
+    ".nd-mark{display:block;width:100%;font:inherit;font-size:16px;font-weight:800;border:1px solid #e8b84a;background:transparent;color:#e8b84a;border-radius:14px;padding:13px;margin:16px 0 0;cursor:pointer;min-height:48px}",
     ".nd-card.called .nd-mark{background:#e8b84a;color:#1a120c}",
-    ".nd-lbl{display:block;margin:16px 0 6px;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8f7d6c}",
-    ".nd-notes{display:block;width:100%;min-height:84px;font:inherit;font-size:16px;border:1px solid #3a2b22;border-radius:14px;padding:12px;resize:vertical;background:#100c0a;color:#f8f0e4}",
+    ".nd-lbl{display:block;margin:18px 0 6px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#a08b76}",
+    ".nd-notes{display:block;width:100%;min-height:88px;font:inherit;font-size:16px;border:1px solid #3a2e24;border-radius:14px;padding:12px;resize:vertical;background:#0c0907;color:#f6efe4}",
     ".nd-saverow{display:flex;align-items:center;gap:12px;margin-top:8px}",
-    ".nd-save{background:#e8b84a;color:#1a120c;border:0;border-radius:12px;padding:10px 16px;font-size:15px;font-weight:800}",
-    ".nd-saved{font-size:13px;color:#8f7d6c;font-weight:650}",
-    ".nd-intro h1{font-family:Fraunces,Georgia,serif;font-size:36px;line-height:1.05;font-weight:560;margin:8px 0 4px}",
-    ".nd-intro .lede{margin:0;color:#c4b3a0}",
-    ".nd-nights{display:flex;flex-direction:column;gap:8px;margin-top:8px}",
-    ".nd-night{padding:10px 12px;border-radius:12px;background:#1e1510;border:1px solid #2c2018}",
-    ".nd-night b{display:block;color:#e8b84a;font-size:12px;letter-spacing:.1em;text-transform:uppercase}",
-    ".nd-rules{margin:8px 0 0;padding:0;list-style:none}",
-    ".nd-rules li{padding:8px 0;border-top:1px solid #2c2018;color:#f8f0e4}",
-    ".nd-go{display:block;width:100%;margin-top:18px;border:0;border-radius:14px;background:#e8b84a;color:#1a120c;font:inherit;font-weight:800;font-size:16px;padding:14px;cursor:pointer}",
-    ".nd-jump{position:absolute;inset:0;z-index:5;background:rgba(0,0,0,.62);display:none}",
+    ".nd-save{background:#e8b84a;color:#1a120c;border:0;border-radius:12px;padding:10px 16px;font:inherit;font-size:15px;font-weight:800;cursor:pointer;min-height:44px}",
+    ".nd-saved{font-size:13px;color:#a08b76;font-weight:650}",
+    ".nd-intro h1{font-family:Fraunces,Georgia,serif;font-size:42px;line-height:1;font-weight:560;margin:6px 0 6px;color:#f6efe4}",
+    ".nd-intro .lede{margin:0;color:#a08b76;font-size:15px}",
+    ".nd-nights{display:flex;flex-direction:column;margin-top:4px}",
+    ".nd-night{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid #2a2118}",
+    ".nd-night b{flex:0 0 42px;color:#e8b84a;font-size:12px;letter-spacing:.12em;text-transform:uppercase}",
+    ".nd-night span{color:#f6efe4;font-size:15px}",
+    ".nd-rules{margin:4px 0 0;padding:0;list-style:none}",
+    ".nd-rules li{padding:9px 0 9px 14px;border-bottom:1px solid #2a2118;color:#f6efe4;position:relative}",
+    ".nd-rules li:before{content:'';position:absolute;left:0;top:16px;width:6px;height:6px;border-radius:50%;background:#e8b84a}",
+    ".nd-go{display:block;width:100%;margin-top:18px;border:0;border-radius:14px;background:#e8b84a;color:#1a120c;font:inherit;font-weight:800;font-size:16px;padding:15px;cursor:pointer;min-height:52px}",
+    ".nd-prog{margin:14px 0 0;color:#a08b76;font-size:13px;font-weight:650}",
+    ".nd-jump{position:absolute;inset:0;z-index:5;background:rgba(0,0,0,.55);display:none}",
     ".nd-jump.on{display:block}",
-    ".nd-jump-box{position:absolute;left:10px;right:10px;top:calc(10px + env(safe-area-inset-top));bottom:10px;background:#120e0b;border:1px solid #3a2b22;border-radius:22px;display:flex;flex-direction:column;overflow:hidden}",
-    ".nd-jump-head{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid #2c2018;font-size:16px;font-weight:750}",
-    ".nd-jump-head button{font:inherit;font-weight:750;border:0;border-radius:999px;padding:8px 12px;background:#e8b84a;color:#1a120c}",
-    ".nd-jump-list{overflow-y:auto;padding:4px 8px 16px}",
-    ".nd-jump-list button{display:grid;grid-template-columns:28px 1fr auto;gap:8px;align-items:center;width:100%;text-align:left;font:inherit;font-size:15px;border:0;background:none;border-bottom:1px solid #2c2018;padding:12px 6px;color:#f8f0e4;cursor:pointer}",
-    ".nd-jump-list button.cur{background:#241a10;border-radius:10px}",
-    ".nd-jump-list .r{color:#e8b84a;font-weight:800}",
-    ".nd-jump-list .tw{display:block;color:#8f7d6c;font-size:12px}",
-    ".nd-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-left:4px}",
-    ".nd-dot.hold{background:#ff7a6e}.nd-dot.wait{background:#ffb45a}.nd-dot.emailed{background:#8eb4ea}.nd-dot.far{background:#8f7d6c}",
+    ".nd-jump-box{position:absolute;left:12px;right:12px;top:calc(12px + env(safe-area-inset-top));bottom:calc(12px + env(safe-area-inset-bottom));background:#100c0a;border:1px solid #3a2e24;border-radius:22px;display:flex;flex-direction:column;overflow:hidden}",
+    ".nd-jump-head{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid #2a2118;font-size:16px;font-weight:750}",
+    ".nd-jump-head button{font:inherit;font-weight:800;border:0;border-radius:999px;padding:8px 14px;background:#e8b84a;color:#1a120c;min-height:40px}",
+    ".nd-jump-list{overflow-y:auto;padding:4px 6px 16px}",
+    ".nd-jump-list button{display:grid;grid-template-columns:32px 1fr auto;gap:8px;align-items:center;width:100%;text-align:left;font:inherit;font-size:15px;border:0;background:none;border-bottom:1px solid #241c16;padding:12px 8px;color:#f6efe4;cursor:pointer;min-height:52px}",
+    ".nd-jump-list button.cur,.nd-jump-list button.on{background:#24180f;border-radius:12px}",
+    ".nd-jump-list .r{color:#e8b84a;font-family:Fraunces,Georgia,serif;font-size:18px}",
+    ".nd-jump-list .nm{display:block;font-weight:750}",
+    ".nd-jump-list .tw{display:block;color:#a08b76;font-size:12px;font-weight:650}",
+    ".nd-dot{width:7px;height:7px;border-radius:50%;display:inline-block;margin-left:5px;vertical-align:middle}",
+    ".nd-dot.hold{background:#ff7a6e}.nd-dot.wait{background:#ffb45a}.nd-dot.emailed{background:#8eb4ea}.nd-dot.far{background:#a08b76}",
     ".nd-tick{color:#e8b84a;font-weight:800}",
     "#calls{display:none}#calls.show{display:block}#calls.suspended,#calls.suspended *{visibility:hidden!important;pointer-events:none!important}",
-    "#calls-btn{background:#e8b84a;color:#1a120c;border-radius:999px;padding:8px 14px;font-weight:800;font-size:14px;min-height:40px}",
+    "#calls-btn{background:#e8b84a!important;color:#1a120c!important;border-radius:999px;padding:8px 14px;font-weight:800;font-size:14px;min-height:40px}",
     "@media (min-width:960px){",
-    ".nd-rail{display:flex;flex-direction:column;width:300px;flex:0 0 300px;border-right:1px solid #2c2018;background:#100c0a;overflow:auto}",
-    ".nd-rail h3{margin:0;padding:16px 14px 8px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8f7d6c}",
-    ".nd-rail button{display:grid;grid-template-columns:28px 1fr auto;gap:8px;align-items:center;width:100%;text-align:left;font:inherit;border:0;border-bottom:1px solid #241c16;background:transparent;color:#f8f0e4;padding:11px 12px;cursor:pointer}",
-    ".nd-rail button.on{background:#241a10}",
+    ".nd-rail{display:flex;flex-direction:column;width:300px;flex:0 0 300px;border-right:1px solid #2a2118;background:#0c0907;overflow:auto}",
+    ".nd-rail h3{margin:0;padding:18px 16px 8px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#a08b76}",
+    ".nd-rail button{display:grid;grid-template-columns:28px 1fr auto;gap:8px;align-items:center;width:100%;text-align:left;font:inherit;border:0;border-bottom:1px solid #241c16;background:transparent;color:#f6efe4;padding:12px 14px;cursor:pointer;min-height:52px}",
+    ".nd-rail button.on{background:#24180f;box-shadow:inset 3px 0 0 #e8b84a}",
+    ".nd-rail .r{color:#e8b84a;font-family:Fraunces,Georgia,serif;font-size:16px}",
     ".nd-rail .nm{display:block;font-weight:700;font-size:14px}",
-    ".nd-rail .tw{display:block;color:#8f7d6c;font-size:12px;margin-top:1px}",
-    ".nd-rail .dy{color:#e8b84a;font-size:12px;font-weight:800}",
-    ".nd-slide{display:flex;justify-content:center;align-items:stretch;padding:22px}",
-    ".nd-card{width:min(680px,100%);box-shadow:0 24px 60px rgba(0,0,0,.35)}",
+    ".nd-rail .tw{display:block;color:#a08b76;font-size:12px;margin-top:1px}",
+    ".nd-rail .dy{color:#e8b84a;font-size:14px;font-weight:800}",
+    ".nd-slide{display:flex;justify-content:center;align-items:stretch;padding:28px 32px}",
+    ".nd-card{width:min(640px,100%)}",
     ".nd-jump{display:none!important}",
     ".nd-jumpbtn{display:none}",
     "}"
@@ -139,6 +153,51 @@
       return score(a) - score(b);
     });
   }
+  function plainLabel(label) {
+    var s = String(label || "").toLowerCase();
+    if (!s) return "Call";
+    if (s.indexOf("directory") >= 0) return "Other line";
+    if (s.indexOf("signature") >= 0) return "On her email";
+    if (s.indexOf("pub") >= 0) return "Pub line";
+    if (s.indexOf("club") >= 0) return "Club line";
+    if (s.indexOf("mob") >= 0) return "Mobile";
+    if (s.indexOf("web") >= 0) return "Listed number";
+    if (s.indexOf("files") >= 0) return "Landline";
+    return label;
+  }
+  function askName(v) {
+    var c = String(v.contact || "").trim();
+    if (!c || /no name/i.test(c)) return "";
+    return c;
+  }
+  function fmtISO(iso) {
+    if (!iso) return "";
+    var p = String(iso).split("-");
+    if (p.length < 3) return String(iso);
+    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    var m = months[Number(p[1]) - 1] || p[1];
+    return String(Number(p[2])) + " " + m;
+  }
+  function touchLine(v) {
+    if (!v.lastContact) return "";
+    var who = v.lastContactWho === "Us" ? "we wrote" : (v.lastContactWho === "Them" ? "they replied" : "");
+    return "Last touch " + fmtISO(v.lastContact) + (who ? " \u00b7 " + who : "");
+  }
+  function feeLock(v) {
+    var blob = String(v.note || "") + " " + String(v.why || "");
+    if (/do not restate|fee already agreed|price is agreed|NEVER_AGAIN/i.test(blob)) {
+      return "Fee already agreed. Do not say the number again.";
+    }
+    return "";
+  }
+  function showWhy(s) {
+    return String(s || "").replace(/\s*\(NEVER_AGAIN\s*#?\d+\)/gi, "").replace(/\s{2,}/g, " ").trim();
+  }
+  function quoteTitle(q) {
+    if (/^no fee/i.test(String(q || ""))) return "Price";
+    return "Quote already sent";
+  }
+  function pad2(n) { return n < 10 ? "0" + n : String(n); }
   function block(title, body, cls) {
     var d = el("div", "nd-block" + (cls ? " " + cls : ""));
     d.appendChild(el("h3", null, title));
@@ -150,11 +209,11 @@
     var c = el("div", "nd-card nd-intro");
     c.appendChild(el("p", "nd-rank", data.venues.length + " to call"));
     c.appendChild(el("h1", null, "Tonight"));
-    c.appendChild(el("p", "lede", data.title));
+    c.appendChild(el("p", "lede", data.title || "Calls, in the order to dial."));
     var s1 = el("div", "nd-block");
     s1.appendChild(el("h3", null, "Free nights"));
     var nights = el("div", "nd-nights");
-    data.freeNights.forEach(function (f) {
+    (data.freeNights || []).forEach(function (f) {
       var row = el("div", "nd-night");
       row.appendChild(el("b", null, f.month));
       row.appendChild(el("span", null, f.nights));
@@ -165,10 +224,10 @@
     var s2 = el("div", "nd-block");
     s2.appendChild(el("h3", null, "Before you offer a date"));
     var ul = el("ul", "nd-rules");
-    data.rules.forEach(function (r) { ul.appendChild(el("li", null, r)); });
+    (data.rules || []).forEach(function (r) { ul.appendChild(el("li", null, r)); });
     s2.appendChild(ul);
     c.appendChild(s2);
-    c.appendChild(el("p", "nd-where nd-prog", ""));
+    c.appendChild(el("p", "nd-prog", ""));
     var go = el("button", "nd-go", "Start with number 1");
     go.type = "button";
     go.onclick = function () { if (start) start(); };
@@ -182,40 +241,46 @@
     var isHold = (v.flags || []).some(function (f) { return f.type === "hold"; });
     if (isHold) c.classList.add("hold");
     var kick = el("div", "nd-kicker");
-    kick.appendChild(el("span", "nd-rank", "Call " + v.rank));
+    kick.appendChild(el("span", "nd-rank", pad2(v.rank)));
     var days = el("span", "nd-days");
     days.appendChild(el("b", null, String(dayCount(v))));
     days.appendChild(document.createTextNode("days quiet"));
     kick.appendChild(days);
     c.appendChild(kick);
     c.appendChild(el("h2", null, v.venue));
-    var where = el("p", "nd-where");
-    if (v.town) where.appendChild(document.createTextNode(v.town));
-    if (v.contact && v.contact !== "No name") {
-      if (v.town) where.appendChild(document.createTextNode(" \u00b7 "));
-      where.appendChild(document.createTextNode("Ask for "));
-      where.appendChild(el("b", null, v.contact));
+    if (v.town) c.appendChild(el("p", "nd-town", v.town));
+    var who = askName(v);
+    if (who) {
+      var ask = el("p", "nd-ask");
+      ask.appendChild(document.createTextNode("Ask for "));
+      ask.appendChild(el("b", null, who));
+      c.appendChild(ask);
     }
-    c.appendChild(where);
+    var touch = touchLine(v);
+    if (touch) c.appendChild(el("p", "nd-touch", touch));
     if (v.flags && v.flags.length) {
       var pills = el("div", "nd-flags");
-      v.flags.forEach(function (f) { pills.appendChild(el("span", "nd-pill " + f.type, f.text)); });
+      v.flags.forEach(function (f) { pills.appendChild(el("span", "nd-pill " + (f.type || ""), f.text)); });
       c.appendChild(pills);
     }
-    if (isHold) c.appendChild(el("p", "nd-hold", "Jake HOLD. Get his OK before you dial."));
+    if (isHold) c.appendChild(el("p", "nd-banner hold", "Jake HOLD. Get his OK before you dial."));
+    var fee = feeLock(v);
+    if (fee) c.appendChild(el("p", "nd-banner fee", fee));
     var phones = phonesInOrder(v);
     if (phones.length) {
       var main = phones[0];
       var a = el("a", "nd-call");
       a.href = "tel:" + main.tel;
       a.appendChild(el("span", "n", main.number));
-      a.appendChild(el("span", "l", main.label ? "Call \u00b7 " + main.label : "Call"));
+      a.appendChild(el("span", "l", plainLabel(main.label) + " \u00b7 tap to call"));
       c.appendChild(a);
       if (phones.length > 1) {
         var more = el("div", "nd-more");
         phones.slice(1).forEach(function (p) {
-          var b = el("a", null, (p.label ? p.label + " \u00b7 " : "") + p.number);
+          var b = el("a");
           b.href = "tel:" + p.tel;
+          b.appendChild(el("span", null, plainLabel(p.label)));
+          b.appendChild(document.createTextNode(p.number));
           more.appendChild(b);
         });
         c.appendChild(more);
@@ -223,14 +288,14 @@
     } else {
       c.appendChild(el("p", "nd-nophone", v.noPhone || "No phone on file."));
     }
-    if (v.why) c.appendChild(block("On this call", v.why, "why"));
+    if (v.why) c.appendChild(block("On this call", showWhy(v.why), "why"));
     var lastTitle = (v.lastWho === "Us" ? "We last said" : "They last said") + (v.lastDate ? " \u00b7 " + v.lastDate : "");
-    if (v.lastMsg) c.appendChild(block(lastTitle, v.lastMsg));
-    if (v.quote) c.appendChild(block("Quote already sent", v.quote));
+    if (v.lastMsg) c.appendChild(block(lastTitle, v.lastMsg, "said"));
+    if (v.quote) c.appendChild(block(quoteTitle(v.quote), v.quote));
     var extra = extraDays(v);
     if (extra) c.appendChild(el("p", "nd-warn", extra));
     var note = extraNote(v);
-    if (note) c.appendChild(el("p", "nd-warn", note));
+    if (note && !fee) c.appendChild(el("p", "nd-warn", note));
     if ((opts.openEmails && v.venueId) || v.gmailThreadId) {
       var mail = el("div", "nd-acts");
       if (opts.openEmails && v.venueId) {
@@ -301,6 +366,10 @@
     var deck = el("div", "nd");
     deck.setAttribute("role", "region");
     deck.setAttribute("aria-label", "Calls");
+    var bar = el("div", "nd-bar");
+    var barI = el("i");
+    bar.appendChild(barI);
+    deck.appendChild(bar);
     var top = el("div", "nd-top");
     if (opts.onClose) {
       var close = el("button", "nd-close", "Board");
@@ -308,6 +377,12 @@
       close.onclick = opts.onClose;
       top.appendChild(close);
     }
+    var count = el("div", "nd-count");
+    count.setAttribute("aria-live", "polite");
+    top.appendChild(count);
+    var jumpBtn = el("button", "nd-jumpbtn", "List");
+    jumpBtn.type = "button";
+    top.appendChild(jumpBtn);
     var arrows = el("div", "nd-arrows");
     var prev = el("button", null, "\u2039");
     var next = el("button", null, "\u203A");
@@ -317,12 +392,6 @@
     arrows.appendChild(prev);
     arrows.appendChild(next);
     top.appendChild(arrows);
-    var count = el("div", "nd-count");
-    count.setAttribute("aria-live", "polite");
-    top.appendChild(count);
-    var jumpBtn = el("button", "nd-jumpbtn", "List");
-    jumpBtn.type = "button";
-    top.appendChild(jumpBtn);
     deck.appendChild(top);
 
     var body = el("div", "nd-body");
@@ -336,7 +405,7 @@
     var intro = introCard(data, function () { go(1); });
     cards.push(intro);
     data.venues.forEach(function (v) { cards.push(venueCard(v, opts)); });
-    cards.forEach(function (c, i) {
+    cards.forEach(function (c) {
       var s = el("div", "nd-slide");
       s.appendChild(c);
       track.appendChild(s);
@@ -349,7 +418,7 @@
     var jump = el("div", "nd-jump");
     var jbox = el("div", "nd-jump-box");
     var jhead = el("div", "nd-jump-head");
-    jhead.appendChild(el("span", null, "All  " + data.venues.length));
+    jhead.appendChild(el("span", null, "In order"));
     var jclose = el("button", null, "Close");
     jclose.type = "button";
     jhead.appendChild(jclose);
@@ -365,27 +434,34 @@
     function calledCount() {
       return data.venues.filter(function (v) { return load("called:" + v.id) === "1"; }).length;
     }
-    function rowButton(label, sub, i, called) {
-      var b = el("button", i === idx ? "on" : "");
+    function rowButton(label, sub, i, called, jumpItem) {
+      var b = el("button", i === idx ? "on cur" : "");
       b.type = "button";
-      b.appendChild(el("span", "r", i === 0 ? "" : String(i)));
+      b.appendChild(el("span", "r", i === 0 ? "\u00b7" : String(i)));
       var mid = el("span");
       mid.appendChild(el("span", "nm", label));
       if (sub) mid.appendChild(el("span", "tw", sub));
       b.appendChild(mid);
       b.appendChild(el("span", "dy", called ? "\u2713" : ""));
       b.onclick = function () { closeJump(); go(i, false); };
+      if (jumpItem) b.classList.add("jump");
       return b;
     }
     function paintMeta() {
       var cc = calledCount();
       count.innerHTML = "";
-      count.appendChild(document.createTextNode(idx === 0 ? "Tonight" : idx + " of " + total));
-      count.appendChild(el("small", null, cc + " called"));
+      if (idx === 0) {
+        count.appendChild(document.createTextNode("Tonight"));
+        count.appendChild(el("small", null, cc + " of " + total + " called"));
+      } else {
+        count.appendChild(document.createTextNode(idx + " of " + total));
+        count.appendChild(el("small", null, data.venues[idx - 1].venue));
+      }
       var p = intro.querySelector(".nd-prog");
-      if (p) p.textContent = cc + " of " + total + " already called.";
+      if (p) p.textContent = cc ? (cc + " of " + total + " marked called on this phone.") : "Nothing marked called on this phone yet.";
       prev.disabled = idx <= 0;
       next.disabled = idx >= total;
+      barI.style.width = (total ? Math.round((idx / total) * 100) : 0) + "%";
       var nodes = rail.querySelectorAll("button");
       for (var n = 0; n < nodes.length; n++) nodes[n].classList.toggle("on", Number(nodes[n].getAttribute("data-i")) === idx);
     }
@@ -396,16 +472,18 @@
       var brief = rowButton("Tonight", "Free nights and the rules", 0, false);
       brief.setAttribute("data-i", "0");
       rail.appendChild(brief);
-      jlist.appendChild(rowButton("Tonight", "Free nights and the rules", 0, false));
+      var jb0 = rowButton("Tonight", "Free nights and the rules", 0, false, true);
+      jlist.appendChild(jb0);
       data.venues.forEach(function (v, k) {
         var called = load("called:" + v.id) === "1";
-        var rb = rowButton(v.venue, v.town || "", k + 1, called);
+        var sub = v.town || "";
+        var rb = rowButton(v.venue, sub, k + 1, called);
         rb.setAttribute("data-i", String(k + 1));
         rail.appendChild(rb);
-        var jb = rowButton(v.venue, v.town || "", k + 1, called);
+        var jb = rowButton(v.venue, sub, k + 1, called, true);
         var name = jb.querySelector(".nm");
-        v.flags.forEach(function (f) {
-          var d = el("span", "nd-dot " + f.type);
+        (v.flags || []).forEach(function (f) {
+          var d = el("span", "nd-dot " + (f.type || ""));
           d.title = f.text;
           if (name) name.appendChild(d);
         });
