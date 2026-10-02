@@ -1,0 +1,514 @@
+{
+  "version": 1,
+  "title": "Nat call deck, Fri 2 Oct",
+  "listDate": "2026-10-02",
+  "source": "ops/handoffs/2026-10-02-call-desk-cleanup.md (re-ranked from 2026-09-28 deck: oldest last contact first) · JEM 2 Oct: also dropped Bird in Hand (hold), Goldstone (hard hold), Lower Bourne (Wait); Sun 29 Nov removed (CL booking)",
+  "freeNights": [
+    {
+      "month": "Oct",
+      "nights": "Sun 11, 18, 25 Oct"
+    },
+    {
+      "month": "Nov",
+      "nights": "Sat 7 Nov (only free Saturday)"
+    },
+    {
+      "month": "Nov",
+      "nights": "Sun 15, 22 Nov"
+    },
+    {
+      "month": "Dec",
+      "nights": "Sun 6, 20, 27 Dec"
+    },
+    {
+      "month": "Oct",
+      "nights": "Plus The Bull: Thu 22 Oct"
+    }
+  ],
+  "rules": [
+    "Check both calendars before offering any date.",
+    "Never restate a fee already agreed.",
+    "Cash or books fee only.",
+    "Never ticket or door deals."
+  ],
+  "venues": [
+    {
+      "rank": 1,
+      "id": "sedir-restaurant",
+      "venue": "Sedir (restaurant)",
+      "town": "Dartford",
+      "contact": "Ahmet (Ozgur Efe)",
+      "phones": [
+        {
+          "number": "07867 968113",
+          "label": "mobile",
+          "tel": "07867968113"
+        },
+        {
+          "number": "01322 226421",
+          "label": "files",
+          "tel": "01322226421"
+        }
+      ],
+      "noPhone": "",
+      "quote": "9 Sep: £250 for 2×45, £375 for 3×45 or £485 for 4×40, with a £50 deposit. Oct-Nov dates were listed.",
+      "lastWho": "Them",
+      "lastDate": "8 Sep",
+      "lastMsg": "Ahmet invited Jake to the restaurant to talk and gave his mobile. Jake spoke with him on 9 Sep.",
+      "days": "23",
+      "daysNote": "since last contact",
+      "why": "The owner asked to talk and already knows Jake. It's local, so a call or visit can pick a date.",
+      "flags": [],
+      "note": "Last contact: 09 Sep (Us)",
+      "venueId": "sedir",
+      "gmailThreadId": "1a07d82e820b9ff7",
+      "lastContact": "2026-09-09",
+      "lastContactWho": "Us"
+    },
+    {
+      "rank": 2,
+      "id": "the-muddy-duck",
+      "venue": "The Muddy Duck",
+      "town": "Maldon",
+      "contact": "Jaela Wright (Manager)",
+      "phones": [
+        {
+          "number": "01621 336567",
+          "label": "pub line, files",
+          "tel": "01621336567"
+        }
+      ],
+      "noPhone": "",
+      "quote": "No fee sent. Natalie moved the price conversation to the phone.",
+      "lastWho": "Them",
+      "lastDate": "9 Sep",
+      "lastMsg": "Jaela loves Jake's sound and is definitely open to booking. She is busy with events for about 2 months and asked for rates, set lengths and a contact number.",
+      "days": "23",
+      "daysNote": "since last contact",
+      "why": "She asked for a call and for prices, and her busy spell ends around early November.",
+      "flags": [],
+      "note": "Last contact: 09 Sep (Us) · The +44 7523 924644 in haggle-muddy-duck is Natalie's number that we gave Jaela, not Jaela's.",
+      "venueId": "the-muddy-duck",
+      "gmailThreadId": "1a081a0311f36b07",
+      "lastContact": "2026-09-09",
+      "lastContactWho": "Us"
+    },
+    {
+      "rank": 3,
+      "id": "broomfield-rbl",
+      "venue": "Broomfield RBL",
+      "town": "Chelmsford",
+      "contact": "Siobhan Stanley",
+      "phones": [
+        {
+          "number": "07749 088690",
+          "label": "mob",
+          "tel": "07749088690"
+        },
+        {
+          "number": "01245 442757",
+          "label": "files",
+          "tel": "01245442757"
+        }
+      ],
+      "noPhone": "",
+      "quote": "£250 for 2×1h or £350 for 3×45 (1 Sep).",
+      "lastWho": "Them",
+      "lastDate": "1 Sep",
+      "lastMsg": "She loved it, would put it to the committee and asked for Saturdays.",
+      "days": "23",
+      "daysNote": "since last contact",
+      "why": "The committee met on 7 Sep, so call for the verdict; Sat 7 Nov is the only free 2026 Saturday.",
+      "flags": [],
+      "note": "Last contact: 09 Sep (Us)",
+      "venueId": "broomfield-rbl",
+      "gmailThreadId": "1a04281ab98425ce",
+      "lastContact": "2026-09-09",
+      "lastContactWho": "Us"
+    },
+    {
+      "rank": 4,
+      "id": "corner-club",
+      "venue": "Corner Club",
+      "town": "Canvey Island",
+      "contact": "Maxine Topliss",
+      "phones": [
+        {
+          "number": "07830 763936",
+          "label": "mobile, files",
+          "tel": "07830763936"
+        }
+      ],
+      "noPhone": "",
+      "quote": "4 Sep: £250 for a 2h show or £375 for 3h, Sunday afternoon, with the Oct-Dec free Sundays listed. Chased 11 Sep.",
+      "lastWho": "Them",
+      "lastDate": "11 Sep",
+      "lastMsg": "She hadn't forgotten; she was busy and away and would get back \"next week\".",
+      "days": "21",
+      "daysNote": "since last contact",
+      "why": "She asked for a Sunday afternoon, and Sundays are what Jake has free in 2026 (a Christmas Sunday on 6, 20 or 27 Dec is an easy yes). She is now about 10 days past her own \"next week\". Local.",
+      "flags": [],
+      "note": "Last contact: 11 Sep (Them)",
+      "venueId": "corner-club-canvey",
+      "gmailThreadId": "1a06bd225ae629e2",
+      "lastContact": "2026-09-11",
+      "lastContactWho": "Them"
+    },
+    {
+      "rank": 5,
+      "id": "shepherd-dog",
+      "venue": "Shepherd & Dog",
+      "town": "Crays Hill",
+      "contact": "No name",
+      "phones": [
+        {
+          "number": "01268 521967",
+          "label": "files",
+          "tel": "01268521967"
+        }
+      ],
+      "noPhone": "",
+      "quote": "No fee sent.",
+      "lastWho": "Them",
+      "lastDate": "15 Sep",
+      "lastMsg": "\"Thank you, I will let you know\"",
+      "days": "17",
+      "daysNote": "since last contact",
+      "why": "Local pub; a call can offer dates and a price.",
+      "flags": [],
+      "note": "Last contact: 15 Sep (Them)",
+      "venueId": "shepherd-and-dog",
+      "gmailThreadId": "1a0a54d159ee000e",
+      "lastContact": "2026-09-15",
+      "lastContactWho": "Them"
+    },
+    {
+      "rank": 6,
+      "id": "the-bull",
+      "venue": "The Bull",
+      "town": "Corringham (SS17 9AT)",
+      "contact": "Holly Bennett",
+      "phones": [
+        {
+          "number": "01375 645000",
+          "label": "files",
+          "tel": "01375645000"
+        }
+      ],
+      "noPhone": "",
+      "quote": "10 Sep: £275 for 2×1h or £375 for 3×45 (£250/£350 if they book 4). Then on 14 Sep: £250 for Thu 22 Oct, 7-9pm (2×1h), with a nudge on 17 Sep.",
+      "lastWho": "Them",
+      "lastDate": "14 Sep",
+      "lastMsg": "Holly asked the price for a Thursday 7-9pm and whether Jake is free on Thu 22 Oct.",
+      "days": "15",
+      "daysNote": "since last contact · Jake phoned on Fri 18 Sep and Holly was due to confirm on Mon 21 Sep. Nothing has come in since.",
+      "why": "She named the date herself, the price is in line with what she asked, and the gig is 3½ weeks away. One call gets a yes or no on 22 Oct. (Board rule: no email chase, so phone is the agreed route. Confirm 22 Oct is still clear.)",
+      "flags": [],
+      "note": "Last contact: 17 Sep (Us)",
+      "venueId": "the-bull",
+      "gmailThreadId": "1a085c4e33bb79e4",
+      "lastContact": "2026-09-17",
+      "lastContactWho": "Us"
+    },
+    {
+      "rank": 7,
+      "id": "bardswell-social-club",
+      "venue": "Bardswell Social Club",
+      "town": "Brentwood (CM14 4TJ)",
+      "contact": "Sharon Banks (Events Manager)",
+      "phones": [
+        {
+          "number": "01277 214057",
+          "label": "files",
+          "tel": "01277214057"
+        }
+      ],
+      "noPhone": "",
+      "quote": "10 Sep: £250 cash or £280 on the books for 2×1h (8-11). Sharon accepted £250 cash and asked for 28 Aug (2027), which Jake can't do. Other August weekends were offered, and we chased on 17 Sep.",
+      "lastWho": "Them",
+      "lastDate": "10 Sep",
+      "lastMsg": "\"I will get back to you, just need to juggle some things around.\"",
+      "days": "15",
+      "daysNote": "since last contact",
+      "why": "The price is agreed and only the date is open. This is 2027 money. Do not restate the fee (NEVER_AGAIN #25).",
+      "flags": [],
+      "note": "Last contact: 17 Sep (Us) · Fee already agreed. Do not restate the fee on the call.",
+      "venueId": "bardswell-social-club-sharon-banks",
+      "gmailThreadId": "1a08ae7df33c8b40",
+      "lastContact": "2026-09-17",
+      "lastContactWho": "Us"
+    },
+    {
+      "rank": 8,
+      "id": "the-greyhound-hotel",
+      "venue": "The Greyhound Hotel",
+      "town": "Carshalton (Young's)",
+      "contact": "Annemarie McCarthy (GM)",
+      "phones": [
+        {
+          "number": "020 8647 1511",
+          "label": "files",
+          "tel": "02086471511"
+        }
+      ],
+      "noPhone": "",
+      "quote": "14 Sep: £285 for 2×1h or £385 for 3×45, Sat/Sun (£250/£350 if they book several). Chased 21 Sep.",
+      "lastWho": "Them",
+      "lastDate": "23 Sep",
+      "lastMsg": "Thanks for the information, \"we will be in touch\".",
+      "days": "9",
+      "daysNote": "since last contact",
+      "why": "The GM has engaged twice. Offer a Sunday in Nov or Dec. The board says no second email chase, so the phone is the only nudge left.",
+      "flags": [],
+      "note": "Last contact: 23 Sep (Them)",
+      "venueId": "the-greyhound-hotel",
+      "gmailThreadId": "1a090d23c4118142",
+      "lastContact": "2026-09-23",
+      "lastContactWho": "Them"
+    },
+    {
+      "rank": 9,
+      "id": "mildmay-club",
+      "venue": "Mildmay Club",
+      "town": "London N16",
+      "contact": "Iona Dudley (Club Manager)",
+      "phones": [
+        {
+          "number": "020 7254 2265",
+          "label": "files, her signature",
+          "tel": "02072542265"
+        }
+      ],
+      "noPhone": "",
+      "quote": "On 17 Sep they offered £250 for Sat 3×45, 9pm-12am, paid by bank transfer on invoice. We countered the same day: £250 cash or £275 on the books for 2×1h, and £350 cash or £375 on the books for 3 sets.",
+      "lastWho": "Them",
+      "lastDate": "17 Sep",
+      "lastMsg": "They always want new acts for Saturday nights in the Members Bar and pay £250 for 3×45 by bank transfer.",
+      "days": "4",
+      "daysNote": "since last contact",
+      "why": "They have already named a budget and a slot, so only the format and fee gap is left. A call can settle a number (for example 2×1h at £275 on invoice) and fix Sat 7 Nov or a 2027 Saturday. Give the chase 24-48h first.",
+      "flags": [
+        {
+          "type": "emailed",
+          "text": "EMAILED MON 28 SEP 16:25"
+        }
+      ],
+      "note": "Last contact: 28 Sep (Us)",
+      "venueId": "mildmay-club",
+      "gmailThreadId": "1a0adfb4ae07faf3",
+      "lastContact": "2026-09-28",
+      "lastContactWho": "Us"
+    },
+    {
+      "rank": 10,
+      "id": "whitstable-social-club",
+      "venue": "Whitstable Social Club",
+      "town": "Whitstable (CT5 1QP)",
+      "contact": "Claire (Chair)",
+      "phones": [
+        {
+          "number": "01227 272023",
+          "label": "web",
+          "tel": "01227272023"
+        }
+      ],
+      "noPhone": "",
+      "quote": "18 Sep: £300 cash or £330 on the books for Sunday 4.30-6.30 (2×1h). We also asked for her budget.",
+      "lastWho": "Them",
+      "lastDate": "18 Sep",
+      "lastMsg": "Claire asked what Jake charges for 2 hours on a Sunday, saying they are a small members club that watches its budget.",
+      "days": "4",
+      "daysNote": "since last contact",
+      "why": "Her Sunday slot fits the free 2026 Sundays. We already asked her budget, so a call gets her number and a date.",
+      "flags": [
+        {
+          "type": "emailed",
+          "text": "EMAILED MON 28 SEP 16:24"
+        }
+      ],
+      "note": "Last contact: 28 Sep (Us)",
+      "venueId": "whitstable-social-club",
+      "gmailThreadId": "1a0b3a712d982d83",
+      "lastContact": "2026-09-28",
+      "lastContactWho": "Us"
+    },
+    {
+      "rank": 11,
+      "id": "six-in-one-club",
+      "venue": "Six In One Club",
+      "town": "Tonbridge (TN10 3HH)",
+      "contact": "Terry Coomber (Ents Sec)",
+      "phones": [
+        {
+          "number": "01732 358883",
+          "label": "web, club line",
+          "tel": "01732358883"
+        }
+      ],
+      "noPhone": "",
+      "quote": "17 Sep: £300 cash for 2×1h as a one-off, or £250 a night if they book 4. Saturday evening or Sunday afternoon.",
+      "lastWho": "Them",
+      "lastDate": "16 Sep",
+      "lastMsg": "Terry asked the price for Saturday 8.30-9.30 and 10-11, and for Sunday 4-5 and 5.30-6.30.",
+      "days": "4",
+      "daysNote": "since last contact",
+      "why": "He gave exact set times for both days, and Sundays are free in 2026. A call finds out whether £300 versus £250×4 is the sticking point. Ask for Terry.",
+      "flags": [
+        {
+          "type": "emailed",
+          "text": "EMAILED MON 28 SEP 16:27"
+        }
+      ],
+      "note": "Last contact: 28 Sep (Us) · Club line. Terry's own number is not in the files.",
+      "venueId": "the-six-in-one-club",
+      "gmailThreadId": "1a0ab2c995b0410f",
+      "lastContact": "2026-09-28",
+      "lastContactWho": "Us"
+    },
+    {
+      "rank": 12,
+      "id": "coulsdon-victoria-social-club",
+      "venue": "Coulsdon Victoria Social Club",
+      "town": "Coulsdon",
+      "contact": "\"Victoria Club\", no name",
+      "phones": [
+        {
+          "number": "020 8645 0600",
+          "label": "web",
+          "tel": "02086450600"
+        }
+      ],
+      "noPhone": "",
+      "quote": "£325 cash for Sunday 2×1h or £450 for 3×1h (16 Sep).",
+      "lastWho": "Them",
+      "lastDate": "16 Sep",
+      "lastMsg": "Will review free Sundays next year and wants one Sunday only.",
+      "days": "4",
+      "daysNote": "since last contact",
+      "why": "They intend to book one, so a call gets the 2027 date.",
+      "flags": [
+        {
+          "type": "emailed",
+          "text": "EMAILED MON 28 SEP"
+        }
+      ],
+      "note": "Last contact: 28 Sep (Us)",
+      "venueId": "coulsdon-victoria-social-club",
+      "gmailThreadId": "1a0aa120650d833e",
+      "lastContact": "2026-09-28",
+      "lastContactWho": "Us"
+    },
+    {
+      "rank": 13,
+      "id": "sutton-social-club",
+      "venue": "Sutton Social Club",
+      "town": "Sutton (SM1 4RS)",
+      "contact": "Julie",
+      "phones": [
+        {
+          "number": "020 8642 1929",
+          "label": "files",
+          "tel": "02086421929"
+        }
+      ],
+      "noPhone": "",
+      "quote": "£400 for one Sat of 3 sets, or £350 each for 4 (16 Sep).",
+      "lastWho": "Them",
+      "lastDate": "16 Sep",
+      "lastMsg": "Julie asked the fee for Sat 8.30-11.30, 3 sets.",
+      "days": "4",
+      "daysNote": "since last contact",
+      "why": "Test her budget; 10 Oct in that quote is now taken.",
+      "flags": [
+        {
+          "type": "emailed",
+          "text": "EMAILED MON 28 SEP"
+        }
+      ],
+      "note": "Last contact: 28 Sep (Us)",
+      "venueId": "sutton-social-club",
+      "gmailThreadId": "1a0aaa885e20877d",
+      "lastContact": "2026-09-28",
+      "lastContactWho": "Us"
+    },
+    {
+      "rank": 14,
+      "id": "barrow-upon-soar-cons",
+      "venue": "Barrow upon Soar Cons",
+      "town": "Leics",
+      "contact": "Danielle Armiger",
+      "phones": [
+        {
+          "number": "01509 768600",
+          "label": "files",
+          "tel": "01509768600"
+        }
+      ],
+      "noPhone": "",
+      "quote": "£300 cash (£330 on the books) for 2h or £450 for 3h, Sat/Sun (15 Sep).",
+      "lastWho": "Them",
+      "lastDate": "15 Sep",
+      "lastMsg": "She asked \"What's the fee please?\"",
+      "days": "4",
+      "daysNote": "since last contact",
+      "why": "Silent since the quote and FAR; a call checks whether the fee is the problem.",
+      "flags": [
+        {
+          "type": "emailed",
+          "text": "EMAILED MON 28 SEP"
+        },
+        {
+          "type": "far",
+          "text": "FAR"
+        }
+      ],
+      "note": "Last contact: 28 Sep (Us)",
+      "venueId": "barrow-upon-soar-cons",
+      "gmailThreadId": "1a05cc5fecedf343",
+      "lastContact": "2026-09-28",
+      "lastContactWho": "Us"
+    },
+    {
+      "rank": 15,
+      "id": "pendyffryn-club",
+      "venue": "Pendyffryn Club",
+      "town": "Prestatyn",
+      "contact": "Mags (Steward)",
+      "phones": [
+        {
+          "number": "01745 856259",
+          "label": "web",
+          "tel": "01745856259"
+        },
+        {
+          "number": "01745 854443",
+          "label": "one directory also lists this",
+          "tel": "01745854443"
+        }
+      ],
+      "noPhone": "",
+      "quote": "£250 cash for Sat 2×1h or £300 for 3×1h, with May-Jul 2027 Saturdays (21 Sep).",
+      "lastWho": "Them",
+      "lastDate": "21 Sep",
+      "lastMsg": "Mags asked the Saturday-night charge.",
+      "days": "4",
+      "daysNote": "since last contact",
+      "why": "2027 only, FAR (Wales).",
+      "flags": [
+        {
+          "type": "emailed",
+          "text": "EMAILED MON 28 SEP"
+        },
+        {
+          "type": "far",
+          "text": "FAR"
+        }
+      ],
+      "note": "Last contact: 28 Sep (Us)",
+      "venueId": "pendyffryn-club-prestatyn",
+      "gmailThreadId": "1a06caf8ef3e838c",
+      "lastContact": "2026-09-28",
+      "lastContactWho": "Us"
+    }
+  ]
+}

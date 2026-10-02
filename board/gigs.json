@@ -1,0 +1,603 @@
+{
+  "updatedAt": "2026-09-22T09:23:46+01:00",
+  "source": "JAKE ESSEX GIGS @ CL",
+  "gigs": [
+    {
+      "date": "2026-09-11",
+      "venue": "",
+      "status": "held",
+      "source": "cl"
+    },
+    {
+      "date": "2026-09-12",
+      "venue": "Bellingham Ex Servicemens Club",
+      "postcode": "SE6 3DD",
+      "start": "20:30",
+      "finish": "23:30",
+      "status": "booked",
+      "source": "cl"
+    },
+    {
+      "date": "2026-09-13",
+      "venue": "Pelly House Sports & Social",
+      "postcode": "IG9 5BY",
+      "start": "14:00",
+      "finish": "17:00",
+      "status": "booked",
+      "source": "cl",
+      "note": "afternoon tea"
+    },
+    {
+      "date": "2026-09-19",
+      "venue": "Stone Street Club, Maidstone",
+      "postcode": "ME15 6JN",
+      "start": "20:30",
+      "finish": "23:00",
+      "status": "booked",
+      "source": "cl"
+    },
+    {
+      "date": "2026-09-20",
+      "venue": "The Bricklayers Arms, Aylesford",
+      "postcode": "ME20 6SA",
+      "start": "15:00",
+      "finish": "17:30",
+      "status": "booked",
+      "source": "cl"
+    },
+    {
+      "date": "2026-09-25",
+      "venue": "The Summerfield Tavern, Bromley",
+      "postcode": "SE12 0PS",
+      "start": "20:00",
+      "finish": "22:30",
+      "status": "booked",
+      "source": "cl"
+    },
+    {
+      "date": "2026-09-26",
+      "venue": "Pagham Beach Club",
+      "postcode": "PO21 4SY",
+      "start": "16:00",
+      "finish": "19:00",
+      "status": "booked",
+      "source": "cl"
+    },
+    {
+      "date": "2026-09-27",
+      "venue": "Ponders End WMC",
+      "postcode": "EN3 4LB",
+      "start": "20:30",
+      "finish": "23:00",
+      "status": "booked",
+      "source": "cl"
+    },
+    {
+      "date": "2026-10-02",
+      "venue": "",
+      "status": "held",
+      "source": "cl"
+    },
+    {
+      "date": "2026-10-03",
+      "venue": "",
+      "status": "held",
+      "source": "cl"
+    },
+    {
+      "date": "2026-10-04",
+      "venue": "",
+      "status": "held",
+      "source": "cl"
+    },
+    {
+      "date": "2026-10-12",
+      "venue": "Warm and Toasty Memory Afternoon — Shrub End Social Centre",
+      "town": "Colchester",
+      "postcode": "CO3 4SA",
+      "start": "14:00",
+      "finish": "16:00",
+      "status": "booked",
+      "source": "board",
+      "note": "OWN £200 cash · soundcheck after 13:00 · Johnno FB"
+    },
+    {
+      "date": "2026-10-17",
+      "venue": "ECTA Grand Final",
+      "town": "Halstead",
+      "postcode": "",
+      "start": "",
+      "finish": "",
+      "status": "booked",
+      "source": "board",
+      "note": "OWN/ECTA all-day · Empire Theatre Halstead · leave required · NEVER free · enquiry gqgfc62btrk0nucugnd8s65p2k"
+    },
+    {
+      "date": "2026-10-24",
+      "venue": "Barking United Services Club",
+      "postcode": "IG11 9SF",
+      "start": "20:00",
+      "finish": "23:00",
+      "status": "booked",
+      "source": "cl"
+    },
+    {
+      "date": "2026-10-30",
+      "venue": "The Bluehouse Farm Community Association",
+      "postcode": "SS15 5UH",
+      "start": "20:30",
+      "finish": "23:00",
+      "status": "booked",
+      "source": "cl"
+    },
+    {
+      "date": "2026-10-31",
+      "venue": "Thurrock Irish Club Tilbury",
+      "town": "Tilbury",
+      "postcode": "RM18 7BS",
+      "start": "20:30",
+      "finish": "00:30",
+      "status": "booked",
+      "source": "board",
+      "note": "OWN £400 cash · 4×45 · RAC Dagenham day · 150-152 Dock Road"
+    },
+    {
+      "date": "2026-11-01",
+      "venue": "Corringham Social Club",
+      "postcode": "SS17 9AA",
+      "start": "20:15",
+      "finish": "23:10",
+      "status": "booked",
+      "source": "cl"
+    },
+    {
+      "date": "2026-11-08",
+      "venue": "Glamis Hall Club",
+      "postcode": "E1 0AF",
+      "start": "15:00",
+      "finish": "18:00",
+      "status": "booked",
+      "source": "cl"
+    },
+    {
+      "date": "2026-11-13",
+      "venue": "",
+      "status": "held",
+      "source": "cl"
+    },
+    {
+      "date": "2026-11-14",
+      "venue": "Magpie Events Mildenhall",
+      "town": "Mildenhall",
+      "postcode": "IP28 7EF",
+      "start": "",
+      "finish": "",
+      "status": "booked",
+      "source": "board",
+      "note": "OWN £350 · 30 Market Place Mildenhall · Nathalie Magpie Events LDN 07523 924644 · diary i8js5d0ndlmkfp1n43fq9ch48s · NEVER free"
+    },
+    {
+      "date": "2026-11-21",
+      "venue": "King Edward Stratford (Willz Farrell)",
+      "town": "Stratford",
+      "postcode": "",
+      "start": "20:30",
+      "finish": "23:00",
+      "status": "booked",
+      "source": "board",
+      "note": "OWN £325 cash · 2×60 · 20:30–23:00 · Willz Farrell · Jake confirmed CASH 12 Sep · soft door other dates · enquiry 92ai1nb7i7crtkgkmrjclf7rrs · NEVER free"
+    },
+    {
+      "date": "2026-11-27",
+      "venue": "Dartford Mayor charity tea",
+      "town": "Dartford",
+      "status": "booked",
+      "source": "board",
+      "note": "charity tea"
+    },
+    {
+      "date": "2026-11-27",
+      "venue": "Magpie Events Lot 14 Theydon",
+      "town": "Theydon Bois",
+      "postcode": "CM16 7EY",
+      "location": "14 Forest Drive, Theydon Bois, Essex CM16 7EY",
+      "start": "19:30",
+      "finish": null,
+      "status": "booked",
+      "source": "board",
+      "note": "OWN £325 · Ricky Magpie · arrive ~19:00 · after Dartford Mayor afternoon same day · enquiry 8tmib11bmuvs66atst27ibg0vo · NEVER free"
+    },
+    {
+      "date": "2026-12-05",
+      "venue": "The Springhouse Club",
+      "postcode": "SS17 7QT",
+      "start": "20:45",
+      "finish": "23:30",
+      "status": "booked",
+      "source": "cl"
+    },
+    {
+      "date": "2026-12-12",
+      "venue": "Kings Park Residents Club",
+      "postcode": "SS8 8QW",
+      "start": "20:30",
+      "finish": "23:00",
+      "status": "booked",
+      "source": "cl"
+    },
+    {
+      "date": "2026-12-13",
+      "venue": "Bellingham Ex Servicemens Club",
+      "postcode": "SE6 3DD",
+      "start": "14:30",
+      "finish": "17:30",
+      "status": "booked",
+      "source": "cl",
+      "note": "Sunday"
+    },
+    {
+      "date": "2026-12-17",
+      "venue": "Peacock Close Xmas do",
+      "town": "Emerson Park, Hornchurch",
+      "postcode": "",
+      "start": "13:30",
+      "finish": "15:30",
+      "status": "booked",
+      "source": "board"
+    },
+    {
+      "date": "2026-12-18",
+      "venue": "The Posh Boys Brewery Bar",
+      "postcode": "SS11 8BB",
+      "start": "19:30",
+      "finish": "22:15",
+      "status": "booked",
+      "source": "cl"
+    },
+    {
+      "date": "2026-12-19",
+      "venue": "Croydon and District Masonic Halls",
+      "postcode": "CR0 2UX",
+      "start": "20:30",
+      "finish": "23:30",
+      "status": "booked",
+      "source": "cl"
+    },
+    {
+      "date": "2026-12-24",
+      "venue": "Walderslade Social Club",
+      "town": "Chatham",
+      "postcode": "ME5 0PA",
+      "start": "20:00",
+      "finish": "",
+      "status": "booked",
+      "source": "board",
+      "note": "OWN £300 · Christmas Eve · show 8pm arrive ~7:30 · 274 Walderslade Road · Jodie Helene · address confirm pending · NEVER free"
+    },
+    {
+      "date": "2026-12-26",
+      "venue": "The George",
+      "postcode": "TN27 9NL",
+      "start": "17:00",
+      "finish": "19:30",
+      "status": "booked",
+      "source": "cl"
+    },
+    {
+      "date": "2026-12-31",
+      "venue": "Hartley Country Club",
+      "postcode": "DA3 8BS",
+      "start": "20:00",
+      "finish": "00:30",
+      "status": "booked",
+      "source": "cl",
+      "note": "NYE"
+    },
+    {
+      "date": "2027-01-08",
+      "venue": "",
+      "status": "held",
+      "source": "cl"
+    },
+    {
+      "date": "2027-01-10",
+      "venue": "Bishop's Stortford Social (Jade)",
+      "town": "Bishop's Stortford",
+      "postcode": "CM23 3BG",
+      "location": "104 South Street, Bishop's Stortford CM23 3BG",
+      "start": "15:15",
+      "finish": "17:45",
+      "status": "booked",
+      "source": "board",
+      "note": "OWN £250 cash · 2×1hr · Jade four-date · diary a388prumv7bqgdact6chhllmu4 · Us 1a0c408fd0596ead · NEVER Choice without Jake OK"
+    },
+    {
+      "date": "2027-01-16",
+      "venue": "Hoo Village Institute",
+      "postcode": "ME3 9AA",
+      "start": "20:00",
+      "finish": "23:00",
+      "status": "booked",
+      "source": "cl"
+    },
+    {
+      "date": "2027-01-30",
+      "venue": "Globe Town",
+      "postcode": "E2 0RY",
+      "start": "20:00",
+      "finish": "23:00",
+      "status": "booked",
+      "source": "cl"
+    },
+    {
+      "date": "2027-02-05",
+      "venue": "Parkstone Trades & Labour Club",
+      "town": "Poole",
+      "postcode": "BH14 0BB",
+      "location": "485 Ashley Road, Poole, Dorset BH14 0BB",
+      "start": "20:30",
+      "finish": "23:00",
+      "status": "booked",
+      "source": "board",
+      "note": "OWN LOCK £300 cash · Danny yes 18 Sep · sets 20:30–21:30+22:00–23:00 · 485 Ashley Road Poole BH14 0BB · night before Kinson · diary vvdrotspvlrhb9pb1svt5ekd1k"
+    },
+    {
+      "date": "2027-02-06",
+      "venue": "Kinson Conservative Club",
+      "town": "Bournemouth",
+      "postcode": "BH10 7AR",
+      "start": "",
+      "finish": "",
+      "status": "booked",
+      "source": "board",
+      "note": "OWN £325 cash · 2×1hr · Steve Cole · 1394-1396 Wimborne Road · start TBD · Us 1a0a68876f788f8d · NEVER free · never Choice without Jake OK"
+    },
+    {
+      "date": "2027-02-21",
+      "venue": "Glamis Hall Club",
+      "postcode": "E1 0AF",
+      "start": "15:00",
+      "finish": "18:00",
+      "status": "booked",
+      "source": "cl"
+    },
+    {
+      "date": "2027-03-13",
+      "venue": "West Beckenham Conservative Social Club",
+      "postcode": "BR3 4PX",
+      "start": "20:30",
+      "finish": "23:30",
+      "status": "booked",
+      "source": "cl"
+    },
+    {
+      "date": "2027-03-14",
+      "venue": "Bishop's Stortford Social (Jade)",
+      "town": "Bishop's Stortford",
+      "postcode": "CM23 3BG",
+      "location": "104 South Street, Bishop's Stortford CM23 3BG",
+      "start": "15:15",
+      "finish": "17:45",
+      "status": "booked",
+      "source": "board",
+      "note": "OWN £250 cash · 2×1hr · Jade four-date · diary vl3lhs0u9fm59ghqo3ikeslsh8 · Us 1a0c408fd0596ead · NEVER Choice without Jake OK"
+    },
+    {
+      "date": "2027-04-17",
+      "venue": "Sidcup Social (Katie Harris)",
+      "town": "Sidcup",
+      "postcode": "DA14 6PD",
+      "location": "169 Main Road, Sidcup DA14 6PD",
+      "start": "20:30",
+      "finish": "23:30",
+      "status": "booked",
+      "source": "board",
+      "note": "OWN £300 cash · Katie Harris Messenger · 3hr · RAC Dagenham day then evening · diary ij6mkh2ehno23qqvelh5ceh6d8"
+    },
+    {
+      "date": "2027-04-24",
+      "venue": "",
+      "status": "held",
+      "source": "cl"
+    },
+    {
+      "date": "2027-05-01",
+      "venue": "Mudeford Club",
+      "town": "Christchurch, Dorset",
+      "postcode": "BH23 3LY",
+      "start": "20:00",
+      "finish": "23:15",
+      "status": "booked",
+      "source": "board",
+      "note": "£425 Geoff · Dorset FAR — nearby buffer Fri 30 Apr + Sun 2 May only (NOT UK-wide held)"
+    },
+    {
+      "date": "2027-05-15",
+      "venue": "Bromley Services Club",
+      "town": "Bromley",
+      "start": "20:45",
+      "finish": "23:30",
+      "status": "booked",
+      "source": "board",
+      "note": "OWN £200 cash · Steve · moved from 24 Apr · diary g40sp1vvu48qkl9pto95cjcl0g · 20:45–23:30 · NEVER Choice without Jake OK"
+    },
+    {
+      "date": "2027-05-16",
+      "venue": "Bishop's Stortford Social (Jade)",
+      "town": "Bishop's Stortford",
+      "postcode": "CM23 3BG",
+      "location": "104 South Street, Bishop's Stortford CM23 3BG",
+      "start": "15:15",
+      "finish": "17:45",
+      "status": "booked",
+      "source": "board",
+      "note": "OWN £250 cash · 2×1hr · Jade four-date · diary tos3ohgavajcn6gk7da0q9iojs · Us 1a0c408fd0596ead · NEVER Choice without Jake OK"
+    },
+    {
+      "date": "2027-05-29",
+      "venue": "Dagenham RBL",
+      "postcode": "RM8 3JP",
+      "start": "20:30",
+      "finish": "23:30",
+      "status": "booked",
+      "source": "cl"
+    },
+    {
+      "date": "2027-05-30",
+      "venue": "Park Avenue Holiday Village, Leysdown",
+      "postcode": "ME12 4QP",
+      "start": "21:00",
+      "finish": "23:30",
+      "status": "booked",
+      "source": "cl"
+    },
+    {
+      "date": "2027-06-19",
+      "venue": "Greenford Conservative Club",
+      "town": "Greenford",
+      "postcode": "",
+      "start": "20:45",
+      "finish": "23:45",
+      "status": "booked",
+      "source": "board",
+      "note": "OWN £400 · John Mitchell · 3h · Them 1a095ec1b4b91f08 · enquiry 23pc0sdfph5lietr91qlvimqjo · NEVER free"
+    },
+    {
+      "date": "2027-07-10",
+      "venue": "Canvey Royal British Legion",
+      "postcode": "SS8 9HB",
+      "start": "20:30",
+      "finish": "23:30",
+      "status": "booked",
+      "source": "cl"
+    },
+    {
+      "date": "2027-07-17",
+      "venue": "Halstead RBL",
+      "town": "Halstead",
+      "status": "booked",
+      "source": "board"
+    },
+    {
+      "date": "2027-07-18",
+      "venue": "Glamis Hall Club",
+      "postcode": "E1 0AF",
+      "start": "15:00",
+      "finish": "18:00",
+      "status": "booked",
+      "source": "cl"
+    },
+    {
+      "date": "2027-08-15",
+      "venue": "Bishop's Stortford Social (Jade)",
+      "town": "Bishop's Stortford",
+      "postcode": "CM23 3BG",
+      "location": "104 South Street, Bishop's Stortford CM23 3BG",
+      "start": "15:15",
+      "finish": "17:45",
+      "status": "booked",
+      "source": "board",
+      "note": "OWN £250 cash · 2×1hr · Jade four-date · diary lf3b0pc4puf0r5v0dhth8a9gas · Us 1a0c408fd0596ead · NEVER Choice without Jake OK"
+    },
+    {
+      "date": "2027-08-20",
+      "venue": "Loxford Club",
+      "postcode": "IG3 9AU",
+      "start": "20:30",
+      "finish": "00:15",
+      "status": "booked",
+      "source": "cl"
+    },
+    {
+      "date": "2027-08-21",
+      "venue": "Kinson Conservative Club",
+      "town": "Bournemouth",
+      "postcode": "BH10 7AR",
+      "start": "",
+      "finish": "",
+      "status": "booked",
+      "source": "board",
+      "note": "OWN £325 cash · 2×1hr · Steve Cole · 1394-1396 Wimborne Road · start TBD · Us 1a0a68876f788f8d · NEVER free · never Choice without Jake OK"
+    },
+    {
+      "date": "2027-08-28",
+      "venue": "Stifford Clays Social Club",
+      "postcode": "RM16 2AP",
+      "start": "20:15",
+      "finish": "23:10",
+      "status": "booked",
+      "source": "cl"
+    },
+    {
+      "date": "2027-09-18",
+      "venue": "West Beckenham Conservative Social Club",
+      "postcode": "BR3 4PX",
+      "start": "20:30",
+      "finish": "23:30",
+      "status": "booked",
+      "source": "cl"
+    },
+    {
+      "date": "2027-10-09",
+      "venue": "",
+      "status": "held",
+      "source": "cl"
+    },
+    {
+      "date": "2027-10-09",
+      "venue": "Bromley Services Club",
+      "town": "Bromley",
+      "start": "20:45",
+      "finish": "23:30",
+      "status": "booked",
+      "source": "board",
+      "note": "OWN £200 cash · Steve · Oct 9 unchanged · NEVER Choice without Jake OK"
+    },
+    {
+      "date": "2027-10-23",
+      "venue": "Oxhey Cons / Keyser Hall",
+      "town": "Oxhey / Watford",
+      "status": "booked",
+      "source": "board"
+    },
+    {
+      "date": "2027-10-30",
+      "venue": "Globe Town",
+      "postcode": "E2 0RY",
+      "start": "20:00",
+      "finish": "23:00",
+      "status": "booked",
+      "source": "cl"
+    },
+    {
+      "date": "2027-11-13",
+      "venue": "Hadleigh Cons",
+      "town": "Hadleigh, Essex",
+      "status": "booked",
+      "source": "board"
+    },
+    {
+      "date": "2027-11-21",
+      "venue": "Glamis Hall Club",
+      "postcode": "E1 0AF",
+      "start": "15:00",
+      "finish": "18:00",
+      "status": "booked",
+      "source": "cl"
+    },
+    {
+      "date": "2027-12-04",
+      "venue": "East Barnet RBL Club",
+      "town": "East Barnet",
+      "status": "booked",
+      "source": "board"
+    }
+  ],
+  "undated": [
+    {
+      "venue": "Bromley Services Club",
+      "nights": 2,
+      "note": "Locked — date TBC, don’t offer until Jake confirms"
+    }
+  ]
+}
