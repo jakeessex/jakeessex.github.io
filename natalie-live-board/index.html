@@ -9,7 +9,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
 <meta http-equiv="Pragma" content="no-cache"/>
 <title>Jake Essex Board</title>
-<!-- UI LOCK: Board v42 shell. Never embed venues. Data is venues.json only. -->
+<!-- UI LOCK: Board v43 shell. Never embed venues. Data is venues.json (+ calls.json for the Calls tab) only. -->
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;600;700&family=Fraunces:opsz,wght@9..144,560&display=swap"/>
 <link rel="stylesheet" href="board.css?v=53"/>
@@ -27,7 +27,7 @@
   <span class="tr">22 SEP 2026</span>
 </div>
 <div id="grant">
-  <p class="k">SECURE CHANNEL · v42</p>
+  <p class="k">SECURE CHANNEL · v43</p>
   <h2>Access granted<span>Natalie</span></h2>
   <ul id="grant-lines"></ul>
 </div>
@@ -35,12 +35,12 @@
 <div class="gate-scan" aria-hidden="true"></div>
 <div class="gate-top">
   <p class="enc"><i></i> Encrypted</p>
-  <button type="button" id="ver-btn" onclick="natStamp()" aria-label="Board version">v42</button>
+  <button type="button" id="ver-btn" onclick="natStamp()" aria-label="Board version">v43</button>
 </div>
 <p class="gate-brand">Jake Essex Music Ltd</p>
 <h1>Natalie live book</h1>
 <p class="lede">Type the access key. The book stays on this phone.</p>
-<div id="egg"><p>WHITE RABBIT · v42</p><ul id="egg-lines"></ul><p class="hint">Cute. Still need the real key.</p></div>
+<div id="egg"><p>WHITE RABBIT · v43</p><ul id="egg-lines"></ul><p class="hint">Cute. Still need the real key.</p></div>
 <label class="kicker" for="pw">Access key</label>
 <div class="pw-wrap">
 <input id="pw" type="password" inputmode="text" autocapitalize="off" autocorrect="off" autocomplete="current-password" spellcheck="false" placeholder="••••••••"/>
@@ -61,6 +61,7 @@
       <p class="ver" id="sync">Board live</p>
     </div>
     <div class="head-acts">
+      <button class="lock" id="calls-btn" type="button" onclick="natCalls()">Calls</button>
       <button class="lock" type="button" onclick="natDiary()">Diary</button>
       <button class="lock" id="lock" type="button" onclick="natLock()">Lock</button>
     </div>
@@ -78,7 +79,9 @@
 <div id="detail"></div>
 <div id="diary"></div>
 <div id="dates"></div>
+<div id="calls"></div>
 <script type="application/json" id="venues-data">[]</script>
 <script src="board.js?v=91"></script>
+<script src="calls.js?v=6"></script>
 </body>
 </html>
