@@ -79,6 +79,7 @@
     ".nd-dot.hold{background:#ff7a6e}.nd-dot.wait{background:#ffb45a}.nd-dot.emailed{background:#8eb4ea}.nd-dot.far{background:#8f7d6c}",
     ".nd-tick{color:#e8b84a;font-weight:800}",
     "#calls{display:none}#calls.show{display:block}#calls.suspended,#calls.suspended *{visibility:hidden!important;pointer-events:none!important}",
+    "#calls-btn{background:#e8b84a;color:#1a120c;border-radius:999px;padding:8px 14px;font-weight:800;font-size:14px;min-height:40px}",
     "@media (min-width:960px){",
     ".nd-rail{display:flex;flex-direction:column;width:300px;flex:0 0 300px;border-right:1px solid #2c2018;background:#100c0a;overflow:auto}",
     ".nd-rail h3{margin:0;padding:16px 14px 8px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8f7d6c}",
@@ -577,4 +578,5 @@
         h.appendChild(box);
       });
   };
+  injectCss();
 })();
