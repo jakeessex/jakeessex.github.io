@@ -16,7 +16,7 @@ window.JE_RECORDINGS = [
     "original": "Dion",
     "source": "file",
     "kind": "audio",
-    "src": "/audio/favourites/73-the-wanderer.mp3",
+    "src": "/audio/favourites/73-the-wanderer.mp3?v=2",
     "year": 2025,
     "featured": true,
     "poster": "/images/studio-gold.jpg"
