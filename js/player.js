@@ -12,6 +12,77 @@
 
   var STORE = "je-radio-v1";
 
+  function songLink(id) {
+    return "https://jakeessex.co.uk/listen.html#" + encodeURIComponent(id);
+  }
+  function linkedId() {
+    var raw = "";
+    try { raw = decodeURIComponent((location.hash || "").replace(/^#/, "")); }
+    catch (e) { raw = (location.hash || "").replace(/^#/, ""); }
+    if (raw.indexOf("song=") === 0) raw = raw.slice(5);
+    if (byId[raw]) return raw;
+    try {
+      var q = new URLSearchParams(location.search).get("song");
+      if (q && byId[q]) return q;
+    } catch (e2) {}
+    return "";
+  }
+  function rememberLink(id) {
+    if (!id || !history.replaceState) return;
+    var next = location.pathname + location.search + "#" + encodeURIComponent(id);
+    if ((location.pathname + location.search + location.hash) !== next) history.replaceState({ song: id }, "", next);
+  }
+  function markCopied(btn) {
+    if (!btn) return;
+    var prev = btn.textContent;
+    btn.textContent = "Copied";
+    btn.classList.add("is-copied");
+    setTimeout(function () {
+      btn.textContent = prev;
+      btn.classList.remove("is-copied");
+    }, 1600);
+  }
+  function copyText(url, done) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(done).catch(function () { done(); });
+      return;
+    }
+    var ta = document.createElement("textarea");
+    ta.value = url;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.left = "-999px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    ta.remove();
+    done();
+  }
+  function shareSong(id, btn) {
+    var r = byId[id];
+    if (!r) return;
+    var url = songLink(id);
+    var title = r.song + " — Jake Essex";
+    var text = r.song + (r.original ? " · " + r.original : "");
+    if (navigator.share) {
+      navigator.share({ title: title, text: text, url: url }).catch(function (err) {
+        if (err && err.name === "AbortError") return;
+        copyText(url, function () { markCopied(btn); });
+      });
+      return;
+    }
+    copyText(url, function () { markCopied(btn); });
+  }
+  function injectShareCss() {
+    if (document.getElementById("je-share-css")) return;
+    var s = document.createElement("style");
+    s.id = "je-share-css";
+    s.textContent = ".set-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.35rem;align-items:center;width:100%;padding:0;cursor:default}"
+      + ".set-hit{display:grid;grid-template-columns:2rem minmax(0,1fr);gap:.7rem;align-items:center;width:100%;min-width:0;background:transparent;color:inherit;font:inherit;text-align:left;border:0;padding:.78rem .15rem;cursor:pointer}"
+      + ".set-share,.set-row .set-share{border:1px solid rgba(197,161,90,.5);background:transparent;color:#c5a15a;font:inherit;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.4rem .65rem;min-height:36px;cursor:pointer}"
+      + ".set-share.is-copied,#player-share.is-copied{background:#c5a15a;color:#14110c;border-color:#c5a15a}";
+    document.head.appendChild(s);
+  }
   function poster(r) {
     if (!r) return "/images/studio-gold.jpg";
     if (r.poster) return r.poster;
@@ -154,6 +225,7 @@
     }
     render();
     save();
+    if (!opts.quiet) rememberLink(id);
   }
 
   function toggle() {
@@ -236,6 +308,12 @@
   });
 
   document.addEventListener("click", function (e) {
+    var share = e.target.closest("[data-share]");
+    if (share) {
+      e.preventDefault();
+      shareSong(share.getAttribute("data-share"), share);
+      return;
+    }
     var t = e.target.closest("[data-play]");
     if (!t) return;
     e.preventDefault();
@@ -247,11 +325,13 @@
 
   function setRow(r, i) {
     var n = String(i + 1).padStart(2, "0");
-    return '<button type="button" class="set-row" data-play="' + r.id + '" data-track="' + r.id + '">'
+    return '<div class="set-row" data-track="' + r.id + '">'
+      + '<button type="button" class="set-hit" data-play="' + r.id + '">'
       + '<span class="n">' + n + "</span>"
       + '<span class="set-main"><strong>' + r.song + "</strong><em>" + (r.original || "") + "</em></span>"
-      + '<span class="set-go" aria-hidden="true">Play</span>'
-      + "</button>";
+      + "</button>"
+      + '<button type="button" class="set-share" data-share="' + r.id + '" aria-label="Share ' + r.song.replace(/"/g, "") + '">Share</button>'
+      + "</div>";
   }
   function mountVault() {
     var mount = document.getElementById("vault");
@@ -305,13 +385,46 @@
     mount.innerHTML = html;
   }
 
-  // Resume radio across pages
+  function ensureShareBtn() {
+    var controls = document.querySelector(".player-controls");
+    if (!controls || document.getElementById("player-share")) return;
+    var b = document.createElement("button");
+    b.type = "button";
+    b.id = "player-share";
+    b.textContent = "Share";
+    b.setAttribute("aria-label", "Share this song");
+    var close = document.getElementById("player-close");
+    if (close) controls.insertBefore(b, close);
+    else controls.appendChild(b);
+    b.addEventListener("click", function () { if (current) shareSong(current, b); });
+  }
+
+  injectShareCss();
+  mountVault();
+  mountWall();
+  ensureShareBtn();
+
   var st = loadState();
-  if (st && st.id && byId[st.id] && isAudio(byId[st.id])) {
+  var linked = linkedId();
+  if (linked) {
+    var linkedRec = byId[linked];
+    play(linked, isAudio(linkedRec) ? audioQueue : null, { expand: !isAudio(linkedRec), quiet: true });
+    var linkedRow = document.querySelector('[data-track="' + linked + '"]');
+    if (linkedRow && linkedRow.scrollIntoView) {
+      setTimeout(function () { linkedRow.scrollIntoView({ block: "center" }); }, 80);
+    }
+  } else if (st && st.id && byId[st.id] && isAudio(byId[st.id])) {
     queue = st.q && st.q.length ? st.q : audioQueue;
-    play(st.id, queue, { expand: false, at: st.t || 0 });
+    play(st.id, queue, { expand: false, at: st.t || 0, quiet: true });
     if (!st.playing) audio.pause();
   }
+
+  window.addEventListener("hashchange", function () {
+    var id = linkedId();
+    if (!id || id === current) return;
+    var rec = byId[id];
+    play(id, isAudio(rec) ? audioQueue : null, { expand: !isAudio(rec), quiet: true });
+  });
 
   function remount() {
     mountVault();
@@ -319,8 +432,8 @@
     render();
   }
   window.JE.remount = remount;
-  document.addEventListener("je:softnav", remount);
-
-  mountVault();
-  mountWall();
+  document.addEventListener("je:softnav", function () {
+    remount();
+    ensureShareBtn();
+  });
 })();
