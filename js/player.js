@@ -7,8 +7,11 @@
   var current = null;
   var expanded = false;
   var audio = new Audio();
-  audio.preload = "metadata";
+  audio.preload = "auto";
+  audio.autoplay = false;
   audio.setAttribute("playsinline", "true");
+  audio.setAttribute("webkit-playsinline", "true");
+  document.documentElement.appendChild(audio);
 
   var STORE = "je-radio-v1";
 
@@ -192,6 +195,57 @@
     setPlayingUi(isAudio(r) ? !audio.paused : expanded);
   }
 
+  var wantId = null;
+  var unlockId = null;
+  function armUnlock(id) {
+    unlockId = id;
+    if (window.__jeUnlock) return;
+    window.__jeUnlock = function () {
+      document.removeEventListener("pointerdown", window.__jeUnlock, true);
+      document.removeEventListener("touchend", window.__jeUnlock, true);
+      document.removeEventListener("keydown", window.__jeUnlock, true);
+      window.__jeUnlock = null;
+      if (current === unlockId && audio.paused) {
+        var p = audio.play();
+        if (p && p.catch) p.catch(function () {});
+      }
+    };
+    document.addEventListener("pointerdown", window.__jeUnlock, true);
+    document.addEventListener("touchend", window.__jeUnlock, true);
+    document.addEventListener("keydown", window.__jeUnlock, true);
+  }
+  function beginSong(r, startAt) {
+    wantId = r.id;
+    audio.autoplay = true;
+    audio.preload = "auto";
+    var same = audio.getAttribute("src") === r.src;
+    if (!same) audio.src = r.src;
+    var tries = 0;
+    function go() {
+      if (wantId !== r.id) return;
+      var p = audio.play();
+      if (!p || !p.then) return;
+      p.then(function () {
+        if (startAt > 1 && audio.currentTime < 0.4) {
+          try { audio.currentTime = startAt; } catch (e) {}
+        }
+        setPlayingUi(true);
+      }).catch(function (err) {
+        var name = err && err.name;
+        if (name === "AbortError" && tries < 4) {
+          tries += 1;
+          setTimeout(go, 120);
+          return;
+        }
+        if (audio.paused) armUnlock(r.id);
+      });
+    }
+    go();
+    audio.addEventListener("canplay", function once() {
+      audio.removeEventListener("canplay", once);
+      if (wantId === r.id && audio.paused) go();
+    });
+  }
   function stopMedia() {
     audio.pause();
     var v = document.getElementById("player-clip");
@@ -209,19 +263,16 @@
     if (!r) return;
     current = id;
     expanded = !!opts.expand || !isAudio(r);
-    stopMedia();
     if (isAudio(r)) {
-      audio.src = r.src;
-      audio.load();
-      var startAt = opts.at || 0;
-      var p = audio.play();
-      if (p && p.catch) p.catch(function () {});
-      if (startAt > 0) {
-        audio.addEventListener("loadedmetadata", function once() {
-          audio.removeEventListener("loadedmetadata", once);
-          try { audio.currentTime = startAt; } catch (e) {}
-        });
+      var clip = document.getElementById("player-clip");
+      if (clip && clip.pause) clip.pause();
+      if (stage) {
+        var ifr = stage.querySelector("iframe");
+        if (ifr) ifr.src = "about:blank";
       }
+      beginSong(r, opts.at || 0);
+    } else {
+      stopMedia();
     }
     render();
     save();
@@ -421,9 +472,15 @@
 
   window.addEventListener("hashchange", function () {
     var id = linkedId();
-    if (!id || id === current) return;
+    if (!id || id === current && !audio.paused) return;
     var rec = byId[id];
+    if (!rec) return;
     play(id, isAudio(rec) ? audioQueue : null, { expand: !isAudio(rec), quiet: true });
+  });
+  window.addEventListener("pageshow", function () {
+    if (!linked || !audio.paused || current !== linked) return;
+    var rec = byId[linked];
+    if (rec && isAudio(rec)) beginSong(rec, 0);
   });
 
   function remount() {
