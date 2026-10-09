@@ -55,8 +55,8 @@ a:hover { color: var(--cream); }
   color: var(--cream); text-decoration: none; font-weight: 600;
 }
 .wordmark:hover { color: var(--gold-2); }
-.nav-desktop { display: none; align-items: center; gap: 1.05rem; }
-.nav-desktop a { color: var(--cream-dim); text-decoration: none; font-size: 0.92rem; }
+.nav-desktop { display: none; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 0.7rem 0.85rem; }
+.nav-desktop a { color: var(--cream-dim); text-decoration: none; font-size: 0.86rem; }
 .nav-desktop a:hover, .nav-desktop a.is-active { color: var(--cream); }
 .nav-cta {
   background: var(--gold); color: var(--ink) !important;
@@ -79,15 +79,20 @@ a:hover { color: var(--cream); }
   border-top: 1px solid var(--gold-line);
   padding: 0.4rem var(--pad) 0.8rem;
 }
-.nav-drawer.open { display: flex; }
+.nav-drawer.open {
+  display: flex;
+  max-height: calc(100svh - 4.2rem);
+  overflow-y: auto;
+}
 .nav-drawer a {
-  min-height: 44px; display: flex; align-items: center;
+  min-height: 48px; display: flex; align-items: center;
   color: var(--cream-dim); text-decoration: none;
+  font-size: 1.05rem;
 }
 .nav-drawer a:hover, .nav-drawer a.is-active { color: var(--cream); }
 .nav-drawer a.nav-cta { margin-top: 0.35rem; color: var(--ink) !important; }
-@media (min-width: 980px) {
-  .nav-desktop { display: flex; gap: 0.95rem; }
+@media (min-width: 1180px) {
+  .nav-desktop { display: flex; gap: 0.65rem 0.8rem; }
   .nav-mobile-actions { display: none; }
   .nav-drawer { display: none !important; }
 }
