@@ -78,12 +78,17 @@
   }
   function injectShareCss() {
     if (document.getElementById("je-share-css")) return;
+    var share = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23f6f1e8' d='M14 4.5l6.5 6.5L14 17.5V13c-4.2.2-6.8 1.8-8.6 4.6.7-4.4 3.4-7.6 8.6-8.4V4.5z'/%3E%3C/svg%3E";
+    var check = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23f6f1e8' d='M9 16.2L4.8 12l-1.4 1.4L9 19 20.6 7.4 19.2 6z'/%3E%3C/svg%3E";
     var s = document.createElement("style");
     s.id = "je-share-css";
-    s.textContent = ".set-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.35rem;align-items:center;width:100%;padding:0;cursor:default}"
-      + ".set-hit{display:grid;grid-template-columns:2rem minmax(0,1fr);gap:.7rem;align-items:center;width:100%;min-width:0;background:transparent;color:inherit;font:inherit;text-align:left;border:0;padding:.78rem .15rem;cursor:pointer}"
-      + ".set-share,.set-row .set-share{border:1px solid rgba(246,241,232,.45);background:transparent;color:#f6f1e8;font:inherit;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.45rem .7rem;min-height:44px;cursor:pointer}"
-      + ".set-share.is-copied,#player-share.is-copied{background:#f6f1e8;color:#14110c;border-color:#f6f1e8}";
+    s.textContent = ".set-row{display:grid;grid-template-columns:minmax(0,1fr) 36px;gap:0;align-items:center;width:100%;padding:0;margin:0;cursor:default;border:0;border-bottom:1px solid rgba(246,241,232,.1);background:transparent}"
+      + ".set-hit{display:grid;grid-template-columns:1.7rem minmax(0,1fr);gap:.7rem;align-items:center;width:100%;min-width:0;background:transparent;color:inherit;font:inherit;text-align:left;border:0;padding:.85rem .15rem;min-height:56px;cursor:pointer}"
+      + ".set-main strong{font-family:Figtree,Helvetica,Arial,sans-serif;font-weight:600;letter-spacing:0;font-size:1.02rem}"
+      + ".set-share,.set-row .set-share,#player-share{width:36px;height:36px;min-height:36px;min-width:36px;padding:0;border:0;background-color:transparent;background-image:url(\"" + share + "\");background-repeat:no-repeat;background-position:center;background-size:16px 16px;color:transparent;font-size:0;letter-spacing:0;text-transform:none;cursor:pointer}"
+      + ".set-share.is-copied,#player-share.is-copied{background-color:transparent;background-image:url(\"" + check + "\");color:transparent;border:0}"
+      + ".set-row.is-on{background:transparent;box-shadow:inset 2px 0 0 #c5a15a}"
+      + ".set-row.is-on strong,.set-row.is-on .n{color:#e0c37a}";
     document.head.appendChild(s);
   }
   function poster(r) {

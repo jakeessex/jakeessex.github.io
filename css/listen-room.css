@@ -6,9 +6,9 @@
   .room-card { position: sticky; top: 5.2rem; }
 }
 .room-card {
-  background: radial-gradient(120% 80% at 0% 0%, rgba(197,161,90,0.16), transparent 55%), #12100e;
-  border: 1px solid rgba(197,161,90,0.35);
-  padding: 1.35rem 1.3rem 1.5rem;
+  background: none;
+  border: 0;
+  padding: 0;
 }
 .room-count { margin: 0; color: var(--muted); font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; }
 .room-card h1 { font-family: var(--font-display); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 500; margin: 0.35rem 0 0.4rem; line-height: 1.15; }
