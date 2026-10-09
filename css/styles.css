@@ -632,3 +632,52 @@ body:not(.is-playing) .radio-viz span { animation-play-state: paused; opacity: 0
 .home-listen h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); }
 .home-listen .setlist { margin-top: 0.2rem; }
 .doors-wrap { padding-top: 1.5rem; }
+
+.home-still { display: block; text-decoration: none; }
+.home-still img {
+  width: 100%;
+  height: 18rem;
+  object-fit: cover;
+  object-position: 50% 22%;
+  border: 1px solid var(--gold-line);
+}
+.home-about { background: #0c0c0c; border-top: 1px solid var(--gold-line); }
+.home-about-copy { padding-bottom: 1.2rem; }
+.home-photo-head { padding-top: 0.4rem; padding-bottom: 1.1rem; }
+.home-photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.45rem;
+  padding: 0 0.45rem;
+}
+.home-photos a { display: block; }
+.home-photos img {
+  width: 100%;
+  height: 13.5rem;
+  object-fit: cover;
+  object-position: 50% 16%;
+  display: block;
+}
+@media (max-width: 799px) {
+  .home-about .about-grid { display: flex; flex-direction: column-reverse; gap: 1.4rem; }
+  .home-listen { grid-template-columns: 1fr; padding-top: 2.4rem; padding-bottom: 2.6rem; }
+}
+@media (min-width: 800px) {
+  .home-listen {
+    grid-template-columns: 1fr 1.05fr;
+    align-items: center;
+    gap: 2.8rem;
+    padding-top: 4.2rem;
+    padding-bottom: 4.2rem;
+  }
+  .home-listen > div { order: -1; }
+  .home-still img { height: 28rem; object-position: 48% 18%; }
+  .home-photos {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 var(--pad);
+    gap: 0.7rem;
+  }
+  .home-photos img { height: 20rem; }
+}
