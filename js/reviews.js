@@ -37,15 +37,27 @@ window.JE_REVIEWS = [
 ];
 
 (function () {
-  var mount = document.getElementById("review-grid");
-  if (!mount) return;
-  var html = "";
-  (window.JE_REVIEWS || []).forEach(function (r) {
-    html += '<article class="review">'
-      + '<p class="stars" aria-label="5 out of 5 stars">★★★★★</p>'
-      + "<p>“" + r.quote + "”</p>"
-      + '<p class="review-meta">' + r.who + " · " + r.place + "</p>"
-      + "</article>";
-  });
-  mount.innerHTML = html;
+  function mountReviews() {
+    var mount = document.getElementById("review-grid");
+    if (!mount || mount.dataset.ready) return;
+    mount.dataset.ready = "1";
+    var html = "";
+    (window.JE_REVIEWS || []).forEach(function (r) {
+      html += '<article class="review">'
+        + '<p class="stars" aria-label="5 out of 5 stars">★★★★★</p>'
+        + "<p>“" + r.quote + "”</p>"
+        + '<p class="review-meta">' + r.who + " · " + r.place + "</p>"
+        + "</article>";
+    });
+    mount.innerHTML = html;
+  }
+  mountReviews();
+  document.addEventListener("je:softnav", mountReviews);
+  if (window.JE && typeof window.JE.remount === "function") {
+    var prev = window.JE.remount;
+    window.JE.remount = function () {
+      prev();
+      mountReviews();
+    };
+  }
 })();

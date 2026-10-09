@@ -3,97 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#070707">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://jakeessex.co.uk/images/hero-curtains.jpg">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect fill='%23070707' width='64' height='64'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Georgia' font-size='22' fill='%23c5a15a'%3EJE%3C/text%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/styles.css?v=8">
-  <title>Watch — Jake Essex</title>
-  <meta name="description" content="Watch Jake Essex: The Wanderer, the live showreel, Can’t Help Falling In Love, Return to Sender and more.">
-  <meta property="og:title" content="Watch — Jake Essex">
-  <meta property="og:description" content="Watch Jake Essex: The Wanderer, the live showreel, Can’t Help Falling In Love, Return to Sender and more.">
-  <meta property="og:url" content="https://jakeessex.co.uk/watch.html">
-  <link rel="canonical" href="https://jakeessex.co.uk/watch.html">
+  <title>Listen, Jake Essex</title>
+  <meta name="description" content="Every Jake Essex recording, and the videos, on one page.">
+  <link rel="canonical" href="https://jakeessex.co.uk/listen.html">
+  <meta http-equiv="refresh" content="0; url=/listen.html#on-film">
+  <script>location.replace("/listen.html#on-film");</script>
 </head>
 <body>
-  <a class="skip" href="/listen.html">Skip to the vault</a>
-  <header class="site-header">
-    <div class="header-row">
-      <a class="wordmark" href="/">JAKE ESSEX</a>
-      <nav class="nav-desktop" aria-label="Primary">
-        <a href="/listen.html">Listen</a>
-        <a href="/photos.html">Photos</a>
-        <a href="/dates.html">Dates</a>
-        <a href="/reviews.html">Reviews</a>
-        <a href="/show.html">The show</a>
-        <a class="nav-cta" href="/book.html">Book a date</a>
-      </nav>
-      <div class="nav-mobile-actions">
-        <button class="menu-btn" type="button" id="menu-btn" aria-expanded="false" aria-controls="mobile-nav">Menu</button>
-        <a class="nav-cta" href="/book.html">Book</a>
-      </div>
-    </div>
-    <nav class="nav-drawer" id="mobile-nav" aria-label="Mobile">
-      <a href="/listen.html">Listen</a>
-      <a href="/watch.html" class="is-active">Watch</a>
-      <a href="/photos.html">Photos</a>
-      <a href="/dates.html">Dates</a>
-      <a href="/reviews.html">Reviews</a>
-      <a href="/show.html">The show</a>
-      <a href="/about.html">About</a>
-      <a href="/book.html">Book a date</a>
-    </nav>
-  </header>
-  <main>
-    <div class="wrap page-intro">
-      <p class="section-label">Watch</p>
-      <h1>The pictures moving</h1>
-      <hr class="gold-rule">
-      <p class="plain">Full songs, filmed so you can hear the voice. The Wanderer is the latest. Tap a frame — it plays in the bar. The clips stay on Instagram.</p>
-      <div id="video-wall" class="video-wall" style="margin-top:2rem"></div>
-      <p class="more-link"><a href="/listen.html">Open the vault</a> · <a href="https://www.youtube.com/@JakeEssex" rel="noopener noreferrer">YouTube</a> · <a href="https://www.instagram.com/jakeessexmusic" rel="noopener noreferrer">Instagram</a></p>
-    </div>
-  </main>
-  <footer>
-    <div class="foot">
-      <div class="hero-socials footer-socials">
-        <a href="https://www.instagram.com/jakeessexmusic" rel="noopener noreferrer">Instagram</a>
-        <a href="https://www.tiktok.com/@itsjakeessex" rel="noopener noreferrer">TikTok</a>
-        <a href="https://www.youtube.com/@JakeEssex" rel="noopener noreferrer">YouTube</a>
-        <a href="https://www.facebook.com/itsjakeessex" rel="noopener noreferrer">Facebook</a>
-      </div>
-      <p class="foot-quiet"><a href="/listen.html">The vault</a> · <a href="/photos.html">Photos</a> · <a href="/dates.html">Dates</a> · <a href="/reviews.html">Reviews</a> · <a href="/show.html">The show</a> · <a href="/book.html">Enquire</a></p>
-      <a class="eww-badge" href="https://www.entertainersworldwide.com/jake-essex-profile-87262" title="Jake Essex — registered on Entertainers Worldwide" target="_blank" rel="noopener noreferrer"><img src="https://www.entertainersworldwide.com/profile-badge/87262/registered-dark.png" alt="Jake Essex — Male Singer, registered on Entertainers Worldwide" width="180" height="60" loading="lazy"></a>
-      <p class="company">JAKE ESSEX MUSIC LTD<br><span class="company-no">Company no. 16455536</span></p>
-    </div>
-  </footer>
-      <div id="player" class="player" hidden>
-    <div id="player-stage" class="player-stage" hidden></div>
-    <div class="player-row">
-      <button type="button" class="player-thumb" id="player-toggle" aria-label="Play or pause"><img id="player-art" alt=""></button>
-      <div class="player-meta">
-        <p class="player-song" id="player-song"></p>
-        <p class="player-orig" id="player-orig"></p>
-      </div>
-      <div class="player-scrub-wrap">
-        <input type="range" class="player-scrub" id="player-scrub" min="0" max="1000" value="0" aria-label="Seek">
-        <span class="player-time" id="player-time">0:00 / 0:00</span>
-      </div>
-      <div class="player-controls">
-        <button type="button" id="player-prev" aria-label="Previous">Prev</button>
-        <button type="button" id="player-play" aria-label="Play">Play</button>
-        <button type="button" id="player-next" aria-label="Next">Next</button>
-        <button type="button" id="player-close" aria-label="Close">Close</button>
-      </div>
-    </div>
-  </div>
-  <script src="/js/recordings.js?v=6"></script>
-  <script src="/js/player.js?v=13"></script>
-  <script src="/js/main.js?v=3"></script>
+  <p><a href="/listen.html#on-film">Listen</a></p>
 </body>
-
 </html>
-

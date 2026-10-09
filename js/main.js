@@ -74,10 +74,15 @@
     window.location.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
   }
 
+  function bindForms() {
   var params = new URLSearchParams(window.location.search);
   var preset = params.get("package");
   var gig = document.getElementById("gig-form");
-  if (gig) {
+  if (gig && !gig.dataset.bound) {
+    gig.dataset.bound = "1";
+    if (preset === "2-hour show") preset = "2 hour show";
+    if (preset === "3-hour show" || preset === "3-hour / 3-set show") preset = "3 set show";
+    if (preset === "Not sure yet") preset = "Not sure";
     if (preset && gig.elements.package) gig.elements.package.value = preset;
     gig.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -94,25 +99,26 @@
         return;
       }
       var extra = val(gig, "message");
-      var body = ["Hi Jake,", "", "I want to book you for " + niceDate(date) + " " + niceTime(time) + " at " + venue + ".", "", "Name: " + name, "Email / phone: " + contact, "Show: " + pkg];
+      var body = ["Hi Jake,", "", "I would like to enquire about " + niceDate(date) + " " + niceTime(time) + " at " + venue + ".", "", "Name: " + name, "Email / phone: " + contact, "Show: " + pkg];
       if (extra) body.push("", extra);
       var text = body.join("\n");
       fetch("https://formsubmit.co/ajax/" + EMAIL, {
         method: "POST",
         headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        body: JSON.stringify({ name: name, email: contact, _subject: "Gig enquiry — Jake Essex", _captcha: "false", message: text })
+        body: JSON.stringify({ name: name, email: contact, _subject: "Gig enquiry, Jake Essex", _captcha: "false", message: text })
       }).then(function (r) {
         if (!r.ok) throw new Error("fail");
         gig.hidden = true;
         if (status) { status.hidden = false; status.innerHTML = "<p><strong>Enquiry sent.</strong></p><p>If the date is free, Jake will come back on the same email.</p>"; }
       }).catch(function () {
-        openMail("Gig enquiry — Jake Essex", text);
+        openMail("Gig enquiry, Jake Essex", text);
       });
     });
   }
 
   var vehicle = document.getElementById("vehicle-form");
-  if (vehicle) {
+  if (vehicle && !vehicle.dataset.bound) {
+    vehicle.dataset.bound = "1";
     vehicle.addEventListener("submit", function (e) {
       e.preventDefault();
       var body = [
@@ -126,18 +132,19 @@
       fetch("https://formsubmit.co/ajax/" + EMAIL, {
         method: "POST",
         headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        body: JSON.stringify({ name: val(vehicle, "name"), email: val(vehicle, "phone"), _subject: "Vehicle enquiry — Jake Essex", _captcha: "false", message: body })
+        body: JSON.stringify({ name: val(vehicle, "name"), email: val(vehicle, "phone"), _subject: "Vehicle enquiry, Jake Essex", _captcha: "false", message: body })
       }).then(function (r) {
         if (!r.ok) throw new Error("fail");
         vehicle.hidden = true;
         var s = document.getElementById("vehicle-status");
         if (s) s.hidden = false;
-      }).catch(function () { openMail("Vehicle enquiry — Jake Essex", body); });
+      }).catch(function () { openMail("Vehicle enquiry, Jake Essex", body); });
     });
   }
 
   var review = document.getElementById("review-form");
-  if (review) {
+  if (review && !review.dataset.bound) {
+    review.dataset.bound = "1";
     review.addEventListener("submit", function (e) {
       e.preventDefault();
       if (val(review, "_gotcha")) return;
@@ -152,11 +159,11 @@
         if (err) { err.hidden = false; err.textContent = "Name and a few sentences, then send."; }
         return;
       }
-      var body = ["Name: " + who, "Venue / town: " + (place || "—"), "Stars: " + stars + "/5", "Email: " + (email || "—"), "", quote].join("\n");
+      var body = ["Name: " + who, "Venue / town: " + (place || "not given"), "Stars: " + stars + "/5", "Email: " + (email || "not given"), "", quote].join("\n");
       var payload = {
         name: who,
         email: email || EMAIL,
-        _subject: "Review — " + who,
+        _subject: "Review, " + who,
         _captcha: "false",
         message: body
       };
@@ -169,10 +176,101 @@
         review.hidden = true;
         if (status) status.hidden = false;
       }).catch(function () {
-        openMail("Review — " + who, body);
+        openMail("Review, " + who, body);
       });
     });
   }
+  }
+  bindForms();
+  window.JE_bindForms = bindForms;
+
+  function mountPhotos() {
+    var grid = document.getElementById("photos-grid");
+    if (!grid || grid.dataset.ready) return;
+    grid.dataset.ready = "1";
+    var shots = [].slice.call(grid.querySelectorAll("[data-photo]"));
+    var i = 0;
+    function open(n) {
+      i = n;
+      var s = shots[i];
+      var box = document.createElement("div");
+      box.className = "lightbox";
+      box.setAttribute("role", "dialog");
+      box.innerHTML = '<div class="lightbox-bar"><p>' + s.getAttribute("data-alt") + '</p><button class="btn" type="button" data-x>Close</button></div><div class="lightbox-stage"><img src="' + s.getAttribute("data-photo") + '" alt=""></div><div class="lightbox-bar"><button class="btn btn-ghost" type="button" data-p>Previous</button><button class="btn btn-ghost" type="button" data-n>Next</button></div>';
+      function kill() { box.remove(); }
+      box.addEventListener("click", function (e) {
+        if (e.target.hasAttribute("data-x")) kill();
+        if (e.target.hasAttribute("data-p")) { i = (i + shots.length - 1) % shots.length; box.remove(); open(i); }
+        if (e.target.hasAttribute("data-n")) { i = (i + 1) % shots.length; box.remove(); open(i); }
+      });
+      document.body.appendChild(box);
+    }
+    shots.forEach(function (btn, n) { btn.addEventListener("click", function () { open(n); }); });
+  }
+  function ensureLeaflet(done) {
+    if (window.L) { done(); return; }
+    if (!document.getElementById("leaflet-css")) {
+      var l = document.createElement("link");
+      l.id = "leaflet-css";
+      l.rel = "stylesheet";
+      l.href = "/vendor/leaflet/leaflet.css";
+      document.head.appendChild(l);
+    }
+    var s = document.createElement("script");
+    s.src = "/vendor/leaflet/leaflet.js";
+    s.onload = done;
+    document.body.appendChild(s);
+  }
+  function mountDates() {
+    var mapEl = document.getElementById("gig-map");
+    if (!mapEl || mapEl.dataset.ready) return;
+    if (!window.JAKE_GIGS) {
+      var s = document.createElement("script");
+      s.src = "/js/gigs.js";
+      s.onload = function () { mountDates(); };
+      document.body.appendChild(s);
+      return;
+    }
+    if (!window.L) { ensureLeaflet(mountDates); return; }
+    mapEl.dataset.ready = "1";
+    var data = window.JAKE_GIGS;
+    var activeEl = document.getElementById("map-active");
+    var map = L.map(mapEl, { scrollWheelZoom: false });
+    L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}", {
+      attribution: "Tiles &copy; Esri",
+      maxZoom: 16
+    }).addTo(map);
+    L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}", {
+      maxZoom: 16,
+      pane: "shadowPane"
+    }).addTo(map);
+    var bounds = [];
+    data.venues.forEach(function (v) {
+      bounds.push([v.lat, v.lng]);
+      var m = L.circleMarker([v.lat, v.lng], {
+        radius: 5, color: "#efe6d4", weight: 1, fillColor: "#c5a15a", fillOpacity: 0.95
+      }).addTo(map);
+      m.bindTooltip(v.name + "<br>" + v.town, { direction: "top", opacity: 1, className: "gig-tip" });
+      m.on("click", function () {
+        if (!activeEl) return;
+        activeEl.hidden = false;
+        activeEl.innerHTML = "<strong>" + v.name + "</strong> · " + v.town;
+        map.setView([v.lat, v.lng], 11);
+      });
+    });
+    if (bounds.length) map.fitBounds(bounds, { padding: [28, 28], maxZoom: 9 });
+    setTimeout(function () {
+      map.invalidateSize();
+      if (bounds.length) map.fitBounds(bounds, { padding: [28, 28], maxZoom: 9 });
+    }, 200);
+  }
+  mountPhotos();
+  mountDates();
+  window.JE_mountPages = function () {
+    bindForms();
+    mountPhotos();
+    mountDates();
+  };
 })();
 
   /* Soft navigate same-origin pages so the sticky radio keeps playing */
@@ -210,10 +308,8 @@
       });
       window.scrollTo(0, 0);
       if (window.JE && typeof window.JE.remount === "function") window.JE.remount();
-      else {
-        // remount vault/wall if scripts already ran — fire custom event
-        document.dispatchEvent(new CustomEvent("je:softnav"));
-      }
+      if (window.JE_mountPages) window.JE_mountPages();
+      document.dispatchEvent(new CustomEvent("je:softnav"));
     }
     document.addEventListener("click", function (e) {
       var a = e.target.closest("a");
@@ -241,6 +337,8 @@
           main = document.querySelector("main");
           document.title = (doc.querySelector("title") || {}).textContent || document.title;
           window.scrollTo(0, 0);
+          if (window.JE && typeof window.JE.remount === "function") window.JE.remount();
+          if (window.JE_mountPages) window.JE_mountPages();
           document.dispatchEvent(new CustomEvent("je:softnav"));
         }).catch(function () { location.reload(); });
     });

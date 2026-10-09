@@ -1,5 +1,4 @@
 window.JAKE_GIGS = {
-  count: 101,
   venues: [
     { id: "ship", name: "The Ship", town: "Aveley", lat: 51.499, lng: 0.253 },
     { id: "dog", name: "The Dog & Partridge", town: "North Stifford", lat: 51.491, lng: 0.312 },

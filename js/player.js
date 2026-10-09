@@ -65,7 +65,7 @@
     var r = byId[id];
     if (!r) return;
     var url = songLink(id);
-    var title = r.song + " — Jake Essex";
+    var title = r.song + ", Jake Essex";
     var text = r.song + (r.original ? " · " + r.original : "");
     if (navigator.share) {
       navigator.share({ title: title, text: text, url: url }).catch(function (err) {
@@ -82,8 +82,8 @@
     s.id = "je-share-css";
     s.textContent = ".set-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.35rem;align-items:center;width:100%;padding:0;cursor:default}"
       + ".set-hit{display:grid;grid-template-columns:2rem minmax(0,1fr);gap:.7rem;align-items:center;width:100%;min-width:0;background:transparent;color:inherit;font:inherit;text-align:left;border:0;padding:.78rem .15rem;cursor:pointer}"
-      + ".set-share,.set-row .set-share{border:1px solid rgba(197,161,90,.5);background:transparent;color:#c5a15a;font:inherit;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.4rem .65rem;min-height:36px;cursor:pointer}"
-      + ".set-share.is-copied,#player-share.is-copied{background:#c5a15a;color:#14110c;border-color:#c5a15a}";
+      + ".set-share,.set-row .set-share{border:1px solid rgba(246,241,232,.45);background:transparent;color:#f6f1e8;font:inherit;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.45rem .7rem;min-height:44px;cursor:pointer}"
+      + ".set-share.is-copied,#player-share.is-copied{background:#f6f1e8;color:#14110c;border-color:#f6f1e8}";
     document.head.appendChild(s);
   }
   function poster(r) {
@@ -102,7 +102,7 @@
   }
   function frame(r) {
     if (isAudio(r)) {
-      return '<div class="radio-viz" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><p class="avail">Playing while you browse. Tap tracks in the vault or keep scrolling the site.</p>';
+      return '<div class="radio-viz" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><p class="avail">Playing while you browse. Tap a song on Listen, or keep looking around the site.</p>';
     }
     if (r.source === "file" && r.src) {
       return '<video id="player-clip" controls playsinline webkit-playsinline autoplay preload="auto" poster="'+poster(r)+'" src="'+r.src+'" style="display:block;margin:0 auto;max-height:62vh;width:auto;max-width:100%;background:#070707"></video>';
@@ -191,7 +191,7 @@
     var now = document.getElementById("room-now");
     var by = document.getElementById("room-by");
     if (now) now.textContent = r.song;
-    if (by) by.textContent = (r.original || "Jake Essex") + (isAudio(r) ? " · home recording" : " · on film");
+    if (by) by.textContent = r.original || "Jake Essex";
     setPlayingUi(isAudio(r) ? !audio.paused : expanded);
   }
 
@@ -385,34 +385,38 @@
       + "</div>";
   }
   function mountVault() {
-    var mount = document.getElementById("vault");
+    var mount = document.getElementById("library") || document.getElementById("vault");
     var home = document.getElementById("home-set");
+    var film = document.getElementById("on-film");
     var favs = list.filter(isAudio);
     var vids = list.filter(function (r) { return !isAudio(r); });
     var count = document.getElementById("room-count");
     if (count) count.textContent = favs.length + " song" + (favs.length === 1 ? "" : "s");
+    var filmHtml = "";
+    if (vids.length) {
+      filmHtml += '<p class="section-label" id="on-film-label">On film</p><div class="film-rail">';
+      vids.forEach(function (r) {
+        filmHtml += '<button type="button" class="vcard" data-play="' + r.id + '" data-track="' + r.id + '">'
+          + '<span class="thumb"><img src="' + poster(r) + '" alt=""></span>'
+          + "<p>" + r.song + "</p><small>" + (r.original || "") + "</small>"
+          + "</button>";
+      });
+      filmHtml += "</div>";
+    }
     if (mount) {
       var html = '<div class="setlist" id="setlist">';
       favs.forEach(function (r, i) { html += setRow(r, i); });
       html += "</div>";
-      if (vids.length) {
-        html += '<p class="vault-label">On film</p><div class="film-rail">';
-        vids.forEach(function (r) {
-          html += '<button type="button" class="vcard" data-play="' + r.id + '" data-track="' + r.id + '">'
-            + '<span class="thumb"><img src="' + poster(r) + '" alt=""></span>'
-            + "<p>" + r.song + "</p><small>" + (r.original || "") + "</small>"
-            + "</button>";
-        });
-        html += "</div>";
-      }
+      if (!film) html += filmHtml;
       mount.innerHTML = html;
     }
+    if (film) film.innerHTML = filmHtml;
     if (home) {
       var h = "";
       favs.slice(0, 8).forEach(function (r, i) { h += setRow(r, i); });
       home.innerHTML = h;
     }
-    var find = document.getElementById("vault-find");
+    var find = document.getElementById("song-find") || document.getElementById("vault-find");
     if (find && !find.dataset.bound) {
       find.dataset.bound = "1";
       find.addEventListener("input", function () {
