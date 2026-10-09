@@ -18,6 +18,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css?v=14">
+  <style>
+    .jobs { padding-top: 0.5rem; }
+    .jobs h2 { margin-bottom: 0.6rem; }
+    .jobs .plain { margin-top: 0; }
+    .job-strip { display: grid; gap: 0.8rem; margin-top: 1.4rem; }
+    @media (min-width: 700px) { .job-strip { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1000px) { .job-strip { grid-template-columns: repeat(5, 1fr); } }
+    .job { margin: 0; }
+    .job img { width: 100%; height: 16rem; object-fit: cover; object-position: 50% 30%; border: 1px solid rgba(197,161,90,0.2); }
+    .job figcaption { margin-top: 0.45rem; font-size: 0.92rem; color: var(--cream-dim); }
+    .job strong { display: block; font-family: var(--font-display); font-weight: 500; color: var(--cream); font-size: 1rem; }
+  </style>
 </head>
 <body>
   <a class="skip" href="#content">Skip to content</a>
@@ -69,6 +81,32 @@
         <figure>
           <img class="portrait" src="/images/about-tribute.jpg" alt="Jake Essex singing outdoors">
           <figcaption class="caption">On stage</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="wrap jobs">
+      <h2>The weekday</h2>
+      <p class="plain">Before the RAC van it was a garage in London, then tractors in Basildon, Ford in Upminster, and the buses in London. The tools came first. The suit came later.</p>
+      <div class="job-strip">
+        <figure class="job">
+          <img src="/images/jobs/job-london.jpg" alt="Jake Essex fitting a brake disc in a London garage">
+          <figcaption><strong>London</strong> First garage</figcaption>
+        </figure>
+        <figure class="job">
+          <img src="/images/jobs/job-tractors.jpg" alt="Jake Essex on a New Holland tractor in Basildon">
+          <figcaption><strong>Basildon</strong> Tractors</figcaption>
+        </figure>
+        <figure class="job">
+          <img src="/images/jobs/job-ford.jpg" alt="Jake Essex under a car on a lift at Ford in Upminster">
+          <figcaption><strong>Upminster</strong> Ford</figcaption>
+        </figure>
+        <figure class="job">
+          <img src="/images/jobs/job-buses.jpg" alt="Jake Essex working on a London bus wheel">
+          <figcaption><strong>London</strong> Buses</figcaption>
+        </figure>
+        <figure class="job">
+          <img src="/images/jobs/job-rac.jpg" alt="Jake Essex roadside in RAC kit">
+          <figcaption><strong>Now</strong> RAC</figcaption>
         </figure>
       </div>
     </div>
