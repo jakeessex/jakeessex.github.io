@@ -22,13 +22,16 @@
     .jobs { padding-top: 0.5rem; }
     .jobs h2 { margin-bottom: 0.6rem; }
     .jobs .plain { margin-top: 0; }
-    .job-strip { display: grid; gap: 0.8rem; margin-top: 1.4rem; }
+    .job-strip { display: grid; gap: 0.9rem; margin-top: 1.4rem; }
     @media (min-width: 700px) { .job-strip { grid-template-columns: 1fr 1fr; } }
-    @media (min-width: 1000px) { .job-strip { grid-template-columns: repeat(5, 1fr); } }
+    @media (min-width: 1100px) { .job-strip { grid-template-columns: repeat(5, 1fr); } }
     .job { margin: 0; }
-    .job img { width: 100%; height: 16rem; object-fit: cover; object-position: 50% 30%; border: 1px solid rgba(197,161,90,0.2); }
+    .swipe { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; background: #101010; border: 1px solid rgba(197,161,90,0.2); }
+    .swipe::-webkit-scrollbar { display: none; }
+    .swipe img { flex: 0 0 100%; width: 100%; height: 22rem; object-fit: contain; object-position: center; scroll-snap-align: start; background: #101010; }
     .job figcaption { margin-top: 0.45rem; font-size: 0.92rem; color: var(--cream-dim); }
     .job strong { display: block; font-family: var(--font-display); font-weight: 500; color: var(--cream); font-size: 1rem; }
+    .swipe-note { color: var(--gold-2); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
   </style>
 </head>
 <body>
@@ -86,27 +89,40 @@
     </div>
     <div class="wrap jobs">
       <h2>The weekday</h2>
-      <p class="plain">Before the RAC van it was a garage in London, then tractors in Basildon, Ford in Upminster, and the buses in London. The tools came first. The suit came later.</p>
+      <p class="plain">Before the RAC van it was a garage in London, then tractors in Basildon, Ford in Upminster, and the buses in London. The tools came first. The suit came later. Swipe a photo if there is more than one.</p>
       <div class="job-strip">
         <figure class="job">
-          <img src="/images/jobs/job-london.jpg" alt="Jake Essex fitting a brake disc in a London garage">
+          <div class="swipe">
+            <img src="/images/jobs/job-london.jpg" alt="Jake Essex fitting a brake disc in a London garage">
+          </div>
           <figcaption><strong>London</strong> First garage</figcaption>
         </figure>
         <figure class="job">
-          <img src="/images/jobs/job-tractors.jpg" alt="Jake Essex on a New Holland tractor in Basildon">
-          <figcaption><strong>Basildon</strong> Tractors</figcaption>
+          <div class="swipe">
+            <img src="/images/jobs/job-tractors.jpg" alt="Jake Essex sitting on a New Holland tractor in Basildon">
+            <img src="/images/jobs/job-tractors-2.jpg" alt="Jake Essex with the tractors in Basildon">
+          </div>
+          <figcaption><strong>Basildon</strong> Tractors <span class="swipe-note">Swipe</span></figcaption>
         </figure>
         <figure class="job">
-          <img src="/images/jobs/job-ford.jpg" alt="Jake Essex under a car on a lift at Ford in Upminster">
+          <div class="swipe">
+            <img src="/images/jobs/job-ford.jpg" alt="Jake Essex under a car on a lift at Ford in Upminster">
+          </div>
           <figcaption><strong>Upminster</strong> Ford</figcaption>
         </figure>
         <figure class="job">
-          <img src="/images/jobs/job-buses.jpg" alt="Jake Essex working on a London bus wheel">
-          <figcaption><strong>London</strong> Buses</figcaption>
+          <div class="swipe">
+            <img src="/images/jobs/job-buses-pose.jpg" alt="Jake Essex under a London bus">
+            <img src="/images/jobs/job-buses.jpg" alt="Jake Essex working on a London bus wheel">
+          </div>
+          <figcaption><strong>London</strong> Buses <span class="swipe-note">Swipe</span></figcaption>
         </figure>
         <figure class="job">
-          <img src="/images/jobs/job-rac.jpg" alt="Jake Essex roadside in RAC kit">
-          <figcaption><strong>Now</strong> RAC</figcaption>
+          <div class="swipe">
+            <img src="/images/jobs/job-rac.jpg" alt="Jake Essex in RAC kit in the van">
+            <img src="/images/jobs/job-rac-2.jpg" alt="Jake Essex in the RAC van">
+          </div>
+          <figcaption><strong>Now</strong> RAC <span class="swipe-note">Swipe</span></figcaption>
         </figure>
       </div>
     </div>
