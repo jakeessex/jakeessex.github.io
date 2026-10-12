@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About, Jake Essex</title>
-  <meta name="description" content="Jake Essex is a singer from Essex. 50s, 60s and 70s rock 'n' roll, soul and gospel, sung his own way.">
+  <meta name="description" content="Jake Essex is a singer from Essex. Elvis, Darin, Dion, Holly, Orbison, Sinatra. RAC mechanic by day. On stage at night, in a tuxedo, with his own PA.">
   <meta name="theme-color" content="#070707">
   <meta property="og:title" content="About, Jake Essex">
-  <meta property="og:description" content="Jake Essex is a singer from Essex. 50s, 60s and 70s rock 'n' roll, soul and gospel, sung his own way.">
+  <meta property="og:description" content="Jake Essex is a singer from Essex. Elvis, Darin, Dion, Holly, Orbison, Sinatra. RAC mechanic by day. On stage at night, in a tuxedo, with his own PA.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://jakeessex.co.uk/about.html">
   <meta property="og:image" content="https://jakeessex.co.uk/images/hero-curtains.jpg">
@@ -18,6 +18,21 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css?v=14">
+  <style>
+    .jobs { padding-top: 0.5rem; }
+    .jobs h2 { margin-bottom: 0.6rem; }
+    .jobs .plain { margin-top: 0; }
+    .job-strip { display: grid; gap: 0.9rem; margin-top: 1.4rem; }
+    @media (min-width: 700px) { .job-strip { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1100px) { .job-strip { grid-template-columns: repeat(5, 1fr); } }
+    .job { margin: 0; }
+    .swipe { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; background: #101010; border: 1px solid rgba(197,161,90,0.2); }
+    .swipe::-webkit-scrollbar { display: none; }
+    .swipe img { flex: 0 0 100%; width: 100%; height: 22rem; object-fit: contain; object-position: center; scroll-snap-align: start; background: #101010; }
+    .job figcaption { margin-top: 0.45rem; font-size: 0.92rem; color: var(--cream-dim); }
+    .job strong { display: block; font-family: var(--font-display); font-weight: 500; color: var(--cream); font-size: 1rem; }
+    .swipe-note { color: var(--gold-2); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  </style>
 </head>
 <body>
   <a class="skip" href="#content">Skip to content</a>
@@ -59,19 +74,61 @@
       <hr class="gold-rule">
       <div class="about-grid">
         <div>
-          <p class="plain">A singer from Essex. 50s, 60s and 70s rock 'n' roll, soul and gospel, sung his own way.</p>
-          <p>He sings as himself.</p>
-          <p>By day he is an RAC mobile mechanic. By night he is on stage with one of the strongest rock 'n' roll shows in the East of England.</p>
+          <p class="plain">Jake Essex is a singer from Essex. The music is the golden era: Elvis, Bobby Darin, Dion, Buddy Holly, Roy Orbison, Jerry Lee Lewis, Willie Nelson, Frank Sinatra. The songs people still know every word to. He grew up on them. His nan had the records on in the house. They stuck.</p>
+          
+          <p>He does not hide behind a jumpsuit or a script. He sings as himself, in a tuxedo, and the aim on every song is the same: hit the note. High energy, continuous flow, no dead air. He talks between the songs, he knows the stories behind the records, and he does not stand there waiting for the track to finish.</p>
+          <p>The night has a shape. It opens in the 50s and 60s — Darin, Dion, Holly, Cash, Orbison, the songs that built the era — and it finishes with Elvis, from the raw early years through to the Vegas power. On a three-hour night you get the full arc. On a two-hour night the era comes first and Elvis closes it. Either way it ends on a high.</p>
+          <p>He brings his own PA. He is self-contained. £10 million public liability, PAT-tested kit, invoiced through Jake Essex Music Ltd. Clubs, pubs, functions and private bookings across Essex, London and Kent. People book him back because nobody sits still.</p>
+          <p>If you have seen a hundred tribute acts who look the part and miss the note, this is the other way round. Book the date if you want the proof.</p>
         </div>
         <figure>
-          <img class="portrait" src="/images/about-tribute.jpg" alt="Jake Essex singing outdoors">
-          <figcaption class="caption">Himself, not a tribute</figcaption>
+          <img class="portrait" src="/images/stage-burgundy.jpg" alt="Jake Essex on stage in a burgundy suit">
+          <figcaption class="caption">On stage</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="wrap jobs">
+      <h2>The days</h2>
+      <p class="plain">The singing is the night. The days are the tools. His grandad taught him how to fix things, and that is still how they go — outside, van open, fault codes, home when the jobs are done. A garage in London, then tractors in Basildon, Ford in Upminster, the buses in London, and now the RAC. Swipe a photo if there is more than one.</p>
+      <div class="job-strip">
+        <figure class="job">
+          <div class="swipe">
+            <img src="/images/jobs/job-london.jpg" alt="Jake Essex fitting a brake disc in a London garage">
+          </div>
+          <figcaption><strong>London</strong> First garage</figcaption>
+        </figure>
+        <figure class="job">
+          <div class="swipe">
+            <img src="/images/jobs/job-tractors.jpg" alt="Jake Essex sitting on a New Holland tractor in Basildon">
+            <img src="/images/jobs/job-tractors-2.jpg" alt="Jake Essex with the tractors in Basildon">
+          </div>
+          <figcaption><strong>Basildon</strong> Tractors <span class="swipe-note">Swipe</span></figcaption>
+        </figure>
+        <figure class="job">
+          <div class="swipe">
+            <img src="/images/jobs/job-ford.jpg" alt="Jake Essex under a car on a lift at Ford in Upminster">
+          </div>
+          <figcaption><strong>Upminster</strong> Ford</figcaption>
+        </figure>
+        <figure class="job">
+          <div class="swipe">
+            <img src="/images/jobs/job-buses-pose.jpg" alt="Jake Essex under a London bus">
+            <img src="/images/jobs/job-buses.jpg" alt="Jake Essex working on a London bus wheel">
+          </div>
+          <figcaption><strong>London</strong> Buses <span class="swipe-note">Swipe</span></figcaption>
+        </figure>
+        <figure class="job">
+          <div class="swipe">
+            <img src="/images/jobs/job-rac.jpg" alt="Jake Essex in RAC kit in the van">
+            <img src="/images/jobs/job-rac-2.jpg" alt="Jake Essex in the RAC van">
+          </div>
+          <figcaption><strong>Now</strong> RAC <span class="swipe-note">Swipe</span></figcaption>
         </figure>
       </div>
     </div>
     <div class="cta-band">
       <div class="cta-inner">
-        <p>Want Jake at your venue?</p>
+        <p>Want Jake at your venue? Send the date.</p>
         <a class="btn enquire" href="/book.html">Enquire</a>
       </div>
     </div>
