@@ -2823,7 +2823,7 @@ var NatNotes = (function(exports) {
   function dashHtml(pulse) {
     return '<div class="dash">' +
       '<button type="button" class="hero-cash" onclick="natCash()">' + ringSvg(pulse.pct) +
-        '<span class="job-main"><span class="hero-figs"><span class="hero-fig"><span class="hero-k">Locked</span><b>' + B.gbp(pulse.cash) + '</b></span><b class="hero-got">' + B.gbp(pulse.collected) + '</b></span><i class="hero-note">Collected already · ' + pulse.collectedShows + (pulse.collectedShows === 1 ? " show" : " shows") + "</i><em>" + pulse.nights + " nights · " + B.gbp(pulse.left) + " of £10k still open</em></span><span class=\"hero-go\">Dates</span></button>" +
+        '<span class="job-main"><span class="hero-figs"><span class="hero-fig"><span class="hero-k">Locked</span><b>' + B.gbp(pulse.cash) + '</b></span><span class="hero-got"><span class="hero-k">Collected<br>already</span><b>' + B.gbp(pulse.collected) + '</b><i>' + pulse.collectedShows + (pulse.collectedShows === 1 ? " show" : " shows") + "</i></span></span><em>" + pulse.nights + " nights · " + B.gbp(pulse.left) + " of £10k still open</em></span><span class=\"hero-go\">Dates</span></button>" +
       '<p class="pep">' + esc(pulse.pep) + "</p>" +
       '<div class="desk-acts">' +
         act("Call now", pulse.closeNow, "Ring these. Hottest first.", "gold", "call") +

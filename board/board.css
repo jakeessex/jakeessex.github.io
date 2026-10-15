@@ -301,9 +301,11 @@ main{padding:14px 14px 140px}
 .hero-k{display:block;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#f3d9a4}
 .hero-cash b{display:block;font-size:28px;line-height:1;color:#ffd76a;font-weight:650}
 .hero-cash em{display:block;margin-top:4px;font-style:normal;font-size:12px;font-weight:700;color:#f3d9a4}
-.hero-figs{display:flex;align-items:flex-end;justify-content:space-between;gap:8px}
-.hero-cash b.hero-got{font-size:22px;line-height:1}
-.hero-note{display:block;margin-top:3px;text-align:right;font-style:normal;font-size:12px;font-weight:700;line-height:1.25;color:#f3d9a4}
+.hero-figs{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.hero-got{flex:0 0 5.6rem;text-align:right}
+.hero-got .hero-k{letter-spacing:.04em;line-height:1.15}
+.hero-cash .hero-got b{font-size:22px;line-height:1;margin-top:3px}
+.hero-got i{display:block;margin-top:3px;font-style:normal;font-size:11px;font-weight:700;color:#f3d9a4}
 .hero-go{flex-shrink:0;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#ffd76a}
 .stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .stats.three{grid-template-columns:1fr 1fr 1fr}
